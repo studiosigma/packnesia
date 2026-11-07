@@ -9,7 +9,8 @@
     "build:articles": "node scripts/build-static-articles.js",
     "build:products": "node scripts/build-static-products.js",
     "build:sitemap": "node scripts/build-sitemap.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite preview --host --port 80"
   },
   "dependencies": {
     "clsx": "^2.1.1",
