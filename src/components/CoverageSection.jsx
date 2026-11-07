@@ -131,7 +131,7 @@ export default function CoverageSection({ onOpenConsultation }) {
               </p>
             </div>
             <a
-              href={`https://wa.me/6281234567890?text=${waCoverageMessage}`}
+              href={`https://wa.me/6287892251216?text=${waCoverageMessage}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white text-xs font-bold transition-all shadow-sm active:scale-95"

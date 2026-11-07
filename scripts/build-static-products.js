@@ -204,7 +204,7 @@ function generateProductHtml(product) {
         <div class="flex items-center gap-4 text-sm font-semibold">
           <a href="/produk/" class="text-brand-orange font-bold">Semua Produk</a>
           <a href="/blog/" class="text-gray-700 hover:text-brand-orange transition-colors hidden sm:inline">Blog Edukasi</a>
-          <a href="https://wa.me/6281234567890?text=${waMessage}" target="_blank" class="px-5 py-2.5 rounded-full bg-brand-orange text-white text-xs font-bold shadow-md hover:bg-brand-orange-hover transition-all active:scale-95">
+          <a href="https://wa.me/6287892251216?text=${waMessage}" target="_blank" class="px-5 py-2.5 rounded-full bg-brand-orange text-white text-xs font-bold shadow-md hover:bg-brand-orange-hover transition-all active:scale-95">
             Minta Penawaran Harga &rarr;
           </a>
         </div>
@@ -284,7 +284,7 @@ function generateProductHtml(product) {
 
           <!-- CTAs -->
           <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-3">
-            <a href="https://wa.me/6281234567890?text=${waMessage}" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 active:scale-95 transition-all">
+            <a href="https://wa.me/6287892251216?text=${waMessage}" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 active:scale-95 transition-all">
               <span>Chat WhatsApp & Dapatkan Sampel</span>
               <span>&rarr;</span>
             </a>
@@ -352,7 +352,7 @@ function generateProductHtml(product) {
             Dapatkan diskon pabrik bertingkat untuk pemesanan 5.000, 10.000, hingga 50.000+ pcs per bulan dengan garansi keseragaman warna dan bahan.
           </p>
         </div>
-        <a href="https://wa.me/6281234567890?text=${encodeURIComponent(`Halo Packnesia, saya ingin simulasi harga grosir untuk produk ${product.title}`)}" target="_blank" class="px-7 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow whitespace-nowrap active:scale-95 transition-all">
+        <a href="https://wa.me/6287892251216?text=${encodeURIComponent(`Halo Packnesia, saya ingin simulasi harga grosir untuk produk ${product.title}`)}" target="_blank" class="px-7 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow whitespace-nowrap active:scale-95 transition-all">
           Minta Simulasi Harga Grosir &rarr;
         </a>
       </div>
@@ -500,7 +500,7 @@ function generateProductIndexHtml(allProducts) {
           <h3 class="text-base font-extrabold text-[#0E1D33]">Melayani Pemesanan Kemasan dari Seluruh Kota di Indonesia</h3>
           <p class="text-xs text-gray-500 mt-0.5">Jabodetabek, Surabaya, Bandung, Semarang, Medan, Bali, Makassar, Palembang, dan sekitarnya.</p>
         </div>
-        <a href="https://wa.me/6281234567890?text=Halo%20Packnesia,%20saya%20ingin%20tanya%20ongkos%20kirim%20katalog%20kemasan%20ke%20kota%20saya" target="_blank" class="px-5 py-2.5 rounded-full bg-brand-orange text-white text-xs font-bold hover:bg-brand-orange-hover whitespace-nowrap transition-all">
+        <a href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20ingin%20tanya%20ongkos%20kirim%20katalog%20kemasan%20ke%20kota%20saya" target="_blank" class="px-5 py-2.5 rounded-full bg-brand-orange text-white text-xs font-bold hover:bg-brand-orange-hover whitespace-nowrap transition-all">
           Cek Ongkir Kargo &rarr;
         </a>
       </div>

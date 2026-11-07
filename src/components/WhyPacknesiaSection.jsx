@@ -110,7 +110,7 @@ export default function WhyPacknesiaSection({ onOpenConsultation }) {
             {/* WhatsApp Green CTA Button matching reference */}
             <div className="relative z-10 mt-6 pt-4">
               <a
-                href="https://wa.me/6281234567890?text=Halo%20Packnesia,%20saya%20ingin%20konsultasi%20pembuatan%20custom%20packaging%20untuk%20brand%20saya"
+                href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20ingin%20konsultasi%20pembuatan%20custom%20packaging%20untuk%20brand%20saya"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white text-xs sm:text-sm font-bold tracking-wide shadow-md transition-all active:scale-95 cursor-pointer"

@@ -164,7 +164,7 @@ export default function App() {
 
       {/* Floating WhatsApp Quick Action Button */}
       <a
-        href="https://wa.me/6281234567890?text=Halo%20Packnesia,%20saya%20tertarik%20untuk%20konsultasi%20custom%20packaging%20untuk%20bisnis%20saya"
+        href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20tertarik%20untuk%20konsultasi%20custom%20packaging%20untuk%20bisnis%20saya"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat WhatsApp"

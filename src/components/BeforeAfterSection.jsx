@@ -307,7 +307,7 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
               </button>
 
               <a
-                href={`https://wa.me/6281234567890?text=${waTransformMessage}`}
+                href={`https://wa.me/6287892251216?text=${waTransformMessage}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer"

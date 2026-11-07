@@ -90,7 +90,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
       `• Paket: ${reco.recoTitle}\n\n` +
       `Mohon info simulasi harga resmi dan sampel kemasannya ya. Terima kasih!`
     );
-    window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    window.open(`https://wa.me/6287892251216?text=${text}`, '_blank');
   };
 
   return (

@@ -41,7 +41,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
     );
 
     setTimeout(() => {
-      window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank');
+      window.open(`https://wa.me/6287892251216?text=${msg}`, '_blank');
     }, 400);
   };
 

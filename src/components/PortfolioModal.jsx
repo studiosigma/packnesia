@@ -18,7 +18,7 @@ export default function PortfolioModal({ itemId, onClose }) {
   const waMessage = encodeURIComponent(
     `Halo Packnesia, saya tertarik dengan portofolio kemasan untuk brand "${item.brand}" (${item.title}). Bisakah saya mendapatkan spesifikasi dan sampel serupa untuk brand saya?`
   );
-  const waUrl = `https://wa.me/6281234567890?text=${waMessage}`;
+  const waUrl = `https://wa.me/6287892251216?text=${waMessage}`;
 
   return (
     <div

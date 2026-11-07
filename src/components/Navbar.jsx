@@ -343,7 +343,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
-                href="https://wa.me/6281234567890?text=Halo%20Packnesia,%20saya%20ingin%20konsultasi%20custom%20packaging%20untuk%20brand%20saya"
+                href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20ingin%20konsultasi%20custom%20packaging%20untuk%20brand%20saya"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-emerald-50 text-emerald-700 rounded-xl font-semibold border border-emerald-200"

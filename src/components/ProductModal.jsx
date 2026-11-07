@@ -26,7 +26,7 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
   const waMessage = encodeURIComponent(
     `Halo Packnesia, saya tertarik dengan produk ${product.title}.\n- Ukuran: ${selectedSize}\n- Estimasi Kebutuhan: ${quantity} pcs\nMohon info katalog lengkap dan penawaran harganya.`
   );
-  const waUrl = `https://wa.me/6281234567890?text=${waMessage}`;
+  const waUrl = `https://wa.me/6287892251216?text=${waMessage}`;
 
   return (
     <div
