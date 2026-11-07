@@ -62,6 +62,12 @@ ${articleUrls}
 
   <!-- Local SEO & Strategic Landing Sections -->
   <url>
+    <loc>https://packnesia.com/#transformation-section</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://packnesia.com/#coverage-section</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>

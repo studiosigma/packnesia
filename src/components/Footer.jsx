@@ -30,6 +30,9 @@ export default function Footer({ onSelectProduct, onOpenConsultation, onOpenAdmi
             <a href="#portfolio-section" className="hover:text-brand-orange transition-colors">
               Portfolio
             </a>
+            <a href="#transformation-section" className="hover:text-brand-orange transition-colors">
+              Transformasi
+            </a>
             <a href="#blog-section" className="hover:text-brand-orange transition-colors">
               Blog
             </a>

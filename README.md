@@ -106,3 +106,4 @@ Upload folder `dist` secara manual di [app.netlify.com](https://app.netlify.com)
 ## 📄 Lisensi
 
 Hak Cipta &copy; 2026 **Packnesia - Custom Packaging Solutions**. Seluruh hak cipta dilindungi undang-undang.
+

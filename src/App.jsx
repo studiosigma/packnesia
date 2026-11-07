@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import ProductsSection from './components/ProductsSection';
 import SolutionsSection from './components/SolutionsSection';
 import PortfolioSection from './components/PortfolioSection';
+import BeforeAfterSection from './components/BeforeAfterSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import BlogSection from './components/BlogSection';
 import FAQSection from './components/FAQSection';
@@ -126,6 +127,9 @@ export default function App() {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
         />
+
+        {/* Before vs After Packaging Transformation Slider */}
+        <BeforeAfterSection onOpenConsultation={() => setIsConsultationOpen(true)} />
 
         {/* Client Reviews & Rating Section (SEO Social Proof) */}
         <TestimonialsSection onOpenConsultation={() => setIsConsultationOpen(true)} />
