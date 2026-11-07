@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Isometric 3D Box in Packnesia Orange -->
+  <path d="M24 4L42 14.5V33.5L24 44L6 33.5V14.5L24 4Z" fill="#EE5D26"/>
+  <!-- Top Flaps / Facet highlights -->
+  <path d="M24 4L42 14.5L24 25L6 14.5L24 4Z" fill="#FF7B47"/>
+  <!-- Left Face -->
+  <path d="M6 14.5L24 25V44L6 33.5V14.5Z" fill="#EE5D26"/>
+  <!-- Right Face -->
+  <path d="M24 25L42 14.5V33.5L24 44V25Z" fill="#D64814"/>
+  <!-- Open flaps geometric line details -->
+  <path d="M24 7L38 15L24 23L10 15L24 7Z" fill="#FFA07A" fill-opacity="0.3"/>
+  <path d="M24 25V44" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M24 25L42 14.5" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M24 25L6 14.5" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+</svg>
+
