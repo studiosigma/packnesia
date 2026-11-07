@@ -4,9 +4,12 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Ensure dev dependencies and build tools are always installed
+ENV NODE_ENV=development
+
 # Install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm install --include=dev
 
 # Copy source files
 COPY . .
