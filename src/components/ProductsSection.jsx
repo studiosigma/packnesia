@@ -6,18 +6,30 @@ export default function ProductsSection({ onSelectProduct }) {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const filterCategories = [
-    { id: 'all', label: 'Semua (6)' },
-    { id: 'food-box', label: '🍱 Food Box' },
-    { id: 'paper-cup', label: '🥤 Paper Cup' },
-    { id: 'coffee-packaging', label: '☕ Kopi & Pouch' },
-    { id: 'paper-bag', label: '🛍️ Paper Bag' },
-    { id: 'cake-box', label: '🎂 Cake Box' },
-    { id: 'custom-box', label: '📦 Custom Box' }
+    { id: 'all', label: `Semua (${products.length})` },
+    { id: 'food', label: '🍱 Food & Box' },
+    { id: 'cup', label: '🥤 Cup Minuman' },
+    { id: 'bakery', label: '🎂 Cake & Donut' },
+    { id: 'sticker', label: '🏷️ Stiker Label' },
+    { id: 'coffee', label: '☕ Kopi & Pouch' },
+    { id: 'bag', label: '🛍️ Paper Bag' },
+    { id: 'perfume', label: '💄 Box Parfum' },
+    { id: 'souvenir', label: '🎁 Souvenir & Hampers' }
   ];
 
   const displayedProducts = activeCategory === 'all'
     ? products
-    : products.filter((p) => p.id === activeCategory);
+    : products.filter((p) => {
+        if (activeCategory === 'food') return ['food-box', 'paper-bowl', 'fastfood-pizza-box', 'martabak-box'].includes(p.id);
+        if (activeCategory === 'cup') return ['paper-cup', 'plastic-cup'].includes(p.id);
+        if (activeCategory === 'bakery') return p.id === 'cake-box';
+        if (activeCategory === 'sticker') return p.id === 'packaging-sticker';
+        if (activeCategory === 'coffee') return p.id === 'coffee-packaging';
+        if (activeCategory === 'bag') return p.id === 'paper-bag';
+        if (activeCategory === 'perfume') return p.id === 'perfume-box';
+        if (activeCategory === 'souvenir') return ['souvenir-box', 'custom-box'].includes(p.id);
+        return p.id === activeCategory;
+      });
 
   return (
     <section id="products-section" className="py-16 md:py-24 bg-white">

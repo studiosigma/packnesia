@@ -17,12 +17,14 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
   }, []);
 
   const productLinks = [
-    { name: 'Food Box', desc: 'Lunch & burger box anti bocor', id: 'food-box' },
-    { name: 'Paper Cup', desc: 'Gelas kopi panas & dingin', id: 'paper-cup' },
-    { name: 'Coffee Packaging', desc: 'Pouch biji kopi + valve', id: 'coffee-packaging' },
-    { name: 'Paper Bag', desc: 'Tas kraft belanja takeaway', id: 'paper-bag' },
-    { name: 'Cake Box', desc: 'Dus kue & bakery dengan handle', id: 'cake-box' },
-    { name: 'Custom Box', desc: 'Hardbox & corrugated mailer', id: 'custom-box' },
+    { name: 'Food Box & Paper Bowl', desc: 'Lunch box, bowl sup, & martabak', id: 'food-box' },
+    { name: 'Plastic & Paper Cup', desc: 'Cup PP/PET kristal & paper cup', id: 'plastic-cup' },
+    { name: 'Box Pizza & Fast Food', desc: 'Dus pizza E-flute, burger & toast', id: 'fastfood-pizza-box' },
+    { name: 'Cake & Donut Box', desc: 'Dus donat isi 6/12, brownies & tart', id: 'cake-box' },
+    { name: 'Stiker Label Kemasan', desc: 'Stiker vinyl waterproof & segel', id: 'packaging-sticker' },
+    { name: 'Coffee Packaging', desc: 'Pouch standing valve aroma Swiss', id: 'coffee-packaging' },
+    { name: 'Paper Bag Takeaway', desc: 'Tas kraft belanja & alas lebar', id: 'paper-bag' },
+    { name: 'Box Parfum & Souvenir', desc: 'Softbox foil emas & hardbox mewah', id: 'perfume-box' },
   ];
 
   const solutionLinks = [

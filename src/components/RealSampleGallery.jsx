@@ -356,3 +356,4 @@ export default function RealSampleGallery({ onOpenConsultation }) {
     </section>
   );
 }
+

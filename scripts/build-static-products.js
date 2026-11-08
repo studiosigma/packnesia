@@ -20,9 +20,16 @@ const allBlogArticles = JSON.parse(fs.readFileSync(articlesJsonPath, 'utf-8'));
 const productRelatedArticlesMap = {
   'food-box': ['panduan-kemasan-foodgrade-kuliner', 'perbedaan-kraft-vs-ivory-biaya-cetak'],
   'paper-cup': ['tips-desain-paper-cup-kopi-instagrammable', 'panduan-kemasan-foodgrade-kuliner'],
+  'plastic-cup': ['tips-desain-paper-cup-kopi-instagrammable', 'panduan-kemasan-foodgrade-kuliner'],
+  'paper-bowl': ['panduan-kemasan-foodgrade-kuliner', 'perbedaan-kraft-vs-ivory-biaya-cetak'],
+  'fastfood-pizza-box': ['panduan-kemasan-foodgrade-kuliner', 'perbedaan-kraft-vs-ivory-biaya-cetak'],
+  'martabak-box': ['panduan-kemasan-foodgrade-kuliner', 'perbedaan-kraft-vs-ivory-biaya-cetak'],
+  'cake-box': ['perbedaan-kraft-vs-ivory-biaya-cetak', 'panduan-kemasan-foodgrade-kuliner'],
+  'packaging-sticker': ['tips-desain-paper-cup-kopi-instagrammable', 'perbedaan-kraft-vs-ivory-biaya-cetak'],
   'coffee-packaging': ['tips-desain-paper-cup-kopi-instagrammable', 'panduan-kemasan-foodgrade-kuliner'],
   'paper-bag': ['perbedaan-kraft-vs-ivory-biaya-cetak', 'tips-desain-paper-cup-kopi-instagrammable'],
-  'cake-box': ['perbedaan-kraft-vs-ivory-biaya-cetak', 'panduan-kemasan-foodgrade-kuliner'],
+  'perfume-box': ['perbedaan-kraft-vs-ivory-biaya-cetak', 'panduan-kemasan-foodgrade-kuliner'],
+  'souvenir-box': ['perbedaan-kraft-vs-ivory-biaya-cetak', 'panduan-kemasan-foodgrade-kuliner'],
   'custom-box': ['perbedaan-kraft-vs-ivory-biaya-cetak', 'panduan-kemasan-foodgrade-kuliner']
 };
 
@@ -49,9 +56,16 @@ function getSeoTitle(product) {
   const titles = {
     'food-box': 'Cetak Food Box Murah & Custom Lunch Box Foodgrade Anti Minyak — Packnesia',
     'paper-cup': 'Cetak Paper Cup Kopi Custom & Gelas Minuman Tahan Panas — Packnesia',
+    'plastic-cup': 'Sablon & Cetak Plastic Cup Murah PP, PET Kristal & Injection Hard Cup — Packnesia',
+    'paper-bowl': 'Cetak Paper Bowl Custom Foodgrade Mangkok Sup, Seblak & Bakso — Packnesia',
+    'fastfood-pizza-box': 'Cetak Dus Pizza E-Flute, Burger Clamshell & Toast Box — Packnesia',
+    'martabak-box': 'Cetak Dus Martabak Manis & Telor Anti Rembes Minyak + Lubang Uap — Packnesia',
+    'packaging-sticker': 'Cetak Stiker Label Kemasan Vinyl Waterproof & Segel Hologram — Packnesia',
     'coffee-packaging': 'Cetak Standing Pouch Kopi dengan Valve Aroma & Zipper — Packnesia',
     'paper-bag': 'Cetak Paper Bag Kraft Murah & Tas Belanja Takeaway Makanan — Packnesia',
     'cake-box': 'Dus Kue & Custom Cake Box Handle dengan Jendela Mika — Packnesia',
+    'perfume-box': 'Cetak Box Parfum Mewah Softbox Foil Gold & Rigid Hardbox EVA Foam — Packnesia',
+    'souvenir-box': 'Cetak Box Souvenir Pernikahan, Gable Box & Corporate Kit Box — Packnesia',
     'custom-box': 'Pabrik Custom Box, Hardbox Mewah & Corrugated Mailer Box — Packnesia'
   };
   return titles[product.id] || `Cetak ${product.title} Custom Foodgrade — Packnesia`;

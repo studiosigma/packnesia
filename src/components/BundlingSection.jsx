@@ -221,3 +221,4 @@ export default function BundlingSection({ onOpenConsultation }) {
     </section>
   );
 }
+
