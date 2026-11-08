@@ -23,8 +23,10 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  const currentTierPrice = product.tierPrices?.[quantity] || product.startPrice;
+
   const waMessage = encodeURIComponent(
-    `Halo Packnesia, saya tertarik dengan produk ${product.title}.\n- Ukuran: ${selectedSize}\n- Estimasi Kebutuhan: ${quantity} pcs\nMohon info katalog lengkap dan penawaran harganya.`
+    `Halo Packnesia, saya tertarik dengan produk ${product.title}.\n- Ukuran: ${selectedSize}\n- Estimasi Kebutuhan: ${quantity} pcs\n- Estimasi Harga Acuan: ${currentTierPrice}/pcs\nMohon info katalog lengkap, sampel, dan penawaran resminya ya!`
   );
   const waUrl = `https://wa.me/6287892251216?text=${waMessage}`;
 
@@ -151,25 +153,42 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
             </div>
           </div>
 
-          {/* Estimasi Jumlah */}
-          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-gray-500">Estimasi Pesanan Anda</div>
-              <div className="text-sm font-semibold text-gray-800">Makin banyak jumlah cetak, makin hemat harga satuan!</div>
+          {/* Estimasi Jumlah & Tiering Harga */}
+          <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100 space-y-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-gray-500">Estimasi Pesanan Anda</div>
+                <div className="text-sm font-semibold text-gray-800">Makin banyak volume cetak, makin hemat harga satuan!</div>
+              </div>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                {['500', '1000', '5000', '10000+'].map((qty) => (
+                  <button
+                    key={qty}
+                    onClick={() => setQuantity(qty)}
+                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${quantity === qty
+                      ? 'bg-[#0E1D33] text-white shadow-md'
+                      : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
+                      }`}
+                  >
+                    {qty} pcs
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              {['500', '1000', '5000', '10000+'].map((qty) => (
-                <button
-                  key={qty}
-                  onClick={() => setQuantity(qty)}
-                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${quantity === qty
-                    ? 'bg-[#0E1D33] text-white shadow'
-                    : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
-                    }`}
-                >
-                  {qty}
-                </button>
-              ))}
+
+            {/* Live Tier Price Indicator */}
+            <div className="p-3 rounded-xl bg-orange-50/80 border border-orange-200 flex items-center justify-between">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-brand-orange block">
+                  Estimasi Harga Tier ({quantity} pcs)
+                </span>
+                <span className="text-lg font-black text-[#0E1D33]">
+                  {currentTierPrice} <span className="text-xs font-normal text-gray-500">/ pcs</span>
+                </span>
+              </div>
+              <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-extrabold uppercase tracking-wider">
+                ✓ Harga Grosir Resmi
+              </span>
             </div>
           </div>
         </div>

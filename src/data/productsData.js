@@ -7,7 +7,13 @@ export const products = [
     category: 'Food Packaging',
     moq: '500 pcs',
     leadTime: '7 - 10 hari kerja',
-    startPrice: 'Rp 690',
+    startPrice: 'Rp 590',
+    tierPrices: {
+      '500': 'Rp 1.250',
+      '1000': 'Rp 990',
+      '5000': 'Rp 690',
+      '10000+': 'Rp 590'
+    },
     materials: [
       'Kraft Paper 290 - 325 gsm (Eco Brown)',
       'Ivory Paper 250 - 350 gsm (Pure White)',
@@ -35,7 +41,13 @@ export const products = [
     category: 'Beverage Packaging',
     moq: '1.000 pcs',
     leadTime: '7 - 12 hari kerja',
-    startPrice: 'Rp 580',
+    startPrice: 'Rp 540',
+    tierPrices: {
+      '500': 'Rp 1.150',
+      '1000': 'Rp 920',
+      '5000': 'Rp 650',
+      '10000+': 'Rp 540'
+    },
     materials: [
       'Single Wall Cupstock 230 - 280 gsm',
       'Double Wall Insulated 280 + 250 gsm (Tahan Panas)',
@@ -64,7 +76,13 @@ export const products = [
     category: 'Beverage Packaging',
     moq: '1.000 pcs',
     leadTime: '7 - 10 hari kerja',
-    startPrice: 'Rp 350',
+    startPrice: 'Rp 320',
+    tierPrices: {
+      '500': 'Rp 650',
+      '1000': 'Rp 490',
+      '5000': 'Rp 370',
+      '10000+': 'Rp 320'
+    },
     materials: [
       'PP Cup Foodgrade 7 - 9.5 gram (Bisa Lid Sealer Roll)',
       'PET Cup Kristal Bening 12 - 16 gram (Cold Drinks)',
@@ -92,7 +110,13 @@ export const products = [
     category: 'Food Packaging',
     moq: '1.000 pcs',
     leadTime: '7 - 10 hari kerja',
-    startPrice: 'Rp 1.250',
+    startPrice: 'Rp 1.190',
+    tierPrices: {
+      '500': 'Rp 1.950',
+      '1000': 'Rp 1.750',
+      '5000': 'Rp 1.350',
+      '10000+': 'Rp 1.190'
+    },
     materials: [
       'Double PE Coating Cupstock 280 - 320 gsm',
       'Brown Kraft Foodgrade + Heavy PE',
@@ -120,7 +144,13 @@ export const products = [
     category: 'Food Packaging',
     moq: '500 pcs',
     leadTime: '7 - 10 hari kerja',
-    startPrice: 'Rp 950',
+    startPrice: 'Rp 1.950',
+    tierPrices: {
+      '500': 'Rp 3.950',
+      '1000': 'Rp 3.250',
+      '5000': 'Rp 2.250',
+      '10000+': 'Rp 1.950'
+    },
     materials: [
       'Corrugated E-Flute Sturdy (Karton Gelombang Kokoh)',
       'Brown Kraft Paper 290 - 350 gsm Foodgrade',
@@ -149,7 +179,13 @@ export const products = [
     category: 'Food Packaging',
     moq: '1.000 pcs',
     leadTime: '7 - 10 hari kerja',
-    startPrice: 'Rp 880',
+    startPrice: 'Rp 720',
+    tierPrices: {
+      '500': 'Rp 1.490',
+      '1000': 'Rp 1.290',
+      '5000': 'Rp 850',
+      '10000+': 'Rp 720'
+    },
     materials: [
       'Brown Kraft 310 - 350 gsm Heavy Weight',
       'Duplex Coated 350 gsm + Foodgrade PE',
@@ -177,7 +213,13 @@ export const products = [
     category: 'Bakery Packaging',
     moq: '500 pcs',
     leadTime: '7 - 12 hari kerja',
-    startPrice: 'Rp 1.350',
+    startPrice: 'Rp 1.250',
+    tierPrices: {
+      '500': 'Rp 3.450',
+      '1000': 'Rp 2.850',
+      '5000': 'Rp 1.950',
+      '10000+': 'Rp 1.250'
+    },
     materials: [
       'Ivory Paper 300 - 350 gsm (Foodgrade Premium)',
       'Kraft Paper 325 - 400 gsm (Rustic Chic)',
@@ -204,9 +246,15 @@ export const products = [
     shortDesc: 'Stiker label vinyl waterproof, chromo, & segel hologram die-cut presisi.',
     image: '/images/prod-packaging-sticker.webp',
     category: 'Branding & Label',
-    moq: '50 lembar A3+',
+    moq: '20 lembar A3+',
     leadTime: '3 - 5 hari kerja',
-    startPrice: 'Rp 250',
+    startPrice: 'Rp 180',
+    tierPrices: {
+      '500': 'Rp 350',
+      '1000': 'Rp 280',
+      '5000': 'Rp 220',
+      '10000+': 'Rp 180'
+    },
     materials: [
       'Vinyl Putih Waterproof (Anti Air & Tahan Freezer)',
       'Chromo Kertas Kilap Ekonomis (Untuk Makanan Kering)',
@@ -235,7 +283,13 @@ export const products = [
     category: 'Pouch & Bags',
     moq: '500 pcs',
     leadTime: '10 - 14 hari kerja',
-    startPrice: 'Rp 2.450',
+    startPrice: 'Rp 1.950',
+    tierPrices: {
+      '500': 'Rp 4.450',
+      '1000': 'Rp 3.450',
+      '5000': 'Rp 2.250',
+      '10000+': 'Rp 1.950'
+    },
     materials: [
       'Kraft Paper + Foil Barrier (High Barrier)',
       'Matte Black / White Aluminum Foil Multi-layer',
@@ -263,7 +317,13 @@ export const products = [
     category: 'Carrier Packaging',
     moq: '500 pcs',
     leadTime: '7 - 10 hari kerja',
-    startPrice: 'Rp 1.550',
+    startPrice: 'Rp 1.350',
+    tierPrices: {
+      '500': 'Rp 3.150',
+      '1000': 'Rp 2.450',
+      '5000': 'Rp 1.590',
+      '10000+': 'Rp 1.350'
+    },
     materials: [
       'Brown Kraft Paper 125 - 200 gsm',
       'White Kraft Paper 140 - 180 gsm',
@@ -291,7 +351,13 @@ export const products = [
     category: 'Speciality Box',
     moq: '500 pcs',
     leadTime: '10 - 14 hari kerja',
-    startPrice: 'Rp 1.150',
+    startPrice: 'Rp 890',
+    tierPrices: {
+      '500': 'Rp 2.650',
+      '1000': 'Rp 1.850',
+      '5000': 'Rp 1.090',
+      '10000+': 'Rp 890'
+    },
     materials: [
       'Ivory Paper 310 - 350 gsm Pure White',
       'Greyboard No. 30/40 (Tebal 2-3mm)',
@@ -320,6 +386,12 @@ export const products = [
     moq: '300 pcs',
     leadTime: '7 - 12 hari kerja',
     startPrice: 'Rp 1.350',
+    tierPrices: {
+      '500': 'Rp 3.450',
+      '1000': 'Rp 2.650',
+      '5000': 'Rp 1.650',
+      '10000+': 'Rp 1.350'
+    },
     materials: [
       'Brown Kraft 310 - 350 gsm (Rustic Chic)',
       'Ivory Paper 350 gsm (Luxury Smooth)',
@@ -347,7 +419,13 @@ export const products = [
     category: 'Speciality Box',
     moq: '300 pcs',
     leadTime: '10 - 15 hari kerja',
-    startPrice: 'Rp 2.100',
+    startPrice: 'Rp 1.750',
+    tierPrices: {
+      '500': 'Rp 4.900',
+      '1000': 'Rp 3.450',
+      '5000': 'Rp 2.100',
+      '10000+': 'Rp 1.750'
+    },
     materials: [
       'Corrugated E-Flute / B-Flute (Sturdy Mailer)',
       'Rigid Hardbox Greyboard 2-3mm Lapis Fancy Paper',

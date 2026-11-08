@@ -359,14 +359,37 @@ function generateProductHtml(product) {
 
       <!-- Volume Discount Tier Banner -->
       <div class="bg-[#0E1D33] rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-brand-orange block mb-1">Tier Harga Grosir</span>
+        <div class="w-full md:max-w-xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-orange block mb-1">Tier Harga Grosir Resmi</span>
           <h3 class="text-2xl font-extrabold text-white">Makin Besar Volume, Makin Hemat HPP Anda</h3>
-          <p class="text-sm text-gray-300 mt-1 max-w-lg">
-            Dapatkan diskon pabrik bertingkat untuk pemesanan 5.000, 10.000, hingga 50.000+ pcs per bulan dengan garansi keseragaman warna dan bahan.
+          <p class="text-xs text-gray-300 mt-1">
+            Dapatkan diskon pabrik bertingkat dengan garansi keseragaman warna CMYK dan material foodgrade bersertifikat:
           </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
+            <div class="p-3 bg-white/10 rounded-2xl border border-white/15 text-center">
+              <span class="text-[10px] text-gray-300 block uppercase font-bold">500 pcs</span>
+              <span class="text-sm sm:text-base font-black text-white">${product.tierPrices?.['500'] || product.startPrice}</span>
+              <span class="text-[10px] text-orange-200 block">/ pcs</span>
+            </div>
+            <div class="p-3 bg-white/10 rounded-2xl border border-white/15 text-center">
+              <span class="text-[10px] text-gray-300 block uppercase font-bold">1.000 pcs</span>
+              <span class="text-sm sm:text-base font-black text-white">${product.tierPrices?.['1000'] || product.startPrice}</span>
+              <span class="text-[10px] text-orange-200 block">/ pcs</span>
+            </div>
+            <div class="p-3 bg-white/10 rounded-2xl border border-white/15 text-center">
+              <span class="text-[10px] text-gray-300 block uppercase font-bold">5.000 pcs</span>
+              <span class="text-sm sm:text-base font-black text-white">${product.tierPrices?.['5000'] || product.startPrice}</span>
+              <span class="text-[10px] text-orange-200 block">/ pcs</span>
+            </div>
+            <div class="p-3 bg-brand-orange/30 rounded-2xl border border-brand-orange text-center">
+              <span class="text-[10px] text-orange-200 block uppercase font-bold">10.000+ pcs</span>
+              <span class="text-sm sm:text-base font-black text-white">${product.tierPrices?.['10000+'] || product.startPrice}</span>
+              <span class="text-[10px] text-orange-200 block font-bold">Best Price ⭐</span>
+            </div>
+          </div>
         </div>
-        <a href="https://wa.me/6287892251216?text=${encodeURIComponent(`Halo Packnesia, saya ingin simulasi harga grosir untuk produk ${product.title}`)}" target="_blank" class="px-7 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow whitespace-nowrap active:scale-95 transition-all">
+        <a href="https://wa.me/6287892251216?text=${encodeURIComponent(`Halo Packnesia, saya ingin simulasi harga grosir untuk produk ${product.title}`)}" target="_blank" class="w-full md:w-auto text-center px-7 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow whitespace-nowrap active:scale-95 transition-all">
           Minta Simulasi Harga Grosir &rarr;
         </a>
       </div>

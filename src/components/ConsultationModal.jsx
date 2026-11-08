@@ -146,10 +146,17 @@ export default function ConsultationModal({ isOpen, onClose }) {
                   className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange bg-white"
                 >
                   <option value="Food Box">Food Box</option>
-                  <option value="Paper Cup">Paper Cup</option>
-                  <option value="Coffee Packaging">Coffee Packaging</option>
-                  <option value="Paper Bag">Paper Bag</option>
-                  <option value="Cake Box">Cake Box</option>
+                  <option value="Paper Cup">Paper Cup (Kopi & Minuman)</option>
+                  <option value="Plastic Cup">Plastic Cup (PP/PET/Injection)</option>
+                  <option value="Paper Bowl">Paper Bowl (Sup & Seblak)</option>
+                  <option value="Box Fast Food & Pizza">Box Fast Food & Pizza</option>
+                  <option value="Dus Martabak">Dus Martabak Anti-Rembes</option>
+                  <option value="Cake Box">Cake Box & Dus Donat</option>
+                  <option value="Stiker Label Kemasan">Stiker Label Kemasan Vinyl</option>
+                  <option value="Coffee Packaging">Coffee Packaging Pouch</option>
+                  <option value="Paper Bag">Paper Bag Takeaway</option>
+                  <option value="Box Parfum">Box Parfum & Kosmetik</option>
+                  <option value="Box Souvenir & Hampers">Box Souvenir & Hampers</option>
                   <option value="Custom Box">Custom Box / Hardbox</option>
                   <option value="Paket Lengkap">Paket Lengkap Branding</option>
                 </select>
