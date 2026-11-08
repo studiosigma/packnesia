@@ -77,3 +77,4 @@ export default function MobileBottomBar({ onOpenConsultation, onOpenAdvisor }) {
     </aside>
   );
 }
+

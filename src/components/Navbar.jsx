@@ -161,6 +161,20 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
             </a>
 
             <a
+              href="#bundling-section"
+              className="hover:text-brand-orange transition-colors"
+            >
+              Paket Usaha
+            </a>
+
+            <a
+              href="#samples-section"
+              className="hover:text-brand-orange transition-colors"
+            >
+              Hasil Cetak
+            </a>
+
+            <a
               href="#blog-section"
               className="hover:text-brand-orange transition-colors"
             >
@@ -295,6 +309,22 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
                   className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
                 >
                   Transformasi Kemasan
+                </a>
+
+                <a
+                  href="#bundling-section"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
+                >
+                  Paket Bundling F&B
+                </a>
+
+                <a
+                  href="#samples-section"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
+                >
+                  Galeri Hasil Cetak
                 </a>
 
                 <a

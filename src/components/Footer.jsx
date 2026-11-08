@@ -33,6 +33,12 @@ export default function Footer({ onSelectProduct, onOpenConsultation, onOpenAdmi
             <a href="#transformation-section" className="hover:text-brand-orange transition-colors">
               Transformasi
             </a>
+            <a href="#bundling-section" className="hover:text-brand-orange transition-colors">
+              Paket Usaha
+            </a>
+            <a href="#samples-section" className="hover:text-brand-orange transition-colors">
+              Hasil Cetak
+            </a>
             <a href="#blog-section" className="hover:text-brand-orange transition-colors">
               Blog
             </a>
