@@ -47,15 +47,20 @@ export default function ConsultationModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border border-gray-100 my-8"
+        className="relative bg-white rounded-t-3xl sm:rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border border-gray-100 my-0 sm:my-8 max-h-[92vh] sm:max-h-[85vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Pull Handle */}
+        <div className="pt-2.5 pb-1 sm:hidden bg-[#0E1D33] flex justify-center">
+          <div className="w-12 h-1.5 bg-white/30 rounded-full" />
+        </div>
+
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#0E1D33] to-[#1A2E4F] text-white p-6 relative">
+        <div className="bg-gradient-to-r from-[#0E1D33] to-[#1A2E4F] text-white p-5 sm:p-6 relative">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
@@ -93,7 +98,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-3.5 sm:space-y-4 overflow-y-auto overscroll-contain flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1">Nama Lengkap</label>
@@ -103,7 +108,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                   placeholder="Misal: Budi Santoso"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange"
                 />
               </div>
 
@@ -115,7 +120,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                   placeholder="Misal: Kopi Pagi Hari"
                   value={formData.brandName}
                   onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange"
                 />
               </div>
             </div>
@@ -128,7 +133,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 placeholder="0812xxxxxxx"
                 value={formData.whatsapp}
                 onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange"
               />
             </div>
 
@@ -138,7 +143,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 <select
                   value={formData.product}
                   onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange bg-white"
                 >
                   <option value="Food Box">Food Box</option>
                   <option value="Paper Cup">Paper Cup</option>
@@ -155,7 +160,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 <select
                   value={formData.quantity}
                   onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange bg-white"
                 >
                   <option value="500 - 1.000 pcs">500 - 1.000 pcs</option>
                   <option value="1.000 - 5.000 pcs">1.000 - 5.000 pcs</option>
@@ -170,7 +175,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
               <select
                 value={formData.designStatus}
                 onChange={(e) => setFormData({ ...formData, designStatus: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange bg-white"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange bg-white"
               >
                 <option value="Sudah ada desain (Siap Cetak)">Sudah ada desain (Siap Cetak)</option>
                 <option value="Punya logo, butuh bantuan mockup kemasan">Punya logo, butuh mockup kemasan (Gratis)</option>
@@ -185,7 +190,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 placeholder="Misal: untuk packaging rice bowl hangat, anti rembes kuah..."
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-orange"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-brand-orange resize-none"
               />
             </div>
 

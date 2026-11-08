@@ -25,8 +25,9 @@ import AdminBlogModal from './components/AdminBlogModal';
 // Blog Data persistence
 import { getSavedArticles } from './data/blogData';
 
-// Floating WhatsApp
+// Floating WhatsApp & Mobile Navigation
 import { MessageCircle } from 'lucide-react';
+import MobileBottomBar from './components/MobileBottomBar';
 
 export default function App() {
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -93,7 +94,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFE] text-[#0E1D33] flex flex-col selection:bg-brand-orange selection:text-white">
+    <div className="min-h-screen bg-[#FDFDFE] text-[#0E1D33] flex flex-col selection:bg-brand-orange selection:text-white pb-16 md:pb-0">
       {/* Top Navbar */}
       <Navbar
         onOpenConsultation={() => setIsConsultationOpen(true)}
@@ -162,13 +163,13 @@ export default function App() {
         onOpenAdmin={() => setIsAdminBlogOpen(true)}
       />
 
-      {/* Floating WhatsApp Quick Action Button */}
+      {/* Floating WhatsApp Quick Action Button (Desktop & Tablet) */}
       <a
         href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20tertarik%20untuk%20konsultasi%20custom%20packaging%20untuk%20bisnis%20saya"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat WhatsApp"
-        className="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-all duration-300 hover:scale-105 active:scale-95 group"
+        className="hidden md:flex fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl items-center gap-2.5 transition-all duration-300 hover:scale-105 active:scale-95 group"
       >
         <MessageCircle className="w-6 h-6 fill-white" />
         <span className="hidden sm:inline font-bold text-sm tracking-wide">
@@ -177,6 +178,12 @@ export default function App() {
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-brand-orange rounded-full border-2 border-white animate-ping" />
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-brand-orange rounded-full border-2 border-white" />
       </a>
+
+      {/* Mobile Sticky Bottom Quick-Bar (Mobile Ergonomics) */}
+      <MobileBottomBar
+        onOpenConsultation={() => setIsConsultationOpen(true)}
+        onOpenAdvisor={() => setIsAdvisorOpen(true)}
+      />
 
       {/* Interactive Modals */}
       <ProductModal

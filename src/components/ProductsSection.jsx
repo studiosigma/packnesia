@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { products } from '../data/productsData';
 
 export default function ProductsSection({ onSelectProduct }) {
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const filterCategories = [
+    { id: 'all', label: 'Semua (6)' },
+    { id: 'food-box', label: '🍱 Food Box' },
+    { id: 'paper-cup', label: '🥤 Paper Cup' },
+    { id: 'coffee-packaging', label: '☕ Kopi & Pouch' },
+    { id: 'paper-bag', label: '🛍️ Paper Bag' },
+    { id: 'cake-box', label: '🎂 Cake Box' },
+    { id: 'custom-box', label: '📦 Custom Box' }
+  ];
+
+  const displayedProducts = activeCategory === 'all'
+    ? products
+    : products.filter((p) => p.id === activeCategory);
+
   return (
     <section id="products-section" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-6 h-0.5 bg-brand-orange rounded-full" />
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-orange">
@@ -23,9 +39,26 @@ export default function ProductsSection({ onSelectProduct }) {
           </p>
         </div>
 
-        {/* 6 Products Grid */}
+        {/* Mobile & Desktop Horizontal Quick Filter Pills */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-6 sm:mb-8 no-scrollbar scroll-smooth">
+          {filterCategories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={`px-3.5 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer active:scale-95 flex-shrink-0 ${
+                activeCategory === cat.id
+                  ? 'bg-[#0E1D33] text-white shadow-md'
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Products Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
-          {products.map((product) => (
+          {displayedProducts.map((product) => (
             <div
               key={product.id}
               onClick={() => onSelectProduct(product.id)}

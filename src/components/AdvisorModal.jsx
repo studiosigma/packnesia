@@ -95,17 +95,22 @@ export default function AdvisorModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden border border-gray-100 my-8"
+        className="relative bg-white rounded-t-3xl sm:rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden border border-gray-100 my-0 sm:my-8 max-h-[92vh] sm:max-h-[85vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Pull Indicator */}
+        <div className="pt-2.5 pb-1 sm:hidden bg-[#0E1D33] flex justify-center">
+          <div className="w-12 h-1.5 bg-white/30 rounded-full" />
+        </div>
+
         {/* Modal Top Bar */}
-        <div className="bg-[#0E1D33] text-white px-6 py-5 flex items-center justify-between">
+        <div className="bg-[#0E1D33] text-white px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center p-1">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 flex items-center justify-center p-1">
               <AdvisorBotIcon className="w-full h-full" />
             </div>
             <div>
@@ -127,7 +132,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full bg-gray-100 h-1.5">
+        <div className="w-full bg-gray-100 h-1.5 flex-shrink-0">
           <div
             className="bg-brand-orange h-1.5 transition-all duration-300"
             style={{ width: `${(step / 5) * 100}%` }}
@@ -135,7 +140,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
         </div>
 
         {/* Modal Content */}
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-8 overflow-y-auto overscroll-contain flex-1">
           {/* STEP 1: Business Type */}
           {step === 1 && (
             <div className="space-y-4">

@@ -30,25 +30,30 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden border border-gray-100 my-8"
+        className="relative bg-white rounded-t-3xl sm:rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden border border-gray-100 my-0 sm:my-8 max-h-[92vh] sm:max-h-[85vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Pull Indicator */}
+        <div className="pt-2.5 pb-1 sm:hidden bg-orange-50/70 flex justify-center">
+          <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
+        </div>
+
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Tutup modal"
-          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-100/80 hover:bg-gray-200 text-gray-700 flex items-center justify-center transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header & Image Section */}
-        <div className="bg-gradient-to-br from-orange-50/70 via-gray-50 to-white p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 border-b border-gray-100">
-          <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-white p-4 shadow-md flex-shrink-0 flex items-center justify-center border border-orange-100">
+        <div className="bg-gradient-to-br from-orange-50/70 via-gray-50 to-white p-5 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 border-b border-gray-100 flex-shrink-0">
+          <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-2xl bg-white p-3 sm:p-4 shadow-md flex-shrink-0 flex items-center justify-center border border-orange-100">
             <img
               src={product.image}
               alt={product.title}
@@ -57,26 +62,26 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
           </div>
 
           <div className="flex-1 text-center sm:text-left">
-            <span className="inline-block px-3 py-1 rounded-full bg-orange-100/70 text-brand-orange text-xs font-bold uppercase tracking-wider mb-2">
+            <span className="inline-block px-3 py-1 rounded-full bg-orange-100/70 text-brand-orange text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
               {product.category}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0E1D33]">
+            <h3 className="text-xl sm:text-3xl font-extrabold text-[#0E1D33]">
               {product.title}
             </h3>
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-600">
               {product.shortDesc}
             </p>
 
-            <div className="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs font-semibold">
-              <span className="flex items-center gap-1.5 text-gray-700 bg-white px-3 py-1.5 rounded-lg border border-gray-200">
+            <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-4 text-xs font-semibold">
+              <span className="flex items-center gap-1.5 text-gray-700 bg-white px-2.5 py-1.5 rounded-lg border border-gray-200">
                 <Clock className="w-3.5 h-3.5 text-brand-orange" />
                 <span>MOQ: {product.moq}</span>
               </span>
-              <span className="flex items-center gap-1.5 text-gray-700 bg-white px-3 py-1.5 rounded-lg border border-gray-200">
+              <span className="flex items-center gap-1.5 text-gray-700 bg-white px-2.5 py-1.5 rounded-lg border border-gray-200">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Food Grade A+</span>
               </span>
-              <span className="text-brand-orange font-bold text-sm">
+              <span className="text-brand-orange font-bold text-xs sm:text-sm">
                 Mulai {product.startPrice} /pcs
               </span>
             </div>
@@ -84,7 +89,7 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto">
+        <div className="p-5 sm:p-8 space-y-5 sm:space-y-6 overflow-y-auto overscroll-contain flex-1">
           {/* Pilihan Ukuran */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2.5">
