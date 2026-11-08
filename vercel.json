@@ -43,13 +43,10 @@
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/.*",
-      "dest": "/index.html"
+      "source": "/((?!assets/|images/|produk/|blog/|sitemap\\.xml|robots\\.txt|.*\\..*).*)",
+      "destination": "/index.html"
     }
   ]
 }
