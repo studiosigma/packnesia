@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const SITE_URL = process.env.SITE_URL || 'https://packnesia.vercel.app';
 
 const articlesJsonPath = path.join(rootDir, 'src', 'data', 'blogArticles.json');
 const rawData = fs.readFileSync(articlesJsonPath, 'utf-8');
@@ -61,8 +62,8 @@ function markdownToHtml(md) {
 // Generate single article HTML
 function generateArticleHtml(art) {
   const contentHtml = markdownToHtml(art.content);
-  const canonicalUrl = `https://packnesia.com/blog/${art.slug}/`;
-  const coverUrl = art.coverImage.startsWith('http') ? art.coverImage : `https://packnesia.com${art.coverImage}`;
+  const canonicalUrl = `${SITE_URL}/blog/${art.slug}/`;
+  const coverUrl = art.coverImage.startsWith('http') ? art.coverImage : `${SITE_URL}${art.coverImage}`;
 
   return `<!doctype html>
 <html lang="id" class="scroll-smooth">
@@ -98,7 +99,8 @@ function generateArticleHtml(art) {
     <meta name="twitter:image" content="${coverUrl}" />
 
     <!-- Favicon & Styling -->
-    <link rel="icon" type="image/png" href="/images/packnesia-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
+    <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -138,14 +140,14 @@ function generateArticleHtml(art) {
       "author": {
         "@type": "Organization",
         "name": "${art.author || 'Packnesia'}",
-        "url": "https://packnesia.com"
+        "url": "${SITE_URL}"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Packnesia",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://packnesia.com/images/packnesia-logo-dark.png"
+          "url": "${SITE_URL}/images/packnesia-logo-dark.webp"
         }
       },
       "datePublished": "${art.date}",
@@ -357,8 +359,9 @@ function generateBlogIndexHtml(allArticles) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog & Wawasan Kemasan F&B — Packnesia</title>
     <meta name="description" content="Kumpulan artikel, tips desain kemasan, panduan material foodgrade, dan strategi branding kemasan makanan dan minuman untuk pelaku bisnis F&B di Indonesia." />
-    <link rel="canonical" href="https://packnesia.com/blog/" />
-    <link rel="icon" type="image/png" href="/images/packnesia-icon.png" />
+    <link rel="canonical" href="${SITE_URL}/blog/" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
+    <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>

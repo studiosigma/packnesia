@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const SITE_URL = process.env.SITE_URL || 'https://packnesia.vercel.app';
 
 // Import products data from file
 const productsModulePath = path.join(rootDir, 'src', 'data', 'productsData.js');
@@ -76,10 +77,10 @@ function getSeoDescription(product) {
 }
 
 function generateProductHtml(product) {
-  const canonicalUrl = `https://packnesia.com/produk/${product.id}/`;
+  const canonicalUrl = `${SITE_URL}/produk/${product.id}/`;
   const seoTitle = getSeoTitle(product);
   const seoDesc = getSeoDescription(product);
-  const coverUrl = `https://packnesia.com${product.image}`;
+  const coverUrl = `${SITE_URL}${product.image}`;
 
   const sizesTableHtml = product.sizes.map(s => `
     <tr class="border-b border-gray-100 hover:bg-orange-50/40 transition-colors">
@@ -146,7 +147,8 @@ function generateProductHtml(product) {
     <meta name="twitter:image" content="${coverUrl}" />
 
     <!-- Favicon & Tailwind -->
-    <link rel="icon" type="image/png" href="/images/packnesia-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
+    <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -186,7 +188,7 @@ function generateProductHtml(product) {
       "manufacturer": {
         "@type": "Organization",
         "name": "Packnesia Custom Packaging Solutions",
-        "url": "https://packnesia.com",
+        "url": "${SITE_URL}",
         "areaServed": ["Indonesia", "Jakarta", "Surabaya", "Bandung", "Semarang", "Medan", "Bali", "Makassar"]
       },
       "aggregateRating": {
@@ -482,8 +484,9 @@ function generateProductIndexHtml(allProducts) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Katalog Kemasan Makanan & Minuman Custom Foodgrade — Packnesia</title>
     <meta name="description" content="Pilihan lengkap kemasan custom foodgrade untuk F&B: Food box, paper cup kopi, standing pouch valve, paper bag takeaway, cake box, dan custom hardbox berstandar FDA." />
-    <link rel="canonical" href="https://packnesia.com/produk/" />
-    <link rel="icon" type="image/png" href="/images/packnesia-icon.png" />
+    <link rel="canonical" href="${SITE_URL}/produk/" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
+    <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>

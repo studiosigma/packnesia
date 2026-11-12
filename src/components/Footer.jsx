@@ -1,8 +1,8 @@
 import React from 'react';
-import { Instagram, Linkedin, Youtube, ArrowUp, Lock, Edit3 } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, ArrowUp } from 'lucide-react';
 import Logo from './Logo';
 
-export default function Footer({ onSelectProduct, onOpenConsultation, onOpenAdmin }) {
+export default function Footer({ onOpenConsultation }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -56,14 +56,6 @@ export default function Footer({ onSelectProduct, onOpenConsultation, onOpenAdmi
               className="hover:text-brand-orange transition-colors cursor-pointer"
             >
               Contact
-            </button>
-            <button
-              onClick={onOpenAdmin}
-              className="text-xs text-orange-400 hover:text-white flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/5 hover:bg-brand-orange transition-colors cursor-pointer ml-2 border border-orange-500/30"
-              title="Akses Admin Portal CMS untuk menulis artikel"
-            >
-              <Edit3 className="w-3 h-3" />
-              <span>Admin Blog</span>
             </button>
           </nav>
 

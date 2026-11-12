@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowRight, Clock, Calendar, Sparkles, Plus, BookOpen } from 'lucide-react';
+import { ArrowRight, Clock, Calendar } from 'lucide-react';
 
-export default function BlogSection({ articles, onSelectArticle, onOpenAdmin }) {
+export default function BlogSection({ articles, onSelectArticle }) {
   const [activeCategory, setActiveCategory] = useState('Semua');
 
   const categories = ['Semua', 'Edukasi Bahan', 'Tips & Trik', 'Panduan Bisnis'];
@@ -15,7 +15,7 @@ export default function BlogSection({ articles, onSelectArticle, onOpenAdmin }) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-4">
+        <div className="mb-10 md:mb-12">
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
               <span className="w-5 h-0.5 bg-brand-orange rounded-full" />
@@ -29,17 +29,6 @@ export default function BlogSection({ articles, onSelectArticle, onOpenAdmin }) 
             <p className="mt-2 text-xs sm:text-sm text-gray-500 max-w-xl">
               Pelajari tren kemasan kuliner, pemilihan material ramah lingkungan, dan strategi branding visual yang meningkatkan omzet bisnis Anda.
             </p>
-          </div>
-
-          {/* Admin Posting Button & Category Filter */}
-          <div className="flex flex-wrap items-center gap-2 self-start md:self-auto">
-            <button
-              onClick={onOpenAdmin}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0E1D33] hover:bg-brand-orange text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
-            >
-              <Plus className="w-3.5 h-3.5 text-brand-orange group-hover:text-white" />
-              <span>Kelola & Tulis Artikel (Admin)</span>
-            </button>
           </div>
         </div>
 

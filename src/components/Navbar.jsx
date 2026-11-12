@@ -7,6 +7,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsDropdown, setProductsDropdown] = useState(false);
   const [solutionsDropdown, setSolutionsDropdown] = useState(false);
+  const [infoDropdown, setInfoDropdown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +35,14 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
     { name: 'Eco-Friendly / Sustainable', icon: '🌱', desc: 'Bahan daur ulang bersertifikasi FSC' },
   ];
 
+  const infoLinks = [
+    { name: 'Hasil Cetak', href: '#samples-section', desc: 'Galeri bukti foto & kualitas produksi asli' },
+    { name: 'Transformasi Kemasan', href: '#transformation-section', desc: 'Perbandingan kemasan polos vs custom brand' },
+    { name: 'Jangkauan Pengiriman', href: '#coverage-section', desc: 'Armada kargo ke seluruh kota di Indonesia' },
+    { name: 'FAQ & Info Order', href: '#faq-section', desc: 'Pertanyaan seputar MOQ, sampel & bahan' },
+    { name: 'About Us', href: '#why-section', desc: 'Keunggulan & standar kualitas Packnesia' },
+  ];
+
   return (
     <>
       <header
@@ -49,8 +58,8 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
             <Logo variant="dark" />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-7 text-[14.5px] font-medium text-[#1E293B]">
+          {/* Desktop Navigation Links (Single-row 6 items) */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-7 text-[14.5px] font-medium text-[#1E293B]">
             {/* Products Dropdown */}
             <div
               className="relative group"
@@ -58,7 +67,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
               onMouseLeave={() => setProductsDropdown(false)}
             >
               <button
-                className="flex items-center gap-1 hover:text-brand-orange py-2 transition-colors cursor-pointer"
+                className="flex items-center gap-1 hover:text-brand-orange py-2 transition-colors cursor-pointer whitespace-nowrap"
                 onClick={() => {
                   const el = document.getElementById('products-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -112,7 +121,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
               onMouseLeave={() => setSolutionsDropdown(false)}
             >
               <button
-                className="flex items-center gap-1 hover:text-brand-orange py-2 transition-colors cursor-pointer"
+                className="flex items-center gap-1 hover:text-brand-orange py-2 transition-colors cursor-pointer whitespace-nowrap"
                 onClick={() => {
                   const el = document.getElementById('solutions-section');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -150,63 +159,66 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
 
             <a
               href="#portfolio-section"
-              className="hover:text-brand-orange transition-colors"
+              className="hover:text-brand-orange transition-colors whitespace-nowrap"
             >
               Portfolio
             </a>
 
             <a
-              href="#transformation-section"
-              className="hover:text-brand-orange transition-colors"
-            >
-              Transformasi
-            </a>
-
-            <a
               href="#bundling-section"
-              className="hover:text-brand-orange transition-colors"
+              className="hover:text-brand-orange transition-colors whitespace-nowrap"
             >
               Paket Usaha
             </a>
 
             <a
-              href="#samples-section"
-              className="hover:text-brand-orange transition-colors"
-            >
-              Hasil Cetak
-            </a>
-
-            <a
               href="#blog-section"
-              className="hover:text-brand-orange transition-colors"
+              className="hover:text-brand-orange transition-colors whitespace-nowrap"
             >
               Blog
             </a>
 
-            <a
-              href="#faq-section"
-              className="hover:text-brand-orange transition-colors"
+            {/* Info & Panduan Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setInfoDropdown(true)}
+              onMouseLeave={() => setInfoDropdown(false)}
             >
-              FAQ
-            </a>
+              <button
+                type="button"
+                aria-expanded={infoDropdown}
+                className="flex items-center gap-1 hover:text-brand-orange py-2 transition-colors cursor-pointer whitespace-nowrap"
+                onClick={() => setInfoDropdown((prev) => !prev)}
+              >
+                <span>Lainnya</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${infoDropdown ? 'rotate-180 text-brand-orange' : 'text-gray-400'}`} />
+              </button>
 
-            <a
-              href="#why-section"
-              className="hover:text-brand-orange transition-colors"
-            >
-              About Us
-            </a>
-
-            <a
-              href="#coverage-section"
-              className="hover:text-brand-orange transition-colors"
-            >
-              Pengiriman
-            </a>
+              {infoDropdown && (
+                <div className="absolute top-full -right-6 pt-2 w-72 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-2.5">
+                    {infoLinks.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setInfoDropdown(false)}
+                        className="w-full text-left p-2.5 rounded-xl hover:bg-orange-50/70 transition-colors flex flex-col group/item"
+                      >
+                        <span className="font-semibold text-gray-900 group-hover/item:text-brand-orange text-sm flex items-center justify-between">
+                          {item.name}
+                          <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 -translate-x-1 group-hover/item:translate-x-0 transition-all text-brand-orange" />
+                        </span>
+                        <span className="text-xs text-gray-500 mt-0.5">{item.desc}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Desktop Right Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
             {/* Search Icon */}
             <button
               onClick={onOpenSearch}
@@ -219,15 +231,15 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
             {/* Consultation CTA Button */}
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-[14px] font-semibold tracking-wide shadow-orange-glow hover:shadow-lg transition-all duration-200 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-[14px] font-semibold tracking-wide shadow-orange-glow hover:shadow-lg transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap"
             >
               <span>Consultation</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </button>
           </div>
 
-          {/* Mobile Right Controls */}
-          <div className="flex md:hidden items-center space-x-2">
+          {/* Mobile & Tablet Right Controls */}
+          <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={onOpenSearch}
               className="p-2 text-gray-700 hover:text-brand-orange rounded-lg"
@@ -248,7 +260,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden animate-in fade-in duration-200" onClick={() => setMobileMenuOpen(false)}>
+        <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden animate-in fade-in duration-200" onClick={() => setMobileMenuOpen(false)}>
           <div
             className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
             onClick={(e) => e.stopPropagation()}

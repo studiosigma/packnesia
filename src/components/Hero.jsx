@@ -52,23 +52,6 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
       <div className="absolute top-12 right-1/4 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-50/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-      {/* Prev / Next Slider Arrows (Absolute positions like reference) */}
-      <button
-        onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
-        aria-label="Previous Slide"
-        className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow-md hover:bg-white text-gray-700 hover:text-brand-orange items-center justify-center transition-all hover:scale-105 border border-gray-100 cursor-pointer"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-
-      <button
-        onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-        aria-label="Next Slide"
-        className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow-md hover:bg-white text-gray-700 hover:text-brand-orange items-center justify-center transition-all hover:scale-105 border border-gray-100 cursor-pointer"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
@@ -178,18 +161,40 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
 
         </div>
 
-        {/* Carousel Pagination Dots matching reference */}
-        <div className="mt-10 flex items-center justify-center gap-2">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                currentSlide === idx ? 'w-8 bg-[#0E1D33]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
-          ))}
+        {/* Carousel Controls & Pagination Dots */}
+        <div className="mt-8 sm:mt-10 flex items-center justify-center gap-3">
+          <button
+            onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+            aria-label="Previous Slide"
+            className="w-10 h-10 rounded-full bg-white shadow-sm hover:bg-gray-50 text-gray-700 hover:text-brand-orange flex items-center justify-center transition-all border border-gray-200/80 cursor-pointer"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
+          <div className="flex items-center">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className="min-w-[36px] min-h-[40px] flex items-center justify-center cursor-pointer"
+              >
+                <span
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentSlide === idx ? 'w-8 bg-[#0E1D33]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+            aria-label="Next Slide"
+            className="w-10 h-10 rounded-full bg-white shadow-sm hover:bg-gray-50 text-gray-700 hover:text-brand-orange flex items-center justify-center transition-all border border-gray-200/80 cursor-pointer"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
 
       </div>

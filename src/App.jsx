@@ -147,7 +147,6 @@ export default function App() {
         <BlogSection
           articles={articles}
           onSelectArticle={(art) => setSelectedArticle(art)}
-          onOpenAdmin={() => setIsAdminBlogOpen(true)}
         />
 
         {/* SEO FAQ Section */}
@@ -166,9 +165,7 @@ export default function App() {
 
       {/* Footer */}
       <Footer
-        onSelectProduct={handleSelectProduct}
         onOpenConsultation={() => setIsConsultationOpen(true)}
-        onOpenAdmin={() => setIsAdminBlogOpen(true)}
       />
 
       {/* Floating WhatsApp Quick Action Button (Desktop & Tablet) */}

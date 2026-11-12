@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const SITE_URL = process.env.SITE_URL || 'https://packnesia.vercel.app';
 
 // Import data
 import { products } from '../src/data/productsData.js';
@@ -15,14 +16,14 @@ export function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
 
   const productUrls = products.map(p => `  <url>
-    <loc>https://packnesia.com/produk/${p.id}/</loc>
+    <loc>${SITE_URL}/produk/${p.id}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`).join('\n');
 
   const articleUrls = articles.map(a => `  <url>
-    <loc>https://packnesia.com/blog/${a.slug}/</loc>
+    <loc>${SITE_URL}/blog/${a.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -32,7 +33,7 @@ export function generateSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://packnesia.com/</loc>
+    <loc>${SITE_URL}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -40,7 +41,7 @@ export function generateSitemap() {
 
   <!-- Product Catalog Hub -->
   <url>
-    <loc>https://packnesia.com/produk/</loc>
+    <loc>${SITE_URL}/produk/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -51,7 +52,7 @@ ${productUrls}
 
   <!-- Blog Hub -->
   <url>
-    <loc>https://packnesia.com/blog/</loc>
+    <loc>${SITE_URL}/blog/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -62,31 +63,31 @@ ${articleUrls}
 
   <!-- Local SEO & Strategic Landing Sections -->
   <url>
-    <loc>https://packnesia.com/#transformation-section</loc>
+    <loc>${SITE_URL}/#transformation-section</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://packnesia.com/#coverage-section</loc>
+    <loc>${SITE_URL}/#coverage-section</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://packnesia.com/#products-section</loc>
+    <loc>${SITE_URL}/#products-section</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://packnesia.com/#solutions-section</loc>
+    <loc>${SITE_URL}/#solutions-section</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://packnesia.com/#faq-section</loc>
+    <loc>${SITE_URL}/#faq-section</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
