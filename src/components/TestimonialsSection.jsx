@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { Star, CheckCircle, ShieldCheck, ThumbsUp, Quote, ArrowRight, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { Star, CheckCircle, ShieldCheck, MessageCircle } from 'lucide-react';
 import { reviews, ratingStats } from '../data/reviewsData';
 
 export default function TestimonialsSection({ onOpenConsultation }) {
-  const [filterRating, setFilterRating] = useState('all');
-
   return (
-    <section id="reviews-section" className="py-16 md:py-24 bg-gradient-to-b from-white via-[#FAF9F7] to-white border-t border-gray-100">
+    <section id="reviews-section" className="section-lazy py-12 md:py-20 bg-gradient-to-b from-white via-[#FAF9F7] to-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header with Big Star Rating Overview */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-12 gap-6">
           <div>
@@ -55,12 +53,12 @@ export default function TestimonialsSection({ onOpenConsultation }) {
           </div>
         </div>
 
-        {/* 4 Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Testimonials Cards: Horizontal snap carousel on mobile, grid on md/lg */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 no-scrollbar scroll-smooth">
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="bg-white rounded-3xl p-6 border border-gray-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="w-[84%] flex-shrink-0 snap-start md:w-auto bg-white rounded-3xl p-5 sm:p-6 border border-gray-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Top Stars & Verified Badge */}
@@ -100,12 +98,16 @@ export default function TestimonialsSection({ onOpenConsultation }) {
                 <img
                   src={rev.avatar}
                   alt={rev.name}
-                  className="w-10 h-10 rounded-full object-cover border border-gray-200"
+                  loading="lazy"
+                  decoding="async"
+                  width="40"
+                  height="40"
+                  className="w-10 h-10 rounded-full object-cover border border-gray-200 flex-shrink-0"
                 />
                 <div className="min-w-0">
-                  <h4 className="font-extrabold text-xs sm:text-sm text-[#0E1D33] truncate">
+                  <h3 className="font-extrabold text-xs sm:text-sm text-[#0E1D33] truncate">
                     {rev.name}
-                  </h4>
+                  </h3>
                   <p className="text-[11px] text-gray-500 truncate">
                     {rev.role}, <strong className="text-gray-700">{rev.brand}</strong> ({rev.city})
                   </p>
@@ -122,9 +124,9 @@ export default function TestimonialsSection({ onOpenConsultation }) {
               <Star className="w-6 h-6 fill-amber-400" />
             </div>
             <div>
-              <h4 className="text-sm sm:text-base font-extrabold text-white">
+              <h3 className="text-sm sm:text-base font-extrabold text-white">
                 Ingin Brand F&B Anda Tampil Seistimewa Mereka?
-              </h4>
+              </h3>
               <p className="text-xs text-gray-300 mt-0.5">
                 Konsultasikan ide desain kemasan Anda dan dapatkan sampel gratis sebelum produksi massal.
               </p>

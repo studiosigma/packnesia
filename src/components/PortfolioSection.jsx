@@ -4,7 +4,7 @@ import { portfolioItems } from '../data/portfolioData';
 
 export default function PortfolioSection({ onSelectPortfolio, onViewAll }) {
   return (
-    <section id="portfolio-section" className="py-16 md:py-24 bg-white">
+    <section id="portfolio-section" className="section-lazy py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header with split title and "View More Portfolio ->" link */}
@@ -24,23 +24,23 @@ export default function PortfolioSection({ onSelectPortfolio, onViewAll }) {
             </h2>
           </div>
 
-          {/* Right Action: "View More Portfolio ->" */}
+          {/* Right Action: "Lihat Galeri Hasil Cetak ->" */}
           <button
             onClick={onViewAll}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 hover:border-brand-orange text-xs sm:text-sm font-semibold text-gray-700 hover:text-brand-orange transition-all duration-200 group self-start md:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 min-h-[40px] rounded-full border border-gray-200 hover:border-brand-orange text-xs sm:text-sm font-semibold text-gray-700 hover:text-brand-orange transition-all duration-200 group self-start md:self-auto cursor-pointer"
           >
-            <span>View More Portfolio</span>
+            <span>Lihat Galeri Hasil Cetak</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
 
-        {/* 5 Portfolio Cards Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
+        {/* 5 Portfolio Cards: Horizontal swipe carousel on mobile, 3/5-col grid on tablet/desktop */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-4 md:gap-5 no-scrollbar scroll-smooth">
           {portfolioItems.map((item) => (
             <div
               key={item.id}
               onClick={() => onSelectPortfolio(item.id)}
-              className="group relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-100/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col"
+              className="w-[68%] flex-shrink-0 snap-start sm:w-auto group relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-100/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col"
             >
               {/* Image Container with high aspect ratio */}
               <div className="aspect-[4/3] sm:aspect-[1/1] w-full overflow-hidden bg-stone-100 relative">

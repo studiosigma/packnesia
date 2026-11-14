@@ -102,7 +102,7 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
   );
 
   return (
-    <section id="transformation-section" className="py-16 md:py-24 bg-white border-b border-gray-100 overflow-hidden">
+    <section id="transformation-section" className="section-lazy py-12 md:py-20 bg-white border-b border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -130,7 +130,7 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                 setActiveTab(idx);
                 setSliderPos(50);
               }}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 shadow-xs ${
+              className={`min-h-[40px] px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 shadow-xs ${
                 activeTab === idx
                   ? 'bg-[#0E1D33] text-white shadow-md scale-102'
                   : 'bg-[#F6F7F9] text-gray-600 hover:bg-gray-200/70 border border-gray-200/70'
@@ -159,7 +159,7 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
               onTouchMove={onTouchMove}
               onTouchStart={() => setIsDragging(true)}
               onTouchEnd={() => setIsDragging(false)}
-              className="relative aspect-square sm:aspect-[4/3] w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border-4 border-white select-none cursor-ew-resize bg-gray-100 group"
+              className="relative aspect-square sm:aspect-[4/3] w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border-4 border-white select-none touch-pan-y cursor-ew-resize bg-gray-100 group"
             >
               {/* 1. AFTER Image (Base Layer - Right / Full) */}
               <div className="absolute inset-0 w-full h-full bg-orange-50/40">
@@ -179,29 +179,23 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                 </div>
               </div>
 
-              {/* 2. BEFORE Image (Clipped Overlay - Left Side) */}
+              {/* 2. BEFORE Image (GPU Clip-Path Overlay - Left Side, Zero Squish on Initial Render) */}
               <div
-                className="absolute inset-0 h-full overflow-hidden transition-all duration-75"
-                style={{ width: `${sliderPos}%` }}
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
               >
-                <div className="relative w-full h-full">
-                  <img
-                    src={current.beforeImg}
-                    alt={`${current.client} Kemasan Standar (Sebelum)`}
-                    loading="lazy"
-                    decoding="async"
-                    width="600"
-                    height="600"
-                    className="absolute top-0 left-0 w-full h-full object-cover max-w-none pointer-events-none filter grayscale contrast-90"
-                    style={{
-                      width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100%',
-                      maxWidth: 'none'
-                    }}
-                  />
-                  {/* Before Pill Badge */}
-                  <div className="absolute top-4 left-4 bg-[#0E1D33]/90 text-gray-200 text-[11px] sm:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-white/20 z-10">
-                    <span>Sebelum (Polos)</span>
-                  </div>
+                <img
+                  src={current.beforeImg}
+                  alt={`${current.client} Kemasan Standar (Sebelum)`}
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="600"
+                  className="w-full h-full object-cover pointer-events-none filter grayscale contrast-90"
+                />
+                {/* Before Pill Badge */}
+                <div className="absolute top-4 left-4 bg-[#0E1D33]/90 text-gray-200 text-[11px] sm:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-white/20 z-10">
+                  <span>Sebelum (Polos)</span>
                 </div>
               </div>
 
@@ -221,9 +215,9 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
               </div>
             </div>
 
-            {/* Accessible Range Input slider for keyboard & screen readers */}
-            <div className="w-full max-w-md mt-4 flex items-center gap-3">
-              <span className="text-[11px] font-bold text-gray-400 uppercase">Sebelum</span>
+            {/* Accessible Range Input slider for keyboard, screen readers & mobile thumb touch */}
+            <div className="w-full max-w-md mt-4 flex items-center gap-3 min-h-[44px]">
+              <span className="text-[11px] font-bold text-gray-500 uppercase">Sebelum</span>
               <input
                 type="range"
                 min="5"
@@ -231,7 +225,7 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                 value={sliderPos}
                 onChange={(e) => setSliderPos(Number(e.target.value))}
                 aria-label="Before after comparison slider"
-                className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-orange"
+                className="flex-1 h-3 sm:h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-orange"
               />
               <span className="text-[11px] font-bold text-brand-orange uppercase">Sesudah</span>
             </div>

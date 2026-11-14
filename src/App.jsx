@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductsSection from './components/ProductsSection';
@@ -14,15 +14,15 @@ import WhyPacknesiaSection from './components/WhyPacknesiaSection';
 import CoverageSection from './components/CoverageSection';
 import Footer from './components/Footer';
 
-// Modals
-import ProductModal from './components/ProductModal';
-import AdvisorModal from './components/AdvisorModal';
-import PortfolioModal from './components/PortfolioModal';
-import ConsultationModal from './components/ConsultationModal';
-import ProcessVideoModal from './components/ProcessVideoModal';
-import SearchModal from './components/SearchModal';
-import ArticleModal from './components/ArticleModal';
-import AdminBlogModal from './components/AdminBlogModal';
+// Code-split Interactive & Admin Modals
+const ProductModal = lazy(() => import('./components/ProductModal'));
+const AdvisorModal = lazy(() => import('./components/AdvisorModal'));
+const PortfolioModal = lazy(() => import('./components/PortfolioModal'));
+const ConsultationModal = lazy(() => import('./components/ConsultationModal'));
+const ProcessVideoModal = lazy(() => import('./components/ProcessVideoModal'));
+const SearchModal = lazy(() => import('./components/SearchModal'));
+const ArticleModal = lazy(() => import('./components/ArticleModal'));
+const AdminBlogModal = lazy(() => import('./components/AdminBlogModal'));
 
 // Blog Data persistence
 import { getSavedArticles } from './data/blogData';
@@ -96,7 +96,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFE] text-[#0E1D33] flex flex-col selection:bg-brand-orange selection:text-white pb-16 md:pb-0">
+    <div className="min-h-screen bg-[#FDFDFE] text-[#0E1D33] flex flex-col selection:bg-brand-orange selection:text-white pb-24 md:pb-0">
       {/* Top Navbar */}
       <Navbar
         onOpenConsultation={() => setIsConsultationOpen(true)}
@@ -126,7 +126,7 @@ export default function App() {
         <PortfolioSection
           onSelectPortfolio={handleSelectPortfolio}
           onViewAll={() => {
-            const el = document.getElementById('portfolio-section');
+            const el = document.getElementById('samples-section');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
         />
@@ -190,54 +190,70 @@ export default function App() {
         onOpenAdvisor={() => setIsAdvisorOpen(true)}
       />
 
-      {/* Interactive Modals */}
-      <ProductModal
-        productId={selectedProductId}
-        onClose={() => setSelectedProductId(null)}
-        onOpenAdvisor={() => setIsAdvisorOpen(true)}
-      />
+      {/* Interactive Modals (Lazy-loaded on demand) */}
+      <Suspense fallback={null}>
+        {selectedProductId && (
+          <ProductModal
+            productId={selectedProductId}
+            onClose={() => setSelectedProductId(null)}
+            onOpenAdvisor={() => setIsAdvisorOpen(true)}
+          />
+        )}
 
-      <AdvisorModal
-        isOpen={isAdvisorOpen}
-        onClose={() => setIsAdvisorOpen(false)}
-      />
+        {isAdvisorOpen && (
+          <AdvisorModal
+            isOpen={isAdvisorOpen}
+            onClose={() => setIsAdvisorOpen(false)}
+          />
+        )}
 
-      <PortfolioModal
-        itemId={selectedPortfolioId}
-        onClose={() => setSelectedPortfolioId(null)}
-      />
+        {selectedPortfolioId && (
+          <PortfolioModal
+            itemId={selectedPortfolioId}
+            onClose={() => setSelectedPortfolioId(null)}
+          />
+        )}
 
-      <ConsultationModal
-        isOpen={isConsultationOpen}
-        onClose={() => setIsConsultationOpen(false)}
-      />
+        {isConsultationOpen && (
+          <ConsultationModal
+            isOpen={isConsultationOpen}
+            onClose={() => setIsConsultationOpen(false)}
+          />
+        )}
 
-      <ProcessVideoModal
-        isOpen={isProcessVideoOpen}
-        onClose={() => setIsProcessVideoOpen(false)}
-        onOpenConsultation={() => setIsConsultationOpen(true)}
-      />
+        {isProcessVideoOpen && (
+          <ProcessVideoModal
+            isOpen={isProcessVideoOpen}
+            onClose={() => setIsProcessVideoOpen(false)}
+            onOpenConsultation={() => setIsConsultationOpen(true)}
+          />
+        )}
 
-      <SearchModal
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        onSelectProduct={handleSelectProduct}
-      />
+        {isSearchOpen && (
+          <SearchModal
+            isOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+            onSelectProduct={handleSelectProduct}
+          />
+        )}
 
-      {/* Reader Modal for Visitors */}
-      <ArticleModal
-        article={selectedArticle}
-        onClose={() => setSelectedArticle(null)}
-        onOpenConsultation={() => setIsConsultationOpen(true)}
-      />
+        {selectedArticle && (
+          <ArticleModal
+            article={selectedArticle}
+            onClose={() => setSelectedArticle(null)}
+            onOpenConsultation={() => setIsConsultationOpen(true)}
+          />
+        )}
 
-      {/* Admin Blog Composer & Management CMS Modal */}
-      <AdminBlogModal
-        isOpen={isAdminBlogOpen}
-        onClose={() => setIsAdminBlogOpen(false)}
-        onArticleSaved={loadAllArticles}
-        onPreviewArticle={(art) => setSelectedArticle(art)}
-      />
+        {isAdminBlogOpen && (
+          <AdminBlogModal
+            isOpen={isAdminBlogOpen}
+            onClose={() => setIsAdminBlogOpen(false)}
+            onArticleSaved={loadAllArticles}
+            onPreviewArticle={(art) => setSelectedArticle(art)}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }

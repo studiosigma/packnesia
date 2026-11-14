@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
-import { Camera, CheckCircle2, MessageCircle, Eye, ShieldCheck, Sparkles, X, ArrowRight, Layers, Award } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Camera, CheckCircle2, MessageCircle, Eye, Sparkles, X, ArrowRight, Layers, Award } from 'lucide-react';
 
 export default function RealSampleGallery({ onOpenConsultation }) {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedSample, setSelectedSample] = useState(null);
+
+  useEffect(() => {
+    if (!selectedSample) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedSample(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedSample]);
 
   const samples = [
     {
@@ -119,7 +128,7 @@ export default function RealSampleGallery({ onOpenConsultation }) {
     : samples.filter((s) => s.category === activeTab || s.id.includes(activeTab));
 
   return (
-    <section id="samples-section" className="py-16 md:py-24 bg-white relative">
+    <section id="samples-section" className="section-lazy py-12 md:py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -142,7 +151,7 @@ export default function RealSampleGallery({ onOpenConsultation }) {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer active:scale-95 flex-shrink-0 ${
+              className={`min-h-[40px] px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer active:scale-95 flex-shrink-0 ${
                 activeTab === tab.id
                   ? 'bg-[#0E1D33] text-white shadow-md'
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
@@ -153,12 +162,12 @@ export default function RealSampleGallery({ onOpenConsultation }) {
           ))}
         </div>
 
-        {/* 6 Showcase Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        {/* 6 Showcase Cards: Horizontal snap carousel on mobile, 2/3-col grid on tablet/desktop */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 sm:gap-7 no-scrollbar scroll-smooth">
           {filteredSamples.map((sample) => (
             <div
               key={sample.id}
-              className="bg-[#FBFBFC] rounded-3xl overflow-hidden border border-gray-200/80 hover:border-orange-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="w-[82%] flex-shrink-0 snap-start sm:w-auto bg-[#FBFBFC] rounded-3xl overflow-hidden border border-gray-200/80 hover:border-orange-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Image Container with Zoom Trigger */}
@@ -170,6 +179,9 @@ export default function RealSampleGallery({ onOpenConsultation }) {
                     src={sample.image}
                     alt={sample.title}
                     loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="224"
                     className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-500"
                   />
                   {/* Overlay Badge & Zoom Icon */}
@@ -302,9 +314,9 @@ export default function RealSampleGallery({ onOpenConsultation }) {
             {/* Modal Content */}
             <div className="p-5 sm:p-6 space-y-4 overflow-y-auto overscroll-contain flex-1">
               <div>
-                <h4 className="text-xl font-extrabold text-[#0E1D33]">
+                <h3 className="text-xl font-extrabold text-[#0E1D33]">
                   {selectedSample.title}
-                </h4>
+                </h3>
                 <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
                   {selectedSample.subtitle}
                 </p>

@@ -3,17 +3,16 @@ import { Search, X, ArrowRight, Package } from 'lucide-react';
 import { products } from '../data/productsData';
 
 export default function SearchModal({ isOpen, onClose, onSelectProduct }) {
-  if (!isOpen) return null;
-
   const [query, setQuery] = useState('');
 
   useEffect(() => {
+    if (!isOpen) return undefined;
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, [isOpen, onClose]);
 
   const filtered = useMemo(() => {
     if (!query.trim()) return products;
@@ -26,6 +25,8 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }) {
         p.materials.some((m) => m.toLowerCase().includes(q))
     );
   }, [query]);
+
+  if (!isOpen) return null;
 
   return (
     <div

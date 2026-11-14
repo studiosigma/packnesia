@@ -242,14 +242,14 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
           <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={onOpenSearch}
-              className="p-2 text-gray-700 hover:text-brand-orange rounded-lg"
+              className="p-2.5 text-gray-700 hover:text-brand-orange rounded-lg"
               aria-label="Cari"
             >
               <Search className="w-5 h-5" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-gray-700 hover:text-brand-orange rounded-lg"
+              className="p-2.5 text-gray-700 hover:text-brand-orange rounded-lg"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -258,139 +258,98 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu (z-[60] sits above fixed z-50 header) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden animate-in fade-in duration-200" onClick={() => setMobileMenuOpen(false)}>
+        <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm lg:hidden animate-in fade-in duration-200" onClick={() => setMobileMenuOpen(false)}>
           <div
-            className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
+            className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl p-5 sm:p-6 flex flex-col justify-between overflow-y-auto overscroll-contain"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-gray-100">
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                 <Logo variant="dark" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-gray-400 hover:text-gray-700"
+                  aria-label="Tutup menu"
+                  className="w-11 h-11 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="py-6 space-y-4">
-                <div className="font-bold text-xs uppercase tracking-wider text-gray-400">Navigasi</div>
-                
+              <nav aria-label="Menu Mobile" className="py-4 space-y-1">
+                <div className="font-bold text-[11px] uppercase tracking-wider text-gray-400 px-2 pb-1">Katalog & Layanan</div>
+
                 <a
                   href="#products-section"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
+                  className="min-h-[44px] px-2 flex items-center justify-between text-[15px] font-bold text-[#0E1D33] hover:text-brand-orange rounded-xl hover:bg-orange-50/50 transition-colors"
                 >
-                  Products
+                  <span>Produk Kemasan (13 Kategori)</span>
+                  <ArrowRight className="w-4 h-4 text-gray-400" />
                 </a>
-                <div className="pl-3 space-y-2 border-l-2 border-orange-100">
-                  {productLinks.slice(0, 4).map((p) => (
+
+                <div className="ml-2 pl-3 py-1 space-y-0.5 border-l-2 border-orange-100">
+                  {productLinks.slice(0, 5).map((p) => (
                     <button
                       key={p.id}
                       onClick={() => {
                         setMobileMenuOpen(false);
                         if (onSelectProduct) onSelectProduct(p.id);
                       }}
-                      className="block text-sm text-gray-600 hover:text-brand-orange text-left"
+                      className="w-full min-h-[40px] px-2 flex items-center text-sm text-gray-600 hover:text-brand-orange rounded-lg hover:bg-orange-50/40 text-left transition-colors"
                     >
                       • {p.name}
                     </button>
                   ))}
+                  <a
+                    href="/produk/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full min-h-[40px] px-2 flex items-center text-xs font-bold text-brand-orange hover:underline"
+                  >
+                    Buka Semua Katalog &rarr;
+                  </a>
                 </div>
 
-                <a
-                  href="#solutions-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Solutions
-                </a>
-
-                <a
-                  href="#portfolio-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Portfolio
-                </a>
-
-                <a
-                  href="#transformation-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Transformasi Kemasan
-                </a>
-
-                <a
-                  href="#bundling-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Paket Bundling F&B
-                </a>
-
-                <a
-                  href="#samples-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Galeri Hasil Cetak
-                </a>
-
-                <a
-                  href="#blog-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Blog & Edukasi
-                </a>
-
-                <a
-                  href="#faq-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  FAQ & Info
-                </a>
-
-                <a
-                  href="#why-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  About Us
-                </a>
-
-                <a
-                  href="#coverage-section"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base font-semibold text-gray-800 hover:text-brand-orange py-1"
-                >
-                  Jangkauan Pengiriman
-                </a>
-              </div>
+                {[
+                  { label: 'Solusi Industri', href: '#solutions-section' },
+                  { label: 'Portfolio Brand', href: '#portfolio-section' },
+                  { label: 'Transformasi Before/After', href: '#transformation-section' },
+                  { label: 'Paket Bundling Usaha', href: '#bundling-section' },
+                  { label: 'Galeri Hasil Cetak', href: '#samples-section' },
+                  { label: 'Blog & Edukasi', href: '#blog-section' },
+                  { label: 'FAQ & Info Order', href: '#faq-section' },
+                  { label: 'Tentang Packnesia', href: '#why-section' },
+                  { label: 'Jangkauan Pengiriman', href: '#coverage-section' },
+                ].map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="min-h-[44px] px-2 flex items-center text-[15px] font-semibold text-gray-800 hover:text-brand-orange rounded-xl hover:bg-orange-50/50 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
             </div>
 
-            <div className="pt-6 border-t border-gray-100 space-y-3">
+            <div className="pt-4 border-t border-gray-100 space-y-2.5">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-brand-orange text-white rounded-xl font-semibold shadow-orange-glow"
+                className="w-full min-h-[46px] flex items-center justify-center gap-2 py-3 px-4 bg-brand-orange text-white rounded-full font-semibold shadow-orange-glow active:scale-95 transition-transform"
               >
-                <span>Free Consultation</span>
+                <span>Konsultasi Gratis</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
                 href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20ingin%20konsultasi%20custom%20packaging%20untuk%20brand%20saya"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-emerald-50 text-emerald-700 rounded-xl font-semibold border border-emerald-200"
+                className="w-full min-h-[46px] flex items-center justify-center gap-2 py-3 px-4 bg-emerald-50 text-emerald-700 rounded-full font-semibold border border-emerald-200 active:scale-95 transition-transform"
               >
                 <Phone className="w-4 h-4 text-emerald-600" />
                 <span>WhatsApp Langsung</span>

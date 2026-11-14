@@ -10,7 +10,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
       titleLine1: 'Packaging',
       titleLine2: 'That Builds',
       titleHighlight: 'Your Brand.',
-      subtitle: 'Custom packaging solutions for F&B brands, from idea to delivery.',
+      subtitle: 'Solusi cetak kemasan makanan & minuman foodgrade untuk brand F&B Indonesia, dari konsep hingga kirim.',
       image: '/images/hero-packaging.webp',
       badge: 'Solusi Kemasan F&B No. 1',
       stats: '1,000+ Brand F&B Terpercaya'
@@ -47,40 +47,40 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-gradient-to-b from-[#FAF7F2]/60 via-[#FDFDFE] to-white">
+    <section className="relative pt-20 pb-10 md:pt-28 md:pb-16 overflow-hidden bg-gradient-to-b from-[#FAF7F2]/60 via-[#FDFDFE] to-white">
       {/* Subtle ambient background glow */}
       <div className="absolute top-12 right-1/4 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-50/50 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center">
           
           {/* Left Text Column */}
-          <div className="lg:col-span-5 flex flex-col justify-center text-left pt-2 lg:pt-0 z-10">
+          <div className="lg:col-span-5 flex flex-col justify-center text-left pt-1 lg:pt-0 z-10">
             {/* Small badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/60 text-brand-orange text-xs font-semibold tracking-wide w-fit mb-5 animate-in fade-in">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/60 text-brand-orange text-[11px] sm:text-xs font-semibold tracking-wide w-fit mb-3 sm:mb-5 animate-in fade-in">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{slide.badge}</span>
             </div>
 
             {/* Main Title matching reference typography */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-[1.08] text-[#0E1D33]">
+            <h1 className="text-[34px] sm:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-[1.08] text-[#0E1D33]">
               <span className="block">{slide.titleLine1}</span>
               <span className="block">{slide.titleLine2}</span>
               <span className="block text-brand-orange">{slide.titleHighlight}</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 text-base sm:text-lg text-gray-600 max-w-md font-normal leading-relaxed">
+            <p className="mt-3 sm:mt-5 text-sm sm:text-lg text-gray-600 max-w-md font-normal leading-relaxed">
               {slide.subtitle}
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
+            <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-4">
               {/* Primary Navy Button */}
               <button
                 onClick={onExploreProducts}
-                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-[#0E1D33] hover:bg-[#1A2E4F] text-white text-[15px] font-semibold tracking-wide transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 group cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 min-h-[44px] rounded-full bg-[#0E1D33] hover:bg-[#1A2E4F] text-white text-sm sm:text-[15px] font-semibold tracking-wide transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 group cursor-pointer"
               >
                 <span>Explore Our Products</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -89,21 +89,21 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
               {/* Secondary Video Button */}
               <button
                 onClick={onWatchProcess}
-                className="inline-flex items-center gap-2.5 px-4 py-3 rounded-full text-[#0E1D33] hover:text-brand-orange text-[14.5px] font-semibold transition-colors group cursor-pointer"
+                className="inline-flex items-center gap-2 px-2.5 sm:px-4 py-2.5 sm:py-3 min-h-[44px] rounded-full text-[#0E1D33] hover:text-brand-orange text-xs sm:text-[14.5px] font-semibold transition-colors group cursor-pointer"
               >
-                <span className="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center transition-transform group-hover:scale-110">
-                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-current flex items-center justify-center transition-transform group-hover:scale-110">
+                  <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current ml-0.5" />
                 </span>
                 <span>Watch Our Process</span>
               </button>
             </div>
 
             {/* Customer Rating Proof Badge */}
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-4 sm:mt-6 flex items-center gap-3">
               <div className="flex -space-x-2">
-                <img loading="lazy" decoding="async" width="32" height="32" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-xs" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="Client 1" />
-                <img loading="lazy" decoding="async" width="32" height="32" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-xs" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" alt="Client 2" />
-                <img loading="lazy" decoding="async" width="32" height="32" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-xs" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&auto=format&fit=crop&q=80" alt="Client 3" />
+                <img loading="lazy" decoding="async" width="32" height="32" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-xs" src="/images/avatar-1.webp" alt="Client 1" />
+                <img loading="lazy" decoding="async" width="32" height="32" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-xs" src="/images/avatar-3.webp" alt="Client 2" />
+                <img loading="lazy" decoding="async" width="32" height="32" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-xs" src="/images/avatar-2.webp" alt="Client 3" />
               </div>
               <div className="text-xs">
                 <div className="flex items-center gap-1 font-bold">
@@ -115,17 +115,17 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
             </div>
 
             {/* Trust highlights */}
-            <div className="mt-6 pt-5 border-t border-gray-200/70 flex items-center gap-6 text-xs text-gray-500 font-medium">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+            <div className="mt-4 sm:mt-6 pt-4 sm:pt-5 border-t border-gray-200/70 flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-5 text-[11px] sm:text-xs text-gray-500 font-medium">
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 flex-shrink-0" />
                 <span>Free 3D Mockup</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 flex-shrink-0" />
                 <span>Sampel Sebelum Cetak</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 flex-shrink-0" />
                 <span>Garansi Kualitas</span>
               </div>
             </div>

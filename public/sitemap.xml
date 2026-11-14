@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://packnesia.vercel.app/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- Product Catalog Hub -->
   <url>
     <loc>https://packnesia.vercel.app/produk/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -19,79 +19,79 @@
   <!-- Product Money Pages -->
   <url>
     <loc>https://packnesia.vercel.app/produk/food-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/paper-cup/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/plastic-cup/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/paper-bowl/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/fastfood-pizza-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/martabak-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/cake-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/packaging-sticker/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/coffee-packaging/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/paper-bag/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/perfume-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/souvenir-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/produk/custom-box/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -99,7 +99,7 @@
   <!-- Blog Hub -->
   <url>
     <loc>https://packnesia.vercel.app/blog/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -107,19 +107,19 @@
   <!-- Educational Blog Articles (Topic Cluster) -->
   <url>
     <loc>https://packnesia.vercel.app/blog/panduan-kemasan-foodgrade-kuliner/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/blog/tips-desain-paper-cup-kopi-instagrammable/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/blog/perbedaan-kraft-vs-ivory-biaya-cetak/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -127,31 +127,31 @@
   <!-- Local SEO & Strategic Landing Sections -->
   <url>
     <loc>https://packnesia.vercel.app/#transformation-section</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/#coverage-section</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/#products-section</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/#solutions-section</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://packnesia.vercel.app/#faq-section</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

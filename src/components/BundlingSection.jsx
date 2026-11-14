@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sparkles, CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Zap, Tag } from 'lucide-react';
 
 export default function BundlingSection({ onOpenConsultation }) {
+  const [activeMobileIdx, setActiveMobileIdx] = useState(1);
+
+  const mobileTabLabels = [
+    '☕ Coffee',
+    '🍔 Resto (Terlaris)',
+    '🎂 Bakery',
+  ];
+
   const bundles = [
     {
       id: 'coffee-pack',
@@ -66,7 +74,7 @@ export default function BundlingSection({ onOpenConsultation }) {
   ];
 
   return (
-    <section id="bundling-section" className="py-16 md:py-24 bg-[#F8FAFC] border-y border-slate-200/60 relative overflow-hidden">
+    <section id="bundling-section" className="section-lazy py-12 md:py-20 bg-[#F8FAFC] border-y border-slate-200/60 relative overflow-hidden">
       {/* Background Decorative Element */}
       <div className="absolute top-0 right-1/3 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
@@ -87,17 +95,48 @@ export default function BundlingSection({ onOpenConsultation }) {
           </p>
         </div>
 
+        {/* Mobile & Tablet Segmented Switcher */}
+        <div className="lg:hidden mb-6">
+          <div
+            role="tablist"
+            aria-label="Pilih paket bundling UMKM"
+            className="grid grid-cols-3 gap-1.5 p-1.5 bg-white border border-gray-200 rounded-2xl shadow-xs"
+          >
+            {bundles.map((bundle, idx) => {
+              const isActive = activeMobileIdx === idx;
+              return (
+                <button
+                  key={bundle.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveMobileIdx(idx)}
+                  className={`min-h-[44px] px-2 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center text-center leading-tight ${
+                    isActive
+                      ? 'bg-[#0E1D33] text-white shadow-sm'
+                      : 'text-gray-600 hover:text-[#0E1D33] hover:bg-gray-50'
+                  }`}
+                >
+                  {mobileTabLabels[idx] || bundle.badge || `Paket ${idx + 1}`}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* 3 Bundling Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {bundles.map((bundle) => {
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          {bundles.map((bundle, idx) => {
             const waUrl = `https://wa.me/6287892251216?text=${encodeURIComponent(bundle.waMessage)}`;
 
             return (
               <div
                 key={bundle.id}
-                className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 relative bg-white ${
+                className={`rounded-3xl p-6 sm:p-7 flex-col justify-between transition-all duration-300 relative bg-white ${
+                  activeMobileIdx === idx ? 'flex' : 'hidden lg:flex'
+                } ${
                   bundle.popular
-                    ? 'border-2 border-brand-orange shadow-2xl lg:-translate-y-2.5'
+                    ? 'border-2 border-brand-orange shadow-2xl mt-2 lg:mt-0 lg:-translate-y-2.5'
                     : 'border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1'
                 }`}
               >
@@ -126,6 +165,9 @@ export default function BundlingSection({ onOpenConsultation }) {
                       src={bundle.image}
                       alt={bundle.title}
                       loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="176"
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3">
@@ -202,9 +244,9 @@ export default function BundlingSection({ onOpenConsultation }) {
             <span className="text-xs font-bold text-brand-orange uppercase tracking-wider">
               Butuh Kombinasi Kemasan Berbeda?
             </span>
-            <h4 className="text-lg sm:text-xl font-extrabold text-[#0E1D33] mt-0.5">
+            <h3 className="text-lg sm:text-xl font-extrabold text-[#0E1D33] mt-0.5">
               Konsultasikan Paket Custom Khusus Brand Anda
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-xl">
               Punya menu khusus (misal: rice bowl berkuah, kopi botol, atau hampers hari raya)? Tim spesialis Packnesia siap menyusunkan paket bundling dieline khusus dengan penawaran harga grosir terbaik.
             </p>

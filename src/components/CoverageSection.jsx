@@ -1,7 +1,8 @@
-import React from 'react';
-import { Truck, ShieldCheck, MapPin, PackageCheck, ArrowRight, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Truck, ShieldCheck, MapPin, PackageCheck, ArrowRight, MessageCircle, ChevronDown } from 'lucide-react';
 
 export default function CoverageSection({ onOpenConsultation }) {
+  const [showAllMobile, setShowAllMobile] = useState(false);
   const regions = [
     {
       name: 'Jabodetabek',
@@ -60,7 +61,7 @@ export default function CoverageSection({ onOpenConsultation }) {
   );
 
   return (
-    <section id="coverage-section" className="py-16 md:py-24 bg-white border-t border-gray-100">
+    <section id="coverage-section" className="section-lazy py-12 md:py-20 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -100,7 +101,7 @@ export default function CoverageSection({ onOpenConsultation }) {
             <div>
               <h3 className="font-extrabold text-base text-[#0E1D33]">Packing Berlapis & Anti-Penyok</h3>
               <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                Setiap karton dibungkus plastik tahan lembab (*moisture-barrier*), strapping kuat, dan opsi packing kayu untuk pengiriman antar pulau.
+                Setiap karton dibungkus plastik tahan lembab (<em>moisture-barrier</em>), strapping kuat, dan opsi packing kayu untuk pengiriman antar pulau.
               </p>
             </div>
           </div>
@@ -142,33 +143,50 @@ export default function CoverageSection({ onOpenConsultation }) {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
             {regions.map((reg, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-4 border border-gray-200/80 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+                className={`bg-white rounded-2xl p-4 border border-gray-200/80 shadow-xs hover:shadow-md transition-shadow flex-col justify-between ${
+                  idx >= 4 && !showAllMobile ? 'hidden sm:flex' : 'flex'
+                }`}
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <h4 className="font-extrabold text-sm text-[#0E1D33]">{reg.name}</h4>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h4 className="font-extrabold text-sm text-[#0E1D33] leading-snug">{reg.name}</h4>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange whitespace-nowrap flex-shrink-0">
                       {reg.tag}
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5 mt-2.5">
-                    {reg.cities.map((city, cIdx) => (
-                      <span
-                        key={cIdx}
-                        className="px-2 py-0.5 rounded-md bg-gray-50 hover:bg-orange-50 text-gray-700 hover:text-brand-orange text-[11px] font-medium border border-gray-200/60 transition-colors"
-                      >
-                        {city}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed mt-2">
+                    {reg.cities.join(' • ')}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
+
+          {regions.length > 4 && (
+            <div className="sm:hidden mt-4 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAllMobile((prev) => !prev)}
+                aria-expanded={showAllMobile}
+                className="w-full min-h-[44px] px-5 py-2.5 rounded-full bg-white border border-gray-200 text-xs font-extrabold text-[#0E1D33] hover:bg-gray-50 shadow-xs inline-flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <span>
+                  {showAllMobile
+                    ? 'Tampilkan Lebih Ringkas (4 Wilayah Utama)'
+                    : `Lihat Semua ${regions.length} Wilayah Pengiriman`}
+                </span>
+                <ChevronDown
+                  className={`w-4 h-4 text-brand-orange transition-transform duration-200 ${
+                    showAllMobile ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Integrated Cargo Logos / Badges Banner */}

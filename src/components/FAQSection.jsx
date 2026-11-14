@@ -36,7 +36,7 @@ export default function FAQSection({ onOpenConsultation }) {
   };
 
   return (
-    <section id="faq-section" className="py-16 md:py-24 bg-white border-t border-gray-100">
+    <section id="faq-section" className="section-lazy py-12 md:py-20 bg-white border-t border-gray-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -103,7 +103,7 @@ export default function FAQSection({ onOpenConsultation }) {
               <HelpCircle className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-[#0E1D33]">Punya pertanyaan spesifik tentang ukuran produk Anda?</h4>
+              <h3 className="font-bold text-sm text-[#0E1D33]">Punya pertanyaan spesifik tentang ukuran produk Anda?</h3>
               <p className="text-xs text-gray-500">Konsultasikan gratis langsung dengan tim packaging specialist kami.</p>
             </div>
           </div>

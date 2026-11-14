@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { X, CheckCircle2, Play, Sparkles, ShieldCheck, Truck, Layers, ArrowRight } from 'lucide-react';
 
 export default function ProcessVideoModal({ isOpen, onClose, onOpenConsultation }) {
-  if (!isOpen) return null;
-
   useEffect(() => {
+    if (!isOpen) return undefined;
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   const steps = [
     {
@@ -42,22 +43,25 @@ export default function ProcessVideoModal({ isOpen, onClose, onOpenConsultation 
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden border border-gray-100 my-8"
+        className="relative bg-white rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[92vh] sm:max-h-[88vh] flex flex-col shadow-2xl overflow-hidden border border-gray-100 my-0 sm:my-8"
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="sm:hidden absolute top-2.5 left-1/2 -translate-x-1/2 z-20 w-10 h-1 rounded-full bg-white/80 shadow-xs pointer-events-none" />
+
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-gray-700 flex items-center justify-center shadow-md transition-colors cursor-pointer"
+          aria-label="Tutup modal proses"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-white/95 hover:bg-white text-gray-700 flex items-center justify-center shadow-md transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Hero Video Preview / Header */}
-        <div className="relative aspect-video w-full bg-[#0E1D33] overflow-hidden flex items-center justify-center">
+        <div className="relative aspect-[16/10] sm:aspect-video w-full flex-shrink-0 bg-[#0E1D33] overflow-hidden flex items-center justify-center">
           <img
             src="/images/hero-packaging.webp"
             alt="Packnesia Manufacturing Process"
@@ -68,7 +72,7 @@ export default function ProcessVideoModal({ isOpen, onClose, onOpenConsultation 
             className="w-full h-full object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0E1D33] via-transparent to-black/30" />
-          
+
           {/* Simulated Play Feature */}
           <div className="relative z-10 text-center p-4">
             <div className="w-16 h-16 rounded-full bg-brand-orange text-white flex items-center justify-center mx-auto mb-3 shadow-orange-glow animate-pulse">
@@ -84,7 +88,7 @@ export default function ProcessVideoModal({ isOpen, onClose, onOpenConsultation 
         </div>
 
         {/* 5-Step Process Timeline */}
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-8 overflow-y-auto overscroll-contain flex-1">
           <h4 className="text-xs font-bold uppercase tracking-wider text-brand-orange mb-4">
             Alur Pengerjaan dari Konsep Hingga Jadi
           </h4>

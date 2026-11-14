@@ -3,8 +3,6 @@ import { X, Check, ShieldCheck, Clock, Layers, MessageCircle, Sparkles, ChevronR
 import { products } from '../data/productsData';
 
 export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
-  if (!productId) return null;
-
   const product = products.find((p) => p.id === productId) || products[0];
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]?.name || '');
   const [quantity, setQuantity] = useState('1000');
@@ -13,15 +11,18 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
     if (product && product.sizes && product.sizes[0]) {
       setSelectedSize(product.sizes[0].name);
     }
-  }, [productId]);
+  }, [productId, product]);
 
   useEffect(() => {
+    if (!productId) return undefined;
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, [productId, onClose]);
+
+  if (!productId) return null;
 
   const currentTierPrice = product.tierPrices?.[quantity] || product.startPrice;
 
@@ -165,7 +166,7 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
                   <button
                     key={qty}
                     onClick={() => setQuantity(qty)}
-                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${quantity === qty
+                    className={`min-h-[40px] px-3.5 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${quantity === qty
                       ? 'bg-[#0E1D33] text-white shadow-md'
                       : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
                       }`}

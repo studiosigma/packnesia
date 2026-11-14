@@ -149,9 +149,8 @@ function generateProductHtml(product) {
     <!-- Favicon & Tailwind -->
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
+    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');}</style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -187,7 +186,7 @@ function generateProductHtml(product) {
       },
       "manufacturer": {
         "@type": "Organization",
-        "name": "Packnesia Custom Packaging Solutions",
+        "name": "Packnesia",
         "url": "${SITE_URL}",
         "areaServed": ["Indonesia", "Jakarta", "Surabaya", "Bandung", "Semarang", "Medan", "Bali", "Makassar"]
       },
@@ -487,7 +486,8 @@ function generateProductIndexHtml(allProducts) {
     <link rel="canonical" href="${SITE_URL}/produk/" />
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
+    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');}</style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {

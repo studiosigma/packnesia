@@ -3,16 +3,6 @@ import { X, ArrowRight, ArrowLeft, CheckCircle2, Sparkles, MessageCircle, Refres
 import AdvisorBotIcon from './AdvisorBotIcon';
 
 export default function AdvisorModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
-
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     businessType: '',
@@ -20,6 +10,17 @@ export default function AdvisorModal({ isOpen, onClose }) {
     volume: '',
     priority: '',
   });
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   const businessTypes = [
     { id: 'coffee', label: 'Coffee Shop & Cafe', icon: '☕', desc: 'Minuman kopi, teh, boba, & pastry' },
@@ -125,7 +126,8 @@ export default function AdvisorModal({ isOpen, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+            aria-label="Tutup advisor"
+            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>

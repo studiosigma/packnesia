@@ -2,16 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { X, Send, MessageCircle, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function ConsultationModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
-
   const [formData, setFormData] = useState({
     name: '',
     brandName: '',
@@ -23,6 +13,17 @@ export default function ConsultationModal({ isOpen, onClose }) {
   });
 
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +64,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
         <div className="bg-gradient-to-r from-[#0E1D33] to-[#1A2E4F] text-white p-5 sm:p-6 relative">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+            aria-label="Tutup form konsultasi"
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>

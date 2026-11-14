@@ -27,7 +27,7 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
   ];
 
   return (
-    <section id="solutions-section" className="py-16 md:py-24 bg-[#FBFBFC]">
+    <section id="solutions-section" className="section-lazy py-12 md:py-20 bg-[#FBFBFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 3-column Grid matching reference layout */}
@@ -79,9 +79,9 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
                 Tailored for Your Business
               </h2>
 
-              {/* Subtitle text matching reference */}
+              {/* Subtitle text */}
               <p className="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Whether you run a coffee shop, bakery, or food business, we provide custom packaging that elevates your brand and keeps your product perfect.
+                Baik untuk kedai kopi, bakery artisan, hingga cloud kitchen, kami merancang kemasan custom yang menaikkan citra brand sekaligus melindungi kualitas menu Anda.
               </p>
 
               {/* 4 Feature Badges with clean icons */}
@@ -114,7 +114,7 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
                 <button
                   key={i}
                   onClick={() => onSelectSolution(c)}
-                  className="px-2.5 py-1 text-xs font-medium rounded-lg bg-gray-100 text-gray-700 hover:bg-orange-100 hover:text-brand-orange transition-colors cursor-pointer"
+                  className="px-3 py-1.5 min-h-[36px] text-xs font-medium rounded-lg bg-gray-100 text-gray-700 hover:bg-orange-100 hover:text-brand-orange transition-colors cursor-pointer"
                 >
                   {c}
                 </button>

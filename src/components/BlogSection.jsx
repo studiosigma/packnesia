@@ -11,7 +11,7 @@ export default function BlogSection({ articles, onSelectArticle }) {
     : articles.filter((a) => a.category === activeCategory);
 
   return (
-    <section id="blog-section" className="py-16 md:py-24 bg-[#FBFBFC]">
+    <section id="blog-section" className="section-lazy py-12 md:py-20 bg-[#FBFBFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -38,7 +38,7 @@ export default function BlogSection({ articles, onSelectArticle }) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+              className={`min-h-[40px] px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeCategory === cat
                   ? 'bg-brand-orange text-white shadow-orange-glow'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/80'
