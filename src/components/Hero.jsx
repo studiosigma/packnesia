@@ -21,7 +21,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
       titleLine2: 'Packaging For',
       titleHighlight: 'Future Leaders.',
       subtitle: 'Bahan kraft foodgrade bersertifikasi ramah lingkungan & 100% biodegradable.',
-      image: '/images/hero-packaging.webp',
+      image: '/images/hero-eco-kraft.webp',
       badge: '100% Food-Grade Certified',
       stats: 'Bahan Ramah Lingkungan FSC'
     },
@@ -31,7 +31,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
       titleLine2: 'Best Pricing &',
       titleHighlight: 'Fast Delivery.',
       subtitle: 'Kapasitas produksi hingga 500.000 pcs per bulan dengan kontrol kualitas ketat.',
-      image: '/images/hero-packaging.webp',
+      image: '/images/hero-factory-suite.webp',
       badge: 'Produksi Cepat 7-10 Hari',
       stats: 'Pengiriman Seluruh Indonesia'
     }
