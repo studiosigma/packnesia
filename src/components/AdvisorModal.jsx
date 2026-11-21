@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ArrowRight, ArrowLeft, CheckCircle2, Sparkles, MessageCircle, RefreshCw } from 'lucide-react';
-import AdvisorBotIcon from './AdvisorBotIcon';
+import { X, ArrowRight, ArrowLeft, CheckCircle2, Sparkles, MessageCircle, RefreshCw, SlidersHorizontal } from 'lucide-react';
 
 export default function AdvisorModal({ isOpen, onClose }) {
   const [step, setStep] = useState(1);
@@ -82,7 +81,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
 
   const handleFinishWhatsApp = () => {
     const text = encodeURIComponent(
-      `Halo Packnesia, saya baru saja menggunakan *Packaging Advisor* di website!\n\n` +
+      `Halo Packnesia, saya baru saja menggunakan *Kalkulator Rekomendasi Kemasan* di website!\n\n` +
       `*Hasil Rekomendasi:*\n` +
       `• Jenis Bisnis: ${formData.businessType || '-'}\n` +
       `• Kemasan Utama: ${formData.primaryItem || '-'}\n` +
@@ -111,22 +110,22 @@ export default function AdvisorModal({ isOpen, onClose }) {
         {/* Modal Top Bar */}
         <div className="bg-[#0E1D33] text-white px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 flex items-center justify-center p-1">
-              <AdvisorBotIcon className="w-full h-full" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-orange/20 border border-brand-orange/30 flex items-center justify-center">
+              <SlidersHorizontal className="w-5 h-5 text-brand-orange" />
             </div>
             <div>
               <h3 className="font-bold text-base sm:text-lg flex items-center gap-2">
-                <span>Packaging Advisor</span>
+                <span>Rekomendasi Kemasan</span>
                 <span className="px-2 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase">
-                  AI Smart Match
+                  Spesifikasi Presisi
                 </span>
               </h3>
-              <p className="text-xs text-gray-300">Temukan rekomendasi kemasan terbaik untuk bisnis Anda</p>
+              <p className="text-xs text-gray-300">Temukan rekomendasi spesifikasi &amp; material terbaik untuk produk Anda</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            aria-label="Tutup advisor"
+            aria-label="Tutup rekomendasi"
             className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
@@ -315,7 +314,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
                   className="w-full text-xs text-gray-500 hover:text-gray-800 py-1 flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <RefreshCw className="w-3 h-3" />
-                  <span>Ulangi Kuis Advisor</span>
+                  <span>Hitung Ulang Spesifikasi</span>
                 </button>
               </div>
             </div>

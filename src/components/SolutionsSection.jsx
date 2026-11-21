@@ -1,6 +1,5 @@
 import React from 'react';
-import { Gem, Palette, Zap, Handshake, ArrowRight, Sparkles } from 'lucide-react';
-import AdvisorBotIcon from './AdvisorBotIcon';
+import { Gem, Palette, Zap, Handshake, ArrowRight, SlidersHorizontal } from 'lucide-react';
 
 export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
   const features = [
@@ -122,34 +121,36 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
             </div>
           </div>
 
-          {/* 3. Right Card ("Packaging Advisor") */}
+          {/* 3. Right Card ("Kalkulator Spesifikasi Kemasan") */}
           <div className="lg:col-span-3 bg-[#F6F7F9] rounded-3xl p-6 sm:p-8 border border-gray-100 flex flex-col items-center justify-between text-center relative overflow-hidden group">
             {/* Top decorative subtle pattern */}
             <div className="w-full flex flex-col items-center">
               
-              {/* Advisor Robot Mascot Illustration */}
-              <div className="w-20 h-20 mb-4 rounded-2xl bg-white shadow-sm border border-gray-200/80 p-2 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-                <AdvisorBotIcon className="w-full h-full" />
+              {/* Specification Calculator Badge Icon */}
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 rounded-2xl bg-white shadow-sm border border-gray-200/80 p-2 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center">
+                  <SlidersHorizontal className="w-6 h-6 text-brand-orange" />
+                </div>
               </div>
 
               {/* Title */}
               <h3 className="text-xl font-extrabold text-[#0E1D33]">
-                Packaging Advisor
+                Kalkulator Kemasan
               </h3>
 
-              {/* Subtitle matching reference */}
+              {/* Subtitle */}
               <p className="mt-2.5 text-xs sm:text-sm text-gray-500 max-w-xs leading-relaxed">
-                Tell us your business needs, and we'll recommend the perfect packaging for you.
+                Bingung menentukan material &amp; ukuran? Jawab 3 pertanyaan kilat untuk menemukan tipe kemasan yang paling presisi.
               </p>
             </div>
 
-            {/* Orange Button "Try Advisor ->" */}
+            {/* Orange Button "Cek Rekomendasi ->" */}
             <div className="w-full mt-6">
               <button
                 onClick={onOpenAdvisor}
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-semibold tracking-wide shadow-orange-glow transition-all active:scale-95 cursor-pointer"
               >
-                <span>Try Advisor</span>
+                <span>Cek Rekomendasi</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

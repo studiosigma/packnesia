@@ -1,5 +1,5 @@
 import React from 'react';
-import { Package, Sparkles, MessageCircle, FileText, Bot } from 'lucide-react';
+import { Package, Sparkles, MessageCircle, FileText, SlidersHorizontal } from 'lucide-react';
 
 export default function MobileBottomBar({ onOpenConsultation, onOpenAdvisor }) {
   const scrollToSection = (id) => {
@@ -38,14 +38,14 @@ export default function MobileBottomBar({ onOpenConsultation, onOpenAdvisor }) {
           <span className="text-[10px] font-bold text-brand-orange mt-0.5 truncate">Hasil</span>
         </button>
 
-        {/* AI Advisor Button */}
+        {/* Kalkulator Spesifikasi Button */}
         <button
           onClick={onOpenAdvisor}
           className="flex flex-col items-center justify-center min-h-[44px] py-1 px-1.5 rounded-xl text-gray-600 hover:text-brand-orange active:scale-95 transition-all cursor-pointer flex-1 min-w-0"
-          aria-label="Konsultasi AI Advisor"
+          aria-label="Kalkulator Rekomendasi Spesifikasi"
         >
-          <Bot className="w-5 h-5 text-[#0E1D33]" />
-          <span className="text-[10px] font-bold text-[#0E1D33] mt-0.5 truncate">Advisor</span>
+          <SlidersHorizontal className="w-5 h-5 text-[#0E1D33]" />
+          <span className="text-[10px] font-bold text-[#0E1D33] mt-0.5 truncate">Spesifikasi</span>
         </button>
 
         {/* Form Simulasi */}

@@ -204,7 +204,7 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
             className="text-xs font-semibold text-gray-600 hover:text-brand-orange flex items-center gap-1 cursor-pointer order-2 sm:order-1"
           >
             <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-            <span>Butuh saran kemasan yang pas? Tanya Packaging Advisor</span>
+            <span>Butuh saran kemasan yang pas? Cek Rekomendasi Spesifikasi</span>
           </button>
 
           <a
