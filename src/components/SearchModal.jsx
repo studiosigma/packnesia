@@ -99,6 +99,15 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }) {
             ))
           )}
         </div>
+
+        {/* Modal Footer with Logo */}
+        <div className="p-3 bg-gray-50/90 border-t border-gray-100 flex items-center justify-between px-5 text-xs text-gray-500">
+          <div className="flex items-center gap-2">
+            <img src="/images/packnesia-logo-dark.webp" alt="Packnesia" className="h-4 w-auto object-contain opacity-75" />
+            <span className="text-[10px] text-gray-400">Pabrik &amp; Vendor Kemasan Custom Foodgrade</span>
+          </div>
+          <span className="text-[10px] text-gray-400 hidden sm:inline">ESC untuk tutup</span>
+        </div>
       </div>
     </div>
   );

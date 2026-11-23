@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, MessageCircle, Sparkles, CheckCircle2 } from 'lucide-react';
+import Logo from './Logo';
 
 export default function ConsultationModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -70,10 +71,13 @@ export default function ConsultationModal({ isOpen, onClose }) {
             <X className="w-4 h-4" />
           </button>
 
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3 h-3" />
-            <span>100% Free Consultation</span>
-          </span>
+          <div className="flex items-center gap-3 mb-2.5">
+            <Logo variant="light" className="h-6 w-auto" />
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-wider">
+              <Sparkles className="w-3 h-3" />
+              <span>100% Free Consultation</span>
+            </span>
+          </div>
           <h3 className="text-xl sm:text-2xl font-extrabold text-white">
             Konsultasi Kemasan Brand Anda
           </h3>

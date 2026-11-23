@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X, Clock, Calendar, User, Tag, Share2, MessageCircle, Copy, Check, ArrowRight } from 'lucide-react';
+import Logo from './Logo';
 
 export default function ArticleModal({ article, onClose, onOpenConsultation }) {
   const [copied, setCopied] = useState(false);
@@ -195,9 +196,9 @@ export default function ArticleModal({ article, onClose, onOpenConsultation }) {
           {/* Call-to-Action Box inside article */}
           <div className="mt-8 p-6 rounded-3xl bg-[#0E1D33] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-orange block mb-1">
-                Kebutuhan Kemasan Bisnis Anda
-              </span>
+              <div className="mb-2">
+                <Logo variant="light" className="h-6 w-auto" />
+              </div>
               <h4 className="text-lg font-extrabold text-white">
                 Siap Wujudkan Kemasan Custom untuk Brand Anda?
               </h4>

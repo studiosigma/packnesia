@@ -65,6 +65,10 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
           </div>
 
           <div className="flex-1 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+              <img src="/images/packnesia-icon.webp" alt="Packnesia" className="w-4 h-4 object-contain" />
+              <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Packnesia Official Standard</span>
+            </div>
             <span className="inline-block px-3 py-1 rounded-full bg-orange-100/70 text-brand-orange text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
               {product.category}
             </span>

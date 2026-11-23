@@ -75,8 +75,9 @@ export default function ProcessVideoModal({ isOpen, onClose, onOpenConsultation 
 
           {/* Simulated Play Feature */}
           <div className="relative z-10 text-center p-4">
-            <div className="w-16 h-16 rounded-full bg-brand-orange text-white flex items-center justify-center mx-auto mb-3 shadow-orange-glow animate-pulse">
-              <Play className="w-7 h-7 fill-white ml-1" />
+            <img src="/images/packnesia-logo-light.webp" alt="Packnesia" className="h-6 w-auto mx-auto mb-3 object-contain" />
+            <div className="w-14 h-14 rounded-full bg-brand-orange text-white flex items-center justify-center mx-auto mb-3 shadow-orange-glow">
+              <Play className="w-6 h-6 fill-white ml-0.5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-extrabold text-white">
               Behind the Scenes: Pabrik Kemasan Packnesia

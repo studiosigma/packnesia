@@ -110,8 +110,8 @@ export default function AdvisorModal({ isOpen, onClose }) {
         {/* Modal Top Bar */}
         <div className="bg-[#0E1D33] text-white px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-orange/20 border border-brand-orange/30 flex items-center justify-center">
-              <SlidersHorizontal className="w-5 h-5 text-brand-orange" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2">
+              <img src="/images/packnesia-icon.webp" alt="Packnesia" className="w-full h-full object-contain brightness-0 invert" />
             </div>
             <div>
               <h3 className="font-bold text-base sm:text-lg flex items-center gap-2">

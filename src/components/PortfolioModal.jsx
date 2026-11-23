@@ -51,9 +51,15 @@ export default function PortfolioModal({ itemId, onClose }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           <div className="absolute bottom-4 left-5 right-5 text-white">
-            <span className="px-2.5 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-wider mb-1.5 inline-block">
-              {item.category}
-            </span>
+            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span className="px-2.5 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-wider inline-block">
+                {item.category}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-bold">
+                <img src="/images/packnesia-icon.webp" alt="Packnesia" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
+                <span>Packnesia Client Production</span>
+              </span>
+            </div>
             <h3 className="text-xl sm:text-2xl font-extrabold leading-tight text-white">{item.brand}</h3>
             <p className="text-xs text-gray-200 mt-1 flex items-center gap-1.5 flex-wrap">
               <MapPin className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />

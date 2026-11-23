@@ -128,8 +128,8 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
               
               {/* Specification Calculator Badge Icon */}
               <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 rounded-2xl bg-white shadow-sm border border-gray-200/80 p-2 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center">
-                  <SlidersHorizontal className="w-6 h-6 text-brand-orange" />
+                <div className="w-12 h-12 rounded-xl bg-[#0E1D33]/5 flex items-center justify-center p-2">
+                  <img src="/images/packnesia-icon.webp" alt="Packnesia" className="w-full h-full object-contain" />
                 </div>
               </div>
 
