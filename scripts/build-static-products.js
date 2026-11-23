@@ -238,27 +238,20 @@ function generateProductHtml(product) {
       </nav>
 
       <!-- Hero Product Section (2 Columns) -->
-      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200/80 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-gray-200/80 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
         <!-- Product Image Preview -->
-        <div class="lg:col-span-5 flex items-center justify-center p-6 bg-orange-50/40 rounded-2xl border border-orange-100">
-          <div class="w-64 h-64 sm:w-80 sm:h-80 relative flex items-center justify-center">
-            <img src="${product.image}" alt="${product.title} Packnesia" loading="eager" fetchpriority="high" decoding="async" width="320" height="320" class="w-full h-full object-contain filter drop-shadow-md" />
-            <div class="absolute top-0 right-0 bg-white/95 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase text-emerald-700 border border-emerald-200 shadow-xs">
-              ✓ Food-Grade Certified
-            </div>
+        <div class="lg:col-span-5 flex items-center justify-center">
+          <div class="w-64 h-64 sm:w-80 sm:h-80 relative rounded-xl overflow-hidden bg-stone-100 border border-gray-200/60">
+            <img src="${product.image}" alt="${product.title} Packnesia" loading="eager" fetchpriority="high" decoding="async" width="320" height="320" class="w-full h-full object-cover" />
           </div>
         </div>
 
         <!-- Product Summary Details -->
         <div class="lg:col-span-7 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span class="px-3 py-1 rounded-full bg-orange-100 text-brand-orange text-xs font-extrabold uppercase tracking-wider inline-block">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
                 ${product.category}
-              </span>
-              <span class="text-xs text-amber-500 font-bold flex items-center gap-1 ml-2">
-                <span>★★★★★</span>
-                <span class="text-gray-800">4.9 (320+ Review)</span>
               </span>
             </div>
 
@@ -390,7 +383,7 @@ function generateProductHtml(product) {
             </div>
           </div>
         </div>
-        <a href="https://wa.me/6287892251216?text=${encodeURIComponent(`Halo Packnesia, saya ingin simulasi harga grosir untuk produk ${product.title}`)}" target="_blank" class="w-full md:w-auto text-center px-7 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow whitespace-nowrap active:scale-95 transition-all">
+        <a href="https://wa.me/6287892251216?text=${encodeURIComponent(`Halo Packnesia, saya ingin simulasi harga grosir untuk produk ${product.title}`)}" target="_blank" class="w-full md:w-auto text-center px-7 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold whitespace-nowrap transition-colors">
           Minta Simulasi Harga Grosir &rarr;
         </a>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ChevronDown, Menu, X, ArrowRight, Phone, Sparkles } from 'lucide-react';
+import { Search, ChevronDown, Menu, X, ArrowRight, Phone, Coffee, Croissant, Utensils, Leaf } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProduct, onSelectSolution }) {
@@ -29,10 +29,10 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
   ];
 
   const solutionLinks = [
-    { name: 'Coffee Shop & Cafe', icon: '☕', desc: 'Solusi lengkap cup, pouch, & sleeve' },
-    { name: 'Bakery & Pastry', icon: '🥐', desc: 'Dus kue cantik dengan jendela & handle' },
-    { name: 'Fast Food & Delivery', icon: '🍔', desc: 'Box tahan minyak & paper bag kuat' },
-    { name: 'Eco-Friendly / Sustainable', icon: '🌱', desc: 'Bahan daur ulang bersertifikasi FSC' },
+    { name: 'Coffee Shop & Cafe', icon: Coffee, desc: 'Solusi lengkap cup, pouch, & sleeve' },
+    { name: 'Bakery & Pastry', icon: Croissant, desc: 'Dus kue cantik dengan jendela & handle' },
+    { name: 'Fast Food & Delivery', icon: Utensils, desc: 'Box tahan minyak & paper bag kuat' },
+    { name: 'Eco-Friendly / Sustainable', icon: Leaf, desc: 'Bahan daur ulang bersertifikasi FSC' },
   ];
 
   const infoLinks = [
@@ -134,24 +134,29 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
               {solutionsDropdown && (
                 <div className="absolute top-full -left-10 pt-2 w-80 animate-in fade-in slide-in-from-top-1 duration-150">
                   <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-2.5">
-                    {solutionLinks.map((item, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => {
-                          setSolutionsDropdown(false);
-                          if (onSelectSolution) onSelectSolution(item.name);
-                        }}
-                        className="w-full text-left p-2.5 rounded-xl hover:bg-orange-50/70 transition-colors flex items-start gap-3 group/item"
-                      >
-                        <span className="text-xl p-1 bg-gray-50 rounded-lg group-hover/item:bg-white">{item.icon}</span>
-                        <div>
-                          <div className="font-semibold text-gray-900 group-hover/item:text-brand-orange text-sm">
-                            {item.name}
+                    {solutionLinks.map((item, idx) => {
+                      const Icon = item.icon;
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => {
+                            setSolutionsDropdown(false);
+                            if (onSelectSolution) onSelectSolution(item.name);
+                          }}
+                          className="w-full text-left p-2.5 rounded-xl hover:bg-orange-50/70 transition-colors flex items-start gap-3 group/item"
+                        >
+                          <span className="p-2 bg-gray-100 rounded-lg text-[#0E1D33] group-hover/item:bg-white group-hover/item:text-brand-orange transition-colors mt-0.5">
+                            <Icon className="w-4 h-4" />
+                          </span>
+                          <div>
+                            <div className="font-semibold text-gray-900 group-hover/item:text-brand-orange text-sm">
+                              {item.name}
+                            </div>
+                            <div className="text-xs text-gray-500 mt-0.5">{item.desc}</div>
                           </div>
-                          <div className="text-xs text-gray-500 mt-0.5">{item.desc}</div>
-                        </div>
-                      </button>
-                    ))}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -231,7 +236,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
             {/* Consultation CTA Button */}
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-[14px] font-semibold tracking-wide shadow-orange-glow hover:shadow-lg transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-[14px] font-semibold tracking-wide transition-colors cursor-pointer whitespace-nowrap"
             >
               <span>Consultation</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
@@ -340,7 +345,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
                   setMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full min-h-[46px] flex items-center justify-center gap-2 py-3 px-4 bg-brand-orange text-white rounded-full font-semibold shadow-orange-glow active:scale-95 transition-transform"
+                className="w-full min-h-[46px] flex items-center justify-center gap-2 py-3 px-4 bg-brand-orange text-white rounded-full font-semibold transition-colors"
               >
                 <span>Konsultasi Gratis</span>
                 <ArrowRight className="w-4 h-4" />

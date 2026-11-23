@@ -211,7 +211,7 @@ export default function ArticleModal({ article, onClose, onOpenConsultation }) {
                 onClose();
                 if (onOpenConsultation) onOpenConsultation();
               }}
-              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold shadow-orange-glow whitespace-nowrap active:scale-95 transition-all cursor-pointer"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold whitespace-nowrap transition-colors cursor-pointer"
             >
               <span>Konsultasi Sekarang</span>
               <ArrowRight className="w-4 h-4" />

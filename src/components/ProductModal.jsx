@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Check, ShieldCheck, Clock, Layers, MessageCircle, Sparkles, ChevronRight } from 'lucide-react';
+import { X, Check, ShieldCheck, Clock, MessageCircle, SlidersHorizontal } from 'lucide-react';
 import { products } from '../data/productsData';
 
 export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
@@ -55,12 +55,12 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
         </button>
 
         {/* Modal Header & Image Section */}
-        <div className="bg-gradient-to-br from-orange-50/70 via-gray-50 to-white p-5 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 border-b border-gray-100 flex-shrink-0">
-          <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-2xl bg-white p-3 sm:p-4 shadow-md flex-shrink-0 flex items-center justify-center border border-orange-100">
+        <div className="bg-[#FAF9F7] p-5 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 border-b border-gray-100 flex-shrink-0">
+          <div className="w-28 h-28 sm:w-44 sm:h-44 rounded-xl bg-stone-100 overflow-hidden shadow-sm flex-shrink-0 border border-gray-200/80">
             <img
               src={product.image}
               alt={product.title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
 
@@ -86,7 +86,7 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
               </span>
               <span className="flex items-center gap-1.5 text-gray-700 bg-white px-2.5 py-1.5 rounded-lg border border-gray-200">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Food Grade A+</span>
+                <span>Food Grade</span>
               </span>
               <span className="text-brand-orange font-bold text-xs sm:text-sm">
                 Mulai {product.startPrice} /pcs
@@ -191,8 +191,8 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
                   {currentTierPrice} <span className="text-xs font-normal text-gray-500">/ pcs</span>
                 </span>
               </div>
-              <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-extrabold uppercase tracking-wider">
-                ✓ Harga Grosir Resmi
+              <span className="text-xs font-bold text-[#0E1D33]">
+                Harga Grosir
               </span>
             </div>
           </div>
@@ -205,9 +205,9 @@ export default function ProductModal({ productId, onClose, onOpenAdvisor }) {
               onClose();
               if (onOpenAdvisor) onOpenAdvisor();
             }}
-            className="text-xs font-semibold text-gray-600 hover:text-brand-orange flex items-center gap-1 cursor-pointer order-2 sm:order-1"
+            className="text-xs font-semibold text-gray-600 hover:text-brand-orange flex items-center gap-1.5 cursor-pointer order-2 sm:order-1"
           >
-            <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+            <SlidersHorizontal className="w-3.5 h-3.5 text-brand-orange" />
             <span>Butuh saran kemasan yang pas? Cek Rekomendasi Spesifikasi</span>
           </button>
 

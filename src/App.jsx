@@ -174,14 +174,12 @@ export default function App() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat WhatsApp"
-        className="hidden md:flex fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl items-center gap-2.5 transition-all duration-300 hover:scale-105 active:scale-95 group"
+        className="hidden md:flex fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20BD5A] text-white px-5 py-3 rounded-full shadow-lg items-center gap-2 transition-colors duration-200"
       >
-        <MessageCircle className="w-6 h-6 fill-white" />
-        <span className="hidden sm:inline font-bold text-sm tracking-wide">
+        <MessageCircle className="w-5 h-5 fill-white" />
+        <span className="font-bold text-sm">
           Konsultasi via WhatsApp
         </span>
-        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-brand-orange rounded-full border-2 border-white animate-ping" />
-        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-brand-orange rounded-full border-2 border-white" />
       </a>
 
       {/* Mobile Sticky Bottom Quick-Bar (Mobile Ergonomics) */}

@@ -301,7 +301,7 @@ function generateArticleHtml(art) {
             Konsultasikan ukuran, dieline 3D mockup gratis, dan dapatkan penawaran harga pabrik langsung.
           </p>
         </div>
-        <a href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20tertarik%20konsultasi%20kemasan%20setelah%20membaca%20artikel%20${encodeURIComponent(art.title)}" target="_blank" class="px-6 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow whitespace-nowrap transition-all active:scale-95">
+        <a href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20tertarik%20konsultasi%20kemasan%20setelah%20membaca%20artikel%20${encodeURIComponent(art.title)}" target="_blank" class="px-6 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold whitespace-nowrap transition-colors">
           Chat WhatsApp Sekarang &rarr;
         </a>
       </div>

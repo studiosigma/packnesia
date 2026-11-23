@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Send, MessageCircle, Sparkles, CheckCircle2 } from 'lucide-react';
+import { X, Send, CheckCircle2 } from 'lucide-react';
 import Logo from './Logo';
 
 export default function ConsultationModal({ isOpen, onClose }) {
@@ -62,7 +62,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
         </div>
 
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#0E1D33] to-[#1A2E4F] text-white p-5 sm:p-6 relative">
+        <div className="bg-[#0E1D33] text-white p-5 sm:p-6 relative">
           <button
             onClick={onClose}
             aria-label="Tutup form konsultasi"
@@ -71,12 +71,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
             <X className="w-4 h-4" />
           </button>
 
-          <div className="flex items-center gap-3 mb-2.5">
-            <Logo variant="light" className="h-6 w-auto" />
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-wider">
-              <Sparkles className="w-3 h-3" />
-              <span>100% Free Consultation</span>
-            </span>
+          <div className="mb-3">
+            <Logo variant="light" className="h-5 w-auto" />
           </div>
           <h3 className="text-xl sm:text-2xl font-extrabold text-white">
             Konsultasi Kemasan Brand Anda
@@ -209,7 +205,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
 
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold shadow-orange-glow transition-all active:scale-95 cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold transition-colors cursor-pointer"
             >
               <Send className="w-4 h-4" />
               <span>Kirim & Mulai Konsultasi Gratis</span>

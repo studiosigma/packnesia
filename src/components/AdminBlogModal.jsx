@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  X, Plus, Edit3, Trash2, Eye, Save, Sparkles, CheckCircle2,
+  X, Plus, Edit3, Trash2, Eye, Save, CheckCircle2,
   FileText, Image as ImageIcon, Tag, Folder, User, Clock, ArrowLeft,
   RotateCcw, Download, HelpCircle, Layers, ExternalLink
 } from 'lucide-react';
@@ -302,7 +302,7 @@ Ringkas pesan utama dan ajak pembaca berkonsultasi mengenai kebutuhan kemasan me
               onClick={handleStartNew}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === 'editor'
-                  ? 'bg-brand-orange text-white shadow-orange-glow'
+                  ? 'bg-brand-orange text-white'
                   : 'bg-white text-gray-700 hover:bg-orange-50 border border-gray-200'
               }`}
             >
@@ -488,7 +488,7 @@ Ringkas pesan utama dan ajak pembaca berkonsultasi mengenai kebutuhan kemasan me
 
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold shadow-orange-glow active:scale-95 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold transition-colors cursor-pointer"
                 >
                   <Save className="w-3.5 h-3.5" />
                   <span>Simpan & Publikasikan</span>
@@ -656,7 +656,7 @@ Ringkas pesan utama dan ajak pembaca berkonsultasi mengenai kebutuhan kemasan me
                           className="px-2 py-0.5 text-xs font-bold bg-orange-100 text-brand-orange hover:bg-orange-200 rounded shadow-xs flex items-center gap-1"
                           title="Sisipkan Template Artikel"
                         >
-                          <Sparkles className="w-3 h-3" />
+                          <FileText className="w-3 h-3" />
                           <span>Template</span>
                         </button>
                       </div>
@@ -745,7 +745,7 @@ Ringkas pesan utama dan ajak pembaca berkonsultasi mengenai kebutuhan kemasan me
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold shadow-orange-glow active:scale-95 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold transition-colors cursor-pointer"
                 >
                   <Save className="w-3.5 h-3.5" />
                   <span>Simpan & Tayangkan Artikel</span>

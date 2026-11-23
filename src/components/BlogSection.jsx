@@ -11,25 +11,20 @@ export default function BlogSection({ articles, onSelectArticle }) {
     : articles.filter((a) => a.category === activeCategory);
 
   return (
-    <section id="blog-section" className="section-lazy py-12 md:py-20 bg-[#FBFBFC]">
+    <section id="blog-section" className="section-lazy py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-10 md:mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-2">
-              <span className="w-5 h-0.5 bg-brand-orange rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-800">
-                Packnesia <span className="text-brand-orange">Insights</span>
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
-              Tips & Wawasan Seputar Kemasan F&B
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-gray-500 max-w-xl">
-              Pelajari tren kemasan kuliner, pemilihan material ramah lingkungan, dan strategi branding visual yang meningkatkan omzet bisnis Anda.
-            </p>
-          </div>
+        <div className="mb-8 md:mb-10 max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">
+            Artikel &amp; Edukasi
+          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
+            Tips &amp; Wawasan Seputar Kemasan F&amp;B
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm text-gray-500">
+            Panduan memilih material kertas foodgrade, teknik cetak, serta pertimbangan HPP untuk bisnis kuliner Anda.
+          </p>
         </div>
 
         {/* Category Filter Chips */}
@@ -38,10 +33,10 @@ export default function BlogSection({ articles, onSelectArticle }) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`min-h-[40px] px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+              className={`min-h-[40px] px-4 py-2 rounded-full text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap ${
                 activeCategory === cat
-                  ? 'bg-brand-orange text-white shadow-orange-glow'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/80'
+                  ? 'bg-[#0E1D33] text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {cat}
@@ -55,11 +50,11 @@ export default function BlogSection({ articles, onSelectArticle }) {
             <div
               key={art.id}
               onClick={() => onSelectArticle(art)}
-              className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              className="group bg-white rounded-xl overflow-hidden border border-gray-200/80 hover:border-gray-300 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between"
             >
               <div>
-                {/* Thumbnail Image */}
-                <div className="aspect-[16/10] w-full bg-gray-100 overflow-hidden relative">
+                {/* Clean Thumbnail Image without overlaid badge */}
+                <div className="aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                   <img
                     src={art.coverImage || '/images/hero-packaging.webp'}
                     alt={art.title}
@@ -67,28 +62,15 @@ export default function BlogSection({ articles, onSelectArticle }) {
                     decoding="async"
                     width="400"
                     height="250"
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-brand-orange text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
-                      {art.category}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content info */}
                 <div className="p-5 sm:p-6">
-                  <div className="flex items-center gap-3 text-xs text-gray-400 mb-2.5">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      <span>{art.date}</span>
-                    </span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      <span>{art.readTime || '4 menit'}</span>
-                    </span>
-                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-orange block mb-2">
+                    {art.category}
+                  </span>
 
                   <h3 className="font-extrabold text-base sm:text-lg text-[#0E1D33] group-hover:text-brand-orange transition-colors line-clamp-2 leading-snug">
                     <a
@@ -110,8 +92,20 @@ export default function BlogSection({ articles, onSelectArticle }) {
                 </div>
               </div>
 
-              {/* Bottom Card Action */}
-              <div className="px-5 sm:px-6 pb-5 pt-0 flex items-center justify-between text-xs font-bold text-brand-orange">
+              {/* Bottom Card Meta & Action */}
+              <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-3 text-gray-400">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>{art.date}</span>
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    <span>{art.readTime || '4 menit'}</span>
+                  </span>
+                </div>
+
                 <a
                   href={`/blog/${art.slug}/`}
                   onClick={(e) => {
@@ -120,10 +114,10 @@ export default function BlogSection({ articles, onSelectArticle }) {
                       onSelectArticle(art);
                     }
                   }}
-                  className="group-hover:underline flex items-center gap-1"
+                  className="font-bold text-brand-orange flex items-center gap-1"
                 >
-                  <span>Baca Selengkapnya</span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
+                  <span>Baca</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

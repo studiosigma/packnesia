@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Sparkles, TrendingUp, Instagram, Star, ShieldCheck, ArrowRight, MessageCircle } from 'lucide-react';
+import { Check, Minus, ArrowRight, MessageCircle } from 'lucide-react';
 
 export default function BeforeAfterSection({ onOpenConsultation }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -13,66 +13,60 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
       category: 'Coffee Shop & Cafe',
       client: 'GOOD COFFEE',
       location: 'Jakarta Selatan',
-      title: 'Transformasi Gelas Kopi Takeaway: Dari Plastik Polos ke Signature Double-Wall Cup',
+      title: 'Dari Plastik Polos ke Double-Wall Custom Paper Cup',
       beforeImg: '/images/before-coffee-cup.webp',
       afterImg: '/images/portfolio-good-coffee.webp',
       beforeStats: {
         price: 'Rp 18.000',
-        perception: 'Kopi Pinggir Jalan / Biasa',
-        socialShares: 'Hampir tidak pernah di-tag di Instagram',
-        cons: ['Gelas cepat dingin & berembun basah', 'Tidak ada identitas brand yang diingat', 'Tampak generik di aplikasi online']
+        perception: 'Kopi Takeaway Standar',
+        cons: ['Gelas cepat dingin & berembun basah', 'Tidak ada identitas brand yang diingat', 'Tampak generik di aplikasi pesan-antar']
       },
       afterStats: {
         price: 'Rp 34.000',
-        perception: 'Specialty Artisan Cafe Premium',
-        socialShares: 'Rata-rata 25+ mention IG Story per hari',
-        pros: ['Insulasi double-wall nyaman digenggam', 'Warna CMYK kontras tinggi & fotogenik', 'Pelanggan bangga membawa gelas di jalan']
+        perception: 'Specialty Artisan Cafe',
+        pros: ['Insulasi double-wall nyaman digenggam', 'Cetak CMYK kontras tinggi & presisi', 'Meningkatkan daya tarik foto pelanggan']
       },
-      impactHighlight: '+42% Kenaikan Omzet Takeaway & 3.5x Lipat Postingan Medsos'
+      impactHighlight: 'Membantu menaikkan persepsi nilai produk hingga hampir 2x lipat dan mendorong repeat order takeaway.'
     },
     {
       id: 'food-box',
       category: 'Fast Casual Dining',
       client: 'URBAN BITES',
       location: 'Bandung',
-      title: 'Upgrade Dus Makanan Takeaway: Dari Styrofoam Polos ke Eco Brown Kraft Food Box',
+      title: 'Dari Kemasan Polos ke Eco Brown Kraft Food Box',
       beforeImg: '/images/before-food-box.webp',
       afterImg: '/images/portfolio-urban-bites.webp',
       beforeStats: {
         price: 'Rp 25.000',
-        perception: 'Warung Makan Biasa / Cepat Saji Standar',
-        socialShares: 'Jarang difoto karena kemasan berminyak',
-        cons: ['Makanan jadi lembek akibat uap panas', 'Bahan tidak ramah lingkungan', 'Bocor minyak tembus ke kantong kresek']
+        perception: 'Porsi Makan Standar',
+        cons: ['Makanan cepat lembek akibat uap panas', 'Bahan kurang tahan minyak berlebih', 'Kurang rapi saat pengiriman kurir']
       },
       afterStats: {
         price: 'Rp 48.000',
-        perception: 'Modern Gourmet Fast Casual Dining',
-        socialShares: 'Viral review di TikTok & Food Vlogger',
-        pros: ['Ventilasi uap menjaga kerenyahan makanan', 'Lapisan PE foodgrade 100% anti-bocor minyak', 'Kesan eco-friendly meningkatkan loyalitas']
+        perception: 'Modern Fast Casual',
+        pros: ['Ventilasi uap menjaga tekstur makanan', 'Lapisan PE foodgrade tahan minyak', 'Tampilan bersih meningkatkan rating delivery']
       },
-      impactHighlight: '+38% Repeat Order di GoFood/GrabFood & Rating Naik Jadi 4.9 Bintang'
+      impactHighlight: 'Kemasan anti-rembes menjaga keutuhan hidangan hingga sampai ke tangan pelanggan.'
     },
     {
       id: 'cake-box',
       category: 'Artisan Bakery & Pastry',
       client: 'SWEET MOMENTS',
       location: 'Surabaya',
-      title: 'Evolusi Kotak Kue & Hampers: Dari Kardus Kusam ke Dus Pastel Mika Berhandle',
+      title: 'Dari Kardus Kusam ke Dus Kue Berhandle & Window',
       beforeImg: '/images/before-cake-box.webp',
       afterImg: '/images/portfolio-sweet-moments.webp',
       beforeStats: {
         price: 'Rp 45.000',
-        perception: 'Kue Rumahan Tanpa Standar Higienis',
-        socialShares: 'Pelanggan harus buka dus dulu baru foto kue',
-        cons: ['Kue tidak kelihatan dari luar', 'Perlu kantong kresek tambahan yang licin', 'Mudah penyok saat dibawa kurir motor']
+        perception: 'Kemasan Rumahan Polos',
+        cons: ['Kue tidak terlihat sebelum dus dibuka', 'Perlu kantong plastik tambahan saat dibawa', 'Struktur tipis mudah penyok di jalan']
       },
       afterStats: {
         price: 'Rp 95.000',
-        perception: 'Luxury Hampers & Gift Box Premium',
-        socialShares: 'Langsung jadi kado ulang tahun & hantaran',
-        pros: ['High-clarity window mika memperlihatkan estetik kue', 'Integrated handle kokoh tanpa perlu plastik', 'Ivory foodgrade tahan kelembaban kulkas']
+        perception: 'Gift & Hampers Bakery',
+        pros: ['Window mika bening menampilkan kue', 'Gagang jinjing menyatu tanpa kantong tambahan', 'Ivory 350gsm kokoh & higienis']
       },
-      impactHighlight: '+110% Kenaikan Nilai Jual Menu & Laris Manis Jadi Hampers Hari Raya'
+      impactHighlight: 'Memudahkan pelanggan membawa pulang langsung sebagai hampers dan kado siap kirim.'
     }
   ];
 
@@ -102,22 +96,19 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
   );
 
   return (
-    <section id="transformation-section" className="section-lazy py-12 md:py-20 bg-white border-b border-gray-100 overflow-hidden">
+    <section id="transformation-section" className="section-lazy py-12 md:py-20 bg-white border-t border-b border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <span className="w-5 h-0.5 bg-brand-orange rounded-full" />
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-orange">
-              Kemasan Menentukan Penjualan
-            </span>
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">
+            Perbandingan Sebelum &amp; Sesudah
+          </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
-            Lihat Transformasi Nyata Brand Bersama Packnesia
+            Dampak Kemasan Custom untuk Brand Anda
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-500 font-normal leading-relaxed">
-            Geser slider di bawah ini untuk melihat perbandingan langsung antara kemasan polos biasa dengan kemasan custom Packnesia yang terbukti melipatgandakan persepsi harga dan omzet resto.
+          <p className="mt-2.5 text-sm sm:text-base text-gray-500 font-normal leading-relaxed">
+            Geser pembanding berikut untuk melihat perbedaan kemasan polos biasa dengan kemasan cetak custom Packnesia.
           </p>
         </div>
 
@@ -130,21 +121,20 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                 setActiveTab(idx);
                 setSliderPos(50);
               }}
-              className={`min-h-[40px] px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 shadow-xs ${
+              className={`min-h-[40px] px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors cursor-pointer flex items-center gap-2 ${
                 activeTab === idx
-                  ? 'bg-[#0E1D33] text-white shadow-md scale-102'
-                  : 'bg-[#F6F7F9] text-gray-600 hover:bg-gray-200/70 border border-gray-200/70'
+                  ? 'bg-[#0E1D33] text-white'
+                  : 'bg-[#F6F7F9] text-gray-600 hover:bg-gray-200 border border-gray-200/80'
               }`}
             >
-              <span className={`w-2 h-2 rounded-full ${activeTab === idx ? 'bg-brand-orange animate-pulse' : 'bg-gray-400'}`} />
               <span>{cs.category}</span>
-              <span className="text-[11px] opacity-70">({cs.client})</span>
+              <span className="text-[11px] opacity-75">({cs.client})</span>
             </button>
           ))}
         </div>
 
         {/* Main Transformation Card */}
-        <div className="bg-[#FAF9F7] rounded-3xl p-6 sm:p-10 border border-gray-200/80 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-[#F8F9FA] rounded-2xl p-5 sm:p-8 lg:p-10 border border-gray-200/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Column: Interactive Before/After Split Slider (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-center">
@@ -159,10 +149,10 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
               onTouchMove={onTouchMove}
               onTouchStart={() => setIsDragging(true)}
               onTouchEnd={() => setIsDragging(false)}
-              className="relative aspect-square sm:aspect-[4/3] w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border-4 border-white select-none touch-pan-y cursor-ew-resize bg-gray-100 group"
+              className="relative aspect-square sm:aspect-[4/3] w-full max-w-lg rounded-xl overflow-hidden shadow-md border-2 border-white select-none touch-pan-y cursor-ew-resize bg-gray-100 group"
             >
-              {/* 1. AFTER Image (Base Layer - Right / Full) */}
-              <div className="absolute inset-0 w-full h-full bg-orange-50/40">
+              {/* 1. AFTER Image (Base Layer) */}
+              <div className="absolute inset-0 w-full h-full">
                 <img
                   src={current.afterImg}
                   alt={`${current.client} Kemasan Custom Packnesia (Sesudah)`}
@@ -172,14 +162,12 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                   height="600"
                   className="w-full h-full object-cover pointer-events-none"
                 />
-                {/* After Pill Badge */}
-                <div className="absolute top-4 right-4 bg-brand-orange text-white text-[11px] sm:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-white/40 flex items-center gap-1.5 z-10">
-                  <Sparkles className="w-3.5 h-3.5 fill-white" />
-                  <span>Sesudah (Packnesia)</span>
-                </div>
+                <span className="absolute top-3.5 right-3.5 bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-md shadow-sm z-10">
+                  Sesudah — Custom
+                </span>
               </div>
 
-              {/* 2. BEFORE Image (GPU Clip-Path Overlay - Left Side, Zero Squish on Initial Render) */}
+              {/* 2. BEFORE Image (Overlay) */}
               <div
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
@@ -193,31 +181,25 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                   height="600"
                   className="w-full h-full object-cover pointer-events-none filter grayscale contrast-90"
                 />
-                {/* Before Pill Badge */}
-                <div className="absolute top-4 left-4 bg-[#0E1D33]/90 text-gray-200 text-[11px] sm:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg border border-white/20 z-10">
-                  <span>Sebelum (Polos)</span>
-                </div>
+                <span className="absolute top-3.5 left-3.5 bg-[#0E1D33] text-gray-100 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-md shadow-sm z-10">
+                  Sebelum — Polos
+                </span>
               </div>
 
               {/* 3. Draggable Vertical Divider Handle */}
               <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl pointer-events-none z-20"
+                className="absolute top-0 bottom-0 w-0.5 bg-white shadow-md pointer-events-none z-20"
                 style={{ left: `${sliderPos}%` }}
               >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#0E1D33] text-white border-2 border-white shadow-xl flex items-center justify-center font-bold text-xs group-hover:scale-110 transition-transform">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0E1D33] text-white border-2 border-white shadow-md flex items-center justify-center font-bold text-xs">
                   <span className="text-[10px] tracking-tighter">&larr;&rarr;</span>
                 </div>
               </div>
-
-              {/* Mobile Swipe Hint */}
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-white font-medium pointer-events-none z-10 flex items-center gap-1">
-                <span>Geser ke kiri / kanan</span>
-              </div>
             </div>
 
-            {/* Accessible Range Input slider for keyboard, screen readers & mobile thumb touch */}
-            <div className="w-full max-w-md mt-4 flex items-center gap-3 min-h-[44px]">
-              <span className="text-[11px] font-bold text-gray-500 uppercase">Sebelum</span>
+            {/* Accessible Range Input */}
+            <div className="w-full max-w-md mt-4 flex items-center gap-3 min-h-[40px]">
+              <span className="text-[11px] font-bold text-gray-500 uppercase">Polos</span>
               <input
                 type="range"
                 min="5"
@@ -225,78 +207,81 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                 value={sliderPos}
                 onChange={(e) => setSliderPos(Number(e.target.value))}
                 aria-label="Before after comparison slider"
-                className="flex-1 h-3 sm:h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-orange"
+                className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-orange"
               />
-              <span className="text-[11px] font-bold text-brand-orange uppercase">Sesudah</span>
+              <span className="text-[11px] font-bold text-brand-orange uppercase">Custom</span>
             </div>
           </div>
 
-          {/* Right Column: Key Transformation Metrics & Insights (5 cols) */}
+          {/* Right Column: Clean Editorial Comparison (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              {/* Client Tag & Title */}
-              <div className="flex items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-md bg-orange-100 text-brand-orange text-xs font-black uppercase">
-                  {current.client}
-                </span>
-                <span className="text-xs text-gray-500 font-medium">{current.location}</span>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                <span className="text-brand-orange">{current.client}</span>
+                <span>•</span>
+                <span>{current.location}</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-extrabold text-[#0E1D33] tracking-tight leading-snug">
                 {current.title}
               </h3>
 
-              {/* Price Perception Comparison Card */}
-              <div className="mt-5 p-4 rounded-2xl bg-white border border-gray-200/80 shadow-xs grid grid-cols-2 gap-3 text-center">
-                <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-100">
-                  <span className="text-[10px] font-bold uppercase text-gray-400 block">Harga Jual Menu Sebelum</span>
-                  <span className="text-base sm:text-lg font-black text-gray-400 line-through">{current.beforeStats.price}</span>
-                  <span className="text-[11px] text-gray-400 block mt-0.5">{current.beforeStats.perception}</span>
-                </div>
-                <div className="p-2.5 rounded-xl bg-orange-50 border border-orange-200">
-                  <span className="text-[10px] font-bold uppercase text-brand-orange block">Harga Jual Menu Sesudah</span>
-                  <span className="text-base sm:text-lg font-black text-brand-orange">{current.afterStats.price}</span>
-                  <span className="text-[11px] text-gray-700 font-semibold block mt-0.5">{current.afterStats.perception}</span>
-                </div>
-              </div>
-
-              {/* Before vs After Bullet Contrast */}
-              <div className="mt-5 space-y-2.5 text-xs sm:text-sm">
-                <div className="p-3 bg-red-50/60 rounded-xl border border-red-100 text-red-900">
-                  <span className="font-bold block mb-1">Kelemahan Kemasan Polos Sebelumnya:</span>
-                  <ul className="space-y-1 list-disc ml-4 text-red-800 text-xs">
+              {/* Clean Side-by-Side Specs Table */}
+              <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-4 rounded-xl bg-white border border-gray-200/80">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block">
+                    Kemasan Polos
+                  </span>
+                  <div className="mt-1 text-base font-bold text-gray-400 line-through">
+                    {current.beforeStats.price}
+                  </div>
+                  <div className="text-xs font-medium text-gray-500 mb-3">
+                    {current.beforeStats.perception}
+                  </div>
+                  <ul className="space-y-1.5 border-t border-gray-100 pt-2.5 text-xs text-gray-500">
                     {current.beforeStats.cons.map((con, idx) => (
-                      <li key={idx}>{con}</li>
+                      <li key={idx} className="flex items-start gap-1.5">
+                        <Minus className="w-3.5 h-3.5 text-gray-400 flex-shrink-0 mt-0.5" />
+                        <span>{con}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="p-3 bg-emerald-50/60 rounded-xl border border-emerald-100 text-emerald-900">
-                  <span className="font-bold block mb-1">Keunggulan Setelah Cetak Packnesia:</span>
-                  <ul className="space-y-1 list-disc ml-4 text-emerald-800 text-xs">
+                <div className="p-4 rounded-xl bg-white border border-gray-200 border-t-2 border-t-brand-orange">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-orange block">
+                    Custom Packnesia
+                  </span>
+                  <div className="mt-1 text-base font-extrabold text-[#0E1D33]">
+                    {current.afterStats.price}
+                  </div>
+                  <div className="text-xs font-semibold text-gray-700 mb-3">
+                    {current.afterStats.perception}
+                  </div>
+                  <ul className="space-y-1.5 border-t border-gray-100 pt-2.5 text-xs text-gray-700">
                     {current.afterStats.pros.map((pro, idx) => (
-                      <li key={idx}>{pro}</li>
+                      <li key={idx} className="flex items-start gap-1.5">
+                        <Check className="w-3.5 h-3.5 text-brand-orange flex-shrink-0 mt-0.5" />
+                        <span>{pro}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              {/* Highlight Impact Badge */}
-              <div className="mt-5 p-3.5 rounded-xl bg-[#0E1D33] text-white flex items-center gap-3 shadow-md">
-                <TrendingUp className="w-5 h-5 text-brand-orange flex-shrink-0" />
-                <span className="text-xs font-bold leading-relaxed">
-                  {current.impactHighlight}
-                </span>
-              </div>
+              {/* Restrained editorial summary note */}
+              <p className="mt-4 pl-3 border-l-2 border-brand-orange text-xs text-gray-600 leading-relaxed">
+                {current.impactHighlight}
+              </p>
             </div>
 
             {/* Consultation Action CTA */}
             <div className="mt-6 pt-5 border-t border-gray-200/80 flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={onOpenConsultation}
-                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs sm:text-sm font-bold shadow-orange-glow transition-all active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
               >
-                <span>Upgrade Kemasan Brand Anda</span>
+                <span>Konsultasikan Kemasan Brand</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -304,11 +289,11 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
                 href={`https://wa.me/6287892251216?text=${waTransformMessage}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-gray-300 bg-white hover:border-[#25D366] hover:text-[#25D366] text-gray-700 text-xs font-semibold transition-colors cursor-pointer"
                 title="Chat WhatsApp untuk Konsultasi Desain"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
-                <span className="sm:hidden">WhatsApp</span>
+                <MessageCircle className="w-4 h-4" />
+                <span>Tanya Harga</span>
               </a>
             </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ArrowRight, ArrowLeft, CheckCircle2, Sparkles, MessageCircle, RefreshCw, SlidersHorizontal } from 'lucide-react';
+import { X, ArrowRight, ArrowLeft, CheckCircle2, MessageCircle, RefreshCw, Coffee, Croissant, UtensilsCrossed, Package, Cookie } from 'lucide-react';
 
 export default function AdvisorModal({ isOpen, onClose }) {
   const [step, setStep] = useState(1);
@@ -22,11 +22,11 @@ export default function AdvisorModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const businessTypes = [
-    { id: 'coffee', label: 'Coffee Shop & Cafe', icon: '☕', desc: 'Minuman kopi, teh, boba, & pastry' },
-    { id: 'bakery', label: 'Bakery & Cake Shop', icon: '🥐', desc: 'Roti, kue tart, donat, & dessert' },
-    { id: 'fastfood', label: 'Resto & Fast Food', icon: '🍔', desc: 'Burger, fried chicken, rice bowl' },
-    { id: 'catering', label: 'Catering & Bento Box', icon: '🍱', desc: 'Nasi kotak, hampers prasmanan' },
-    { id: 'snack', label: 'Snack & Dry Food', icon: '🍪', desc: 'Keripik, cookies, biji kopi kemasan' },
+    { id: 'coffee', label: 'Coffee Shop & Cafe', icon: Coffee, desc: 'Minuman kopi, teh, boba, & pastry' },
+    { id: 'bakery', label: 'Bakery & Cake Shop', icon: Croissant, desc: 'Roti, kue tart, donat, & dessert' },
+    { id: 'fastfood', label: 'Resto & Fast Food', icon: UtensilsCrossed, desc: 'Burger, fried chicken, rice bowl' },
+    { id: 'catering', label: 'Catering & Bento Box', icon: Package, desc: 'Nasi kotak, hampers prasmanan' },
+    { id: 'snack', label: 'Snack & Dry Food', icon: Cookie, desc: 'Keripik, cookies, biji kopi kemasan' },
   ];
 
   const primaryItems = [
@@ -114,11 +114,8 @@ export default function AdvisorModal({ isOpen, onClose }) {
               <img src="/images/packnesia-icon.webp" alt="Packnesia" className="w-full h-full object-contain brightness-0 invert" />
             </div>
             <div>
-              <h3 className="font-bold text-base sm:text-lg flex items-center gap-2">
-                <span>Rekomendasi Kemasan</span>
-                <span className="px-2 py-0.5 rounded-full bg-brand-orange text-white text-[10px] font-extrabold uppercase">
-                  Spesifikasi Presisi
-                </span>
+              <h3 className="font-bold text-base sm:text-lg text-white">
+                Rekomendasi Kemasan
               </h3>
               <p className="text-xs text-gray-300">Temukan rekomendasi spesifikasi &amp; material terbaik untuk produk Anda</p>
             </div>
@@ -150,26 +147,31 @@ export default function AdvisorModal({ isOpen, onClose }) {
                 <h4 className="text-xl font-extrabold text-[#0E1D33] mt-1">Apa bidang bisnis F&B Anda?</h4>
               </div>
               <div className="grid grid-cols-1 gap-2.5">
-                {businessTypes.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      setFormData({ ...formData, businessType: item.label });
-                      setStep(2);
-                    }}
-                    className={`p-3.5 rounded-2xl border text-left flex items-center gap-3.5 transition-all cursor-pointer ${
-                      formData.businessType === item.label
-                        ? 'border-brand-orange bg-orange-50/60 shadow-sm'
-                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-                    }`}
-                  >
-                    <span className="text-2xl p-2 bg-white rounded-xl shadow-xs border border-gray-100">{item.icon}</span>
-                    <div>
-                      <div className="font-bold text-sm text-[#0E1D33]">{item.label}</div>
-                      <div className="text-xs text-gray-500">{item.desc}</div>
-                    </div>
-                  </button>
-                ))}
+                {businessTypes.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        setFormData({ ...formData, businessType: item.label });
+                        setStep(2);
+                      }}
+                      className={`p-3.5 rounded-xl border text-left flex items-center gap-3.5 transition-all cursor-pointer ${
+                        formData.businessType === item.label
+                          ? 'border-brand-orange bg-orange-50/60 shadow-xs'
+                          : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      <span className="p-2.5 bg-gray-100 rounded-xl text-[#0E1D33] flex-shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </span>
+                      <div>
+                        <div className="font-bold text-sm text-[#0E1D33]">{item.label}</div>
+                        <div className="text-xs text-gray-500">{item.desc}</div>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -271,8 +273,8 @@ export default function AdvisorModal({ isOpen, onClose }) {
           {step === 5 && (
             <div className="space-y-5 animate-in fade-in duration-300">
               <div className="text-center">
-                <div className="inline-flex p-3 rounded-2xl bg-orange-100 text-brand-orange mb-2">
-                  <Sparkles className="w-7 h-7" />
+                <div className="inline-flex p-3 rounded-xl bg-[#0E1D33]/5 text-[#0E1D33] mb-2">
+                  <CheckCircle2 className="w-7 h-7 text-brand-orange" />
                 </div>
                 <h4 className="text-2xl font-extrabold text-[#0E1D33]">{reco.recoTitle}</h4>
                 <p className="text-xs text-gray-500 mt-1">Disesuaikan khusus untuk kebutuhan {formData.businessType || 'bisnis Anda'}</p>

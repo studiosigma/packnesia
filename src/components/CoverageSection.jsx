@@ -65,79 +65,76 @@ export default function CoverageSection({ onOpenConsultation }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <span className="w-5 h-0.5 bg-brand-orange rounded-full" />
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-orange">
-              Jangkauan Pengiriman Seluruh Indonesia
-            </span>
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">
+            Jangkauan Pengiriman Nasional
+          </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
-            Pabrik Kemasan Terpercaya untuk Brand F&B di Seluruh Nusantara
+            Pengiriman Kargo ke Seluruh Indonesia
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-500 font-normal leading-relaxed">
-            Dari Sabang sampai Merauke, Packnesia bermitra dengan ekspedisi kargo resmi untuk memastikan pesanan box, cup, dan packaging Anda sampai tepat waktu, aman, dengan ongkos kirim paling ekonomis.
+          <p className="mt-2.5 text-sm sm:text-base text-gray-500 font-normal leading-relaxed">
+            Bermitra dengan layanan logistik kargo resmi untuk menjaga pesanan box dan cup Anda tetap aman dengan tarif kirim paling ekonomis.
           </p>
         </div>
 
-        {/* 3 Key Logistics Value Props */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="p-6 rounded-3xl bg-[#FAF9F7] border border-gray-200/70 hover:border-orange-200 transition-all flex items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0">
-              <Truck className="w-6 h-6" />
+        {/* 3 Key Logistics Value Props (Uniform Neutral Architectural Cards) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          <div className="p-5 sm:p-6 rounded-xl bg-[#F8F9FA] border border-gray-200/80 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl bg-white border border-gray-200 text-[#0E1D33] flex items-center justify-center flex-shrink-0">
+              <Truck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-extrabold text-base text-[#0E1D33]">Tarif Kargo Hemat Partai Besar</h3>
+              <h3 className="font-extrabold text-base text-[#0E1D33]">Tarif Kargo Partai Besar</h3>
               <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                Ongkir mulai dari Rp 1.500/kg via kargo darat, laut, dan udara. Kami bantu carikan opsi logistik termurah sesuai volume box Anda.
+                Ongkir mulai Rp 1.500/kg via kargo darat, laut, maupun udara sesuai rute kota tujuan Anda.
               </p>
             </div>
           </div>
 
-          <div className="p-6 rounded-3xl bg-[#FAF9F7] border border-gray-200/70 hover:border-orange-200 transition-all flex items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
-              <PackageCheck className="w-6 h-6" />
+          <div className="p-5 sm:p-6 rounded-xl bg-[#F8F9FA] border border-gray-200/80 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl bg-white border border-gray-200 text-[#0E1D33] flex items-center justify-center flex-shrink-0">
+              <PackageCheck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-extrabold text-base text-[#0E1D33]">Packing Berlapis & Anti-Penyok</h3>
+              <h3 className="font-extrabold text-base text-[#0E1D33]">Packing Berlapis &amp; Aman</h3>
               <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                Setiap karton dibungkus plastik tahan lembab (<em>moisture-barrier</em>), strapping kuat, dan opsi packing kayu untuk pengiriman antar pulau.
+                Setiap karton dilapisi plastik tahan lembab dan pengikatan strapping agar kemasan tidak penyok di perjalanan.
               </p>
             </div>
           </div>
 
-          <div className="p-6 rounded-3xl bg-[#FAF9F7] border border-gray-200/70 hover:border-orange-200 transition-all flex items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
-              <ShieldCheck className="w-6 h-6" />
+          <div className="p-5 sm:p-6 rounded-xl bg-[#F8F9FA] border border-gray-200/80 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl bg-white border border-gray-200 text-[#0E1D33] flex items-center justify-center flex-shrink-0">
+              <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-extrabold text-base text-[#0E1D33]">Garansi Penggantian 100%</h3>
+              <h3 className="font-extrabold text-base text-[#0E1D33]">Garansi Kualitas Pengiriman</h3>
               <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                Asuransi pengiriman terjamin. Jika terdapat kerusakan fisik atau basah saat barang diterima, tim kami siap mengganti atau cetak ulang.
+                Dilengkapi proteksi pengiriman untuk mengganti bagian barang apabila terjadi kerusakan selama proses kirim.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Major Cities Coverage Grid (Local SEO Keyword Anchors) */}
-        <div className="bg-[#FAF7F2]/60 rounded-3xl p-6 sm:p-10 border border-orange-100/80 mb-10">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+        {/* Major Cities Coverage Grid */}
+        <div className="bg-[#F8F9FA] rounded-2xl p-6 sm:p-8 border border-gray-200/80 mb-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
             <div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0E1D33] flex items-center gap-2">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#0E1D33] flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-brand-orange" />
-                <span>Kota & Wilayah Layanan Utama</span>
+                <span>Kota &amp; Wilayah Layanan Utama</span>
               </h3>
               <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                Jaringan distribusi kemasan aktif dengan rute pengiriman rutin setiap minggu.
+                Rute pengiriman kargo rutin setiap minggu dari pusat produksi kami.
               </p>
             </div>
             <a
               href={`https://wa.me/6287892251216?text=${waCoverageMessage}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white text-xs font-bold transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0E1D33] hover:bg-brand-orange text-white text-xs font-semibold transition-colors"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
+              <MessageCircle className="w-4 h-4" />
               <span>Cek Ongkir Kota Anda</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
@@ -147,17 +144,15 @@ export default function CoverageSection({ onOpenConsultation }) {
             {regions.map((reg, idx) => (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl p-4 border border-gray-200/80 shadow-xs hover:shadow-md transition-shadow flex-col justify-between ${
+                className={`bg-white rounded-xl p-4 border border-gray-200/80 flex-col justify-between ${
                   idx >= 4 && !showAllMobile ? 'hidden sm:flex' : 'flex'
                 }`}
               >
                 <div>
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h4 className="font-extrabold text-sm text-[#0E1D33] leading-snug">{reg.name}</h4>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange whitespace-nowrap flex-shrink-0">
-                      {reg.tag}
-                    </span>
-                  </div>
+                  <h4 className="font-extrabold text-sm text-[#0E1D33] leading-snug">{reg.name}</h4>
+                  <span className="text-[11px] font-semibold text-brand-orange block mt-0.5">
+                    {reg.tag}
+                  </span>
                   <p className="text-xs text-gray-600 leading-relaxed mt-2">
                     {reg.cities.join(' • ')}
                   </p>
@@ -172,7 +167,7 @@ export default function CoverageSection({ onOpenConsultation }) {
                 type="button"
                 onClick={() => setShowAllMobile((prev) => !prev)}
                 aria-expanded={showAllMobile}
-                className="w-full min-h-[44px] px-5 py-2.5 rounded-full bg-white border border-gray-200 text-xs font-extrabold text-[#0E1D33] hover:bg-gray-50 shadow-xs inline-flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                className="w-full min-h-[44px] px-5 py-2.5 rounded-full bg-white border border-gray-200 text-xs font-bold text-[#0E1D33] hover:bg-gray-50 inline-flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <span>
                   {showAllMobile
@@ -189,23 +184,10 @@ export default function CoverageSection({ onOpenConsultation }) {
           )}
         </div>
 
-        {/* Integrated Cargo Logos / Badges Banner */}
-        <div className="rounded-2xl bg-gray-50 border border-gray-200/80 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
-              Mitra Ekspedisi Kargo:
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            {logistics.map((log, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 rounded-xl bg-white text-gray-700 text-xs font-bold border border-gray-200 shadow-xs"
-              >
-                {log}
-              </span>
-            ))}
-          </div>
+        {/* Clean Logistics Partner Line */}
+        <div className="text-center text-xs text-gray-500">
+          <span className="font-bold text-[#0E1D33] mr-2">Mitra Ekspedisi:</span>
+          <span>{logistics.join(' • ')}</span>
         </div>
 
       </div>

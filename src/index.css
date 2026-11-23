@@ -6,14 +6,6 @@
   src: url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Caveat';
-  font-style: normal;
-  font-weight: 600 700;
-  font-display: swap;
-  src: url('/fonts/caveat-latin.woff2') format('woff2');
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,10 +15,6 @@
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
-}
-
-.font-handwriting {
-  font-family: 'Caveat', cursive;
 }
 
 /* Custom smooth scrollbar */
@@ -59,6 +47,7 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -69,5 +58,3 @@
   content-visibility: auto;
   contain-intrinsic-size: auto 560px;
 }
-
-

@@ -80,8 +80,8 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }) {
                 }}
                 className="p-3 rounded-2xl hover:bg-orange-50/60 transition-colors flex items-center gap-3.5 cursor-pointer border border-transparent hover:border-orange-200/50 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-gray-50 p-1 flex-shrink-0 flex items-center justify-center border border-gray-100">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
+                <div className="w-12 h-12 rounded-lg bg-stone-100 overflow-hidden flex-shrink-0 border border-gray-200/60">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">

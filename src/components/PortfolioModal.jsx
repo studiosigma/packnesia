@@ -109,7 +109,7 @@ export default function PortfolioModal({ itemId, onClose }) {
               href={waUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-sm shadow-orange-glow transition-all active:scale-95 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white font-bold text-sm transition-colors cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               <span>Buat Kemasan Seperti Brand Ini</span>
