@@ -29,10 +29,10 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
   ];
 
   const solutionLinks = [
-    { name: 'Coffee Shop & Cafe', icon: Coffee, desc: 'Solusi lengkap cup, pouch, & sleeve' },
-    { name: 'Bakery & Pastry', icon: Croissant, desc: 'Dus kue cantik dengan jendela & handle' },
-    { name: 'Fast Food & Delivery', icon: Utensils, desc: 'Box tahan minyak & paper bag kuat' },
-    { name: 'Eco-Friendly / Sustainable', icon: Leaf, desc: 'Bahan daur ulang bersertifikasi FSC' },
+    { name: 'Kedai Kopi & Kafe', icon: Coffee, desc: 'Solusi lengkap cup, pouch, & sleeve' },
+    { name: 'Toko Roti & Pastry', icon: Croissant, desc: 'Dus kue cantik dengan jendela & handle' },
+    { name: 'Resto & Pesan Antar', icon: Utensils, desc: 'Box tahan minyak & paper bag kuat' },
+    { name: 'Kemasan Ramah Lingkungan', icon: Leaf, desc: 'Bahan daur ulang bersertifikasi FSC' },
   ];
 
   const infoLinks = [
@@ -40,17 +40,16 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
     { name: 'Transformasi Kemasan', href: '#transformation-section', desc: 'Perbandingan kemasan polos vs custom brand' },
     { name: 'Jangkauan Pengiriman', href: '#coverage-section', desc: 'Armada kargo ke seluruh kota di Indonesia' },
     { name: 'FAQ & Info Order', href: '#faq-section', desc: 'Pertanyaan seputar MOQ, sampel & bahan' },
-    { name: 'About Us', href: '#why-section', desc: 'Keunggulan & standar kualitas Packnesia' },
+    { name: 'Tentang Packnesia', href: '#why-section', desc: 'Keunggulan & standar kualitas Packnesia' },
   ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm py-3.5 border-b border-gray-100'
-            : 'bg-white/80 backdrop-blur-sm py-4 md:py-5'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3.5 border-b border-gray-100'
+          : 'bg-white/80 backdrop-blur-sm py-4 md:py-5'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
@@ -73,7 +72,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <span>Products</span>
+                <span>Produk</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdown ? 'rotate-180 text-brand-orange' : 'text-gray-400'}`} />
               </button>
 
@@ -127,7 +126,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <span>Solutions</span>
+                <span>Solusi</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${solutionsDropdown ? 'rotate-180 text-brand-orange' : 'text-gray-400'}`} />
               </button>
 
@@ -166,7 +165,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
               href="#portfolio-section"
               className="hover:text-brand-orange transition-colors whitespace-nowrap"
             >
-              Portfolio
+              Portofolio
             </a>
 
             <a
@@ -238,7 +237,7 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
               onClick={onOpenConsultation}
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-[14px] font-semibold tracking-wide transition-colors cursor-pointer whitespace-nowrap"
             >
-              <span>Consultation</span>
+              <span>Konsultasi</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </button>
           </div>
@@ -318,8 +317,8 @@ export default function Navbar({ onOpenConsultation, onOpenSearch, onSelectProdu
 
                 {[
                   { label: 'Solusi Industri', href: '#solutions-section' },
-                  { label: 'Portfolio Brand', href: '#portfolio-section' },
-                  { label: 'Transformasi Before/After', href: '#transformation-section' },
+                  { label: 'Portofolio Brand', href: '#portfolio-section' },
+                  { label: 'Sebelum & Sesudah', href: '#transformation-section' },
                   { label: 'Paket Bundling Usaha', href: '#bundling-section' },
                   { label: 'Galeri Hasil Cetak', href: '#samples-section' },
                   { label: 'Blog & Edukasi', href: '#blog-section' },

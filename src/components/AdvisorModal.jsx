@@ -5,6 +5,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     businessType: '',
+    businessTypeId: '',
     primaryItem: '',
     volume: '',
     priority: '',
@@ -22,19 +23,19 @@ export default function AdvisorModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const businessTypes = [
-    { id: 'coffee', label: 'Coffee Shop & Cafe', icon: Coffee, desc: 'Minuman kopi, teh, boba, & pastry' },
-    { id: 'bakery', label: 'Bakery & Cake Shop', icon: Croissant, desc: 'Roti, kue tart, donat, & dessert' },
-    { id: 'fastfood', label: 'Resto & Fast Food', icon: UtensilsCrossed, desc: 'Burger, fried chicken, rice bowl' },
-    { id: 'catering', label: 'Catering & Bento Box', icon: Package, desc: 'Nasi kotak, hampers prasmanan' },
-    { id: 'snack', label: 'Snack & Dry Food', icon: Cookie, desc: 'Keripik, cookies, biji kopi kemasan' },
+    { id: 'coffee', label: 'Kedai Kopi & Kafe', icon: Coffee, desc: 'Minuman kopi, teh, boba, & pastry' },
+    { id: 'bakery', label: 'Toko Roti & Kue', icon: Croissant, desc: 'Roti, kue tart, donat, & dessert' },
+    { id: 'fastfood', label: 'Resto & Makanan Siap Saji', icon: UtensilsCrossed, desc: 'Burger, fried chicken, rice bowl' },
+    { id: 'catering', label: 'Catering & Nasi Kotak', icon: Package, desc: 'Nasi kotak, hampers prasmanan' },
+    { id: 'snack', label: 'Snack & Makanan Kering', icon: Cookie, desc: 'Keripik, cookies, biji kopi kemasan' },
   ];
 
   const primaryItems = [
-    { id: 'cups', label: 'Paper Cup & Sleeve', sub: 'Single / Double Wall Cup' },
+    { id: 'cups', label: 'Paper Cup & Sleeve', sub: 'Cup Dinding Tunggal / Ganda' },
     { id: 'boxes', label: 'Food Box & Lunch Box', sub: 'Kraft / Ivory Anti Minyak' },
-    { id: 'bags', label: 'Paper Bag & Shopping Bag', sub: 'Tas jinjing takeaway kuat' },
-    { id: 'pouches', label: 'Standing Pouch + Valve', sub: 'Penyimpan biji kopi & snack' },
-    { id: 'custom', label: 'Full Branding Package', sub: 'Paket lengkap semua kemasan' },
+    { id: 'bags', label: 'Paper Bag & Tas Belanja', sub: 'Tas jinjing takeaway kuat' },
+    { id: 'pouches', label: 'Standing Pouch + Katup Aroma', sub: 'Penyimpan biji kopi & snack' },
+    { id: 'custom', label: 'Paket Branding Lengkap', sub: 'Paket lengkap seluruh kebutuhan kemasan' },
   ];
 
   const volumes = [
@@ -45,32 +46,32 @@ export default function AdvisorModal({ isOpen, onClose }) {
   ];
 
   const priorities = [
-    { id: 'eco', label: 'Eco-Friendly & Biodegradable', desc: 'Bahan kraft tersertifikasi daur ulang ramah alam' },
+    { id: 'eco', label: 'Ramah Lingkungan & Biodegradable', desc: 'Bahan kraft tersertifikasi daur ulang ramah alam' },
     { id: 'leakproof', label: 'Anti Bocor & Tahan Minyak/Panas', desc: 'Lapisan PE foodgrade ketat untuk makanan berkuah/berminyak' },
-    { id: 'luxury', label: 'Estetika Brand Mewah & Eye-Catching', desc: 'Finishing foil emas, emboss, & laminasi soft-touch' },
-    { id: 'budget', label: 'Efisiensi Biaya / Budget Friendly', desc: 'Harga per pcs termurah untuk margin maksimal' },
+    { id: 'luxury', label: 'Tampilan Brand Mewah & Menonjol', desc: 'Finishing foil emas, emboss, & laminasi soft-touch' },
+    { id: 'budget', label: 'Efisiensi Biaya / Hemat Anggaran', desc: 'Harga per pcs paling efisien untuk margin maksimal' },
   ];
 
   const getRecommendation = () => {
     let recoTitle = 'Paket Kemasan Rekomendasi Packnesia';
     let recoItems = ['Paper Cup Double Wall', 'Kraft Food Box Lunch M', 'Brown Kraft Bag'];
-    let recoMaterial = 'Kraft Paper Foodgrade 290gsm + PE Coating';
+    let recoMaterial = 'Kraft Paper Foodgrade 290gsm + Laminasi PE';
     let estPrice = 'Mulai Rp 750 - Rp 1.450 / pcs';
 
-    if (formData.businessType === 'coffee') {
-      recoTitle = 'Coffee Shop Starter & Growth Pack';
-      recoItems = ['Double Wall Hot Cup 8oz & Cold Cup 12oz', 'Paper Cup Sleeve Kraft', 'Takeaway Bag Kraft 2 Cup'];
-      recoMaterial = 'Double Wall Insulated Foodgrade Cupstock';
+    if (formData.businessTypeId === 'coffee') {
+      recoTitle = 'Paket Pertumbuhan Kedai Kopi & Kafe';
+      recoItems = ['Double Wall Hot Cup 8oz & Cold Cup 12oz', 'Selongsong Cup Kraft', 'Paper Bag Kraft Muat 2 Cup'];
+      recoMaterial = 'Cupstock Foodgrade Berlapis Ganda';
       estPrice = 'Rp 650 - Rp 1.100 / pcs';
-    } else if (formData.businessType === 'bakery') {
-      recoTitle = 'Artisan Bakery & Pastry Suite';
-      recoItems = ['Dus Kue Handle Praktis', 'Window Cake Box 22x22', 'Wide Bottom Kraft Bag'];
+    } else if (formData.businessTypeId === 'bakery') {
+      recoTitle = 'Paket Kemasan Toko Roti & Kue';
+      recoItems = ['Dus Kue Handle Praktis', 'Window Cake Box 22x22', 'Paper Bag Kraft Alas Lebar'];
       recoMaterial = 'Ivory Foodgrade 350gsm + Mika Bening Anti Embun';
       estPrice = 'Rp 1.400 - Rp 2.800 / pcs';
-    } else if (formData.businessType === 'fastfood') {
-      recoTitle = 'Fast Casual Food & Delivery Pack';
-      recoItems = ['Burger Box E-flute / Kraft', 'Lunch Box PE Coated Anti Rembes', 'Heavy-Duty Delivery Bag'];
-      recoMaterial = 'Kraft 325gsm Anti Minyak & Tahan Microwave';
+    } else if (formData.businessTypeId === 'fastfood') {
+      recoTitle = 'Paket Kemasan Resto & Layanan Antar';
+      recoItems = ['Burger Box E-flute / Kraft', 'Lunch Box Lapis PE Anti Rembes', 'Paper Bag Takeaway Tebal'];
+      recoMaterial = 'Kraft 325gsm Anti Minyak & Tahan Panas';
       estPrice = 'Rp 850 - Rp 1.650 / pcs';
     }
 
@@ -153,7 +154,7 @@ export default function AdvisorModal({ isOpen, onClose }) {
                     <button
                       key={item.id}
                       onClick={() => {
-                        setFormData({ ...formData, businessType: item.label });
+                        setFormData({ ...formData, businessType: item.label, businessTypeId: item.id });
                         setStep(2);
                       }}
                       className={`p-3.5 rounded-xl border text-left flex items-center gap-3.5 transition-all cursor-pointer ${

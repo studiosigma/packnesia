@@ -6,22 +6,22 @@ export default function WhyPacknesiaSection({ onOpenConsultation }) {
   const benefits = [
     {
       icon: Rocket,
-      title: 'End-to-End Solution',
+      title: 'Layanan Menyeluruh',
       subtitle: 'Dari pembuatan dieline hingga pengiriman',
     },
     {
       icon: Headphones,
-      title: 'Expert Consultation',
+      title: 'Konsultasi Spesialis',
       subtitle: 'Rekomendasi material foodgrade paling efisien',
     },
     {
       icon: Tag,
-      title: 'Competitive Price',
-      subtitle: 'Harga langsung pabrik dengan skema volume',
+      title: 'Harga Pabrik',
+      subtitle: 'Penawaran langsung dengan skema volume',
     },
     {
       icon: Truck,
-      title: 'Nationwide Delivery',
+      title: 'Kirim Seluruh Indonesia',
       subtitle: 'Pengiriman kargo aman ke seluruh Indonesia',
     }
   ];
@@ -29,10 +29,10 @@ export default function WhyPacknesiaSection({ onOpenConsultation }) {
   return (
     <section id="why-section" className="section-lazy py-12 md:py-20 bg-[#FAF9F7] border-t border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main Grid: Left Benefits (8 cols) + Right CTA Box (4 cols) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
+
           {/* Left Column: Why Packnesia & 4 Features */}
           <div className="lg:col-span-8 flex flex-col justify-between">
             <div>
@@ -41,7 +41,7 @@ export default function WhyPacknesiaSection({ onOpenConsultation }) {
               </p>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
-                Your Reliable Packaging Partner
+                Mitra Produksi Kemasan yang Andal
               </h2>
               <p className="mt-2.5 text-sm text-gray-500 max-w-xl">
                 Standar produksi offset dan finishing presisi untuk memastikan kemasan produk kuliner Anda tampil meyakinkan.
@@ -96,7 +96,7 @@ export default function WhyPacknesiaSection({ onOpenConsultation }) {
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#25D366] hover:bg-[#20BE5A] text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                <span>Chat on WhatsApp</span>
+                <span>Konsultasi via WhatsApp</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 

@@ -172,7 +172,7 @@ function generateProductHtml(product) {
       }
     </script>
 
-    <!-- Schema.org Product Structured Data with AggregateRating for Google SERP -->
+    <!-- Schema.org Product Structured Data for Google SERP -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -189,13 +189,6 @@ function generateProductHtml(product) {
         "name": "Packnesia",
         "url": "${SITE_URL}",
         "areaServed": ["Indonesia", "Jakarta", "Surabaya", "Bandung", "Semarang", "Medan", "Bali", "Makassar"]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "320"
       },
       "offers": {
         "@type": "Offer",
@@ -430,7 +423,7 @@ function generateProductHtml(product) {
     <!-- Footer -->
     <footer class="bg-[#0B1728] text-white py-8 border-t border-gray-800 text-center text-xs text-gray-400">
       <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>&copy; ${new Date().getFullYear()} Packnesia. All rights reserved.</div>
+        <div>&copy; ${new Date().getFullYear()} Packnesia. Hak cipta dilindungi.</div>
         <div class="flex items-center gap-4">
           <a href="/" class="hover:text-white">Beranda</a>
           <a href="/produk/" class="hover:text-white">Katalog Produk</a>
@@ -445,10 +438,10 @@ function generateProductHtml(product) {
 // Generate Catalog Hub /produk/index.html
 function generateProductIndexHtml(allProducts) {
   const cardsHtml = allProducts.map(p => `
-    <article class="bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between p-6 group">
+    <article class="bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between p-5 group">
       <div>
-        <div class="aspect-square w-full rounded-2xl overflow-hidden bg-orange-50/30 p-4 flex items-center justify-center mb-4">
-          <img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async" width="280" height="280" class="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+        <div class="aspect-square w-full rounded-lg overflow-hidden bg-stone-100 mb-4">
+          <img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async" width="280" height="280" class="w-full h-full object-cover group-hover:scale-103 transition-transform" />
         </div>
         <span class="text-[10px] font-extrabold uppercase text-brand-orange tracking-wider block mb-1">${p.category}</span>
         <h2 class="text-xl font-extrabold text-[#0E1D33] group-hover:text-brand-orange transition-colors">
@@ -540,7 +533,7 @@ function generateProductIndexHtml(allProducts) {
     </main>
 
     <footer class="bg-[#0B1728] text-white py-8 border-t border-gray-800 text-center text-xs text-gray-400">
-      &copy; ${new Date().getFullYear()} Packnesia. All rights reserved.
+      &copy; ${new Date().getFullYear()} Packnesia. Hak cipta dilindungi.
     </footer>
   </body>
 </html>`;

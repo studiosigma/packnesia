@@ -41,10 +41,10 @@ export default function ProductsSection({ onSelectProduct }) {
             Katalog Kemasan
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
-            Complete Packaging for Your Business
+            Pilihan Kemasan Lengkap untuk Bisnis Anda
           </h2>
           <p className="mt-2.5 text-sm sm:text-base text-gray-500 font-normal">
-            Pilihan lengkap kemasan custom foodgrade siap cetak langsung dari pabrik.
+            Solusi kemasan custom foodgrade siap cetak langsung dari pabrik dengan kualitas terjaga.
           </p>
         </div>
 

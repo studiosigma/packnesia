@@ -57,7 +57,7 @@ export default function PortfolioModal({ itemId, onClose }) {
               </span>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-bold">
                 <img src="/images/packnesia-icon.webp" alt="Packnesia" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
-                <span>Packnesia Client Production</span>
+                <span>Hasil Produksi Packnesia</span>
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-extrabold leading-tight text-white">{item.brand}</h3>
@@ -65,7 +65,7 @@ export default function PortfolioModal({ itemId, onClose }) {
               <MapPin className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
               <span>{item.location}</span>
               <span>•</span>
-              <span>Volume: {item.volume}</span>
+              <span>Volume Produksi: {item.volume}</span>
             </p>
           </div>
         </div>

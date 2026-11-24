@@ -7,27 +7,27 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
   const slides = [
     {
       id: 0,
-      titleLine1: 'Packaging',
-      titleLine2: 'That Builds',
-      titleHighlight: 'Your Brand.',
+      titleLine1: 'Kemasan Custom',
+      titleLine2: 'Yang Memperkuat',
+      titleHighlight: 'Citra Brand.',
       subtitle: 'Solusi cetak kemasan makanan & minuman foodgrade untuk brand F&B Indonesia, dari konsep hingga kirim.',
       image: '/images/hero-packaging.webp',
       eyebrow: 'Pabrik & Vendor Kemasan Custom'
     },
     {
       id: 1,
-      titleLine1: 'Eco-Friendly',
-      titleLine2: 'Packaging For',
-      titleHighlight: 'Future Leaders.',
+      titleLine1: 'Kemasan Kraft',
+      titleLine2: 'Ramah Lingkungan &',
+      titleHighlight: 'Foodgrade.',
       subtitle: 'Bahan kraft foodgrade bersertifikasi ramah lingkungan & aman bersentuhan langsung dengan makanan.',
       image: '/images/hero-eco-kraft.webp',
-      eyebrow: 'Material Kraft & Ivory Food-Grade'
+      eyebrow: 'Material Kraft & Ivory Foodgrade'
     },
     {
       id: 2,
-      titleLine1: 'Direct Factory',
-      titleLine2: 'Best Pricing &',
-      titleHighlight: 'Fast Delivery.',
+      titleLine1: 'Harga Langsung',
+      titleLine2: 'Pabrik dengan',
+      titleHighlight: 'Kirim Cepat.',
       subtitle: 'Kapasitas produksi hingga 500.000 pcs per bulan dengan kontrol kualitas ketat dan pengiriman nasional.',
       image: '/images/hero-factory-suite.webp',
       eyebrow: 'Harga Langsung Pabrik • Produksi 7–12 Hari'
@@ -73,7 +73,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
                 onClick={onExploreProducts}
                 className="inline-flex items-center gap-2 px-6 py-3.5 min-h-[46px] rounded-full bg-[#0E1D33] hover:bg-[#1A2E4F] text-white text-sm font-semibold transition-colors cursor-pointer"
               >
-                <span>Explore Our Products</span>
+                <span>Lihat Katalog Produk</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -127,7 +127,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
         <div className="mt-8 sm:mt-10 flex items-center justify-center gap-3">
           <button
             onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
-            aria-label="Previous Slide"
+            aria-label="Slide sebelumnya"
             className="w-9 h-9 rounded-full bg-white hover:bg-gray-50 text-gray-700 hover:text-brand-orange flex items-center justify-center transition-colors border border-gray-200 cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -138,7 +138,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
+                aria-label={`Pilih slide ${idx + 1}`}
                 className="min-w-[32px] min-h-[36px] flex items-center justify-center cursor-pointer"
               >
                 <span
@@ -152,7 +152,7 @@ export default function Hero({ onExploreProducts, onWatchProcess }) {
 
           <button
             onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-            aria-label="Next Slide"
+            aria-label="Slide berikutnya"
             className="w-9 h-9 rounded-full bg-white hover:bg-gray-50 text-gray-700 hover:text-brand-orange flex items-center justify-center transition-colors border border-gray-200 cursor-pointer"
           >
             <ChevronRight className="w-4 h-4" />

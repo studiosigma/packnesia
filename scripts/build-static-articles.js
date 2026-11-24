@@ -310,7 +310,7 @@ function generateArticleHtml(art) {
     <!-- Footer -->
     <footer class="bg-[#0B1728] text-white py-8 border-t border-gray-800 text-center text-xs text-gray-400">
       <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>&copy; ${new Date().getFullYear()} Packnesia. All rights reserved.</div>
+        <div>&copy; ${new Date().getFullYear()} Packnesia. Hak cipta dilindungi.</div>
         <div class="flex items-center gap-4">
           <a href="/" class="hover:text-white">Beranda</a>
           <a href="/blog/" class="hover:text-white">Blog</a>
@@ -410,7 +410,7 @@ function generateBlogIndexHtml(allArticles) {
     </main>
 
     <footer class="bg-[#0B1728] text-white py-8 border-t border-gray-800 text-center text-xs text-gray-400">
-      &copy; ${new Date().getFullYear()} Packnesia. All rights reserved.
+      &copy; ${new Date().getFullYear()} Packnesia. Hak cipta dilindungi.
     </footer>
   </body>
 </html>`;

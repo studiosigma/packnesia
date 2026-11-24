@@ -1,10 +1,3 @@
-export const ratingStats = {
-  average: 4.9,
-  totalReviews: 1248,
-  satisfactionRate: '99.4%',
-  repeatOrderRate: '88.5%',
-};
-
 export const reviews = [
   {
     id: 1,

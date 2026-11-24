@@ -10,10 +10,10 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
   const caseStudies = [
     {
       id: 'coffee-cup',
-      category: 'Coffee Shop & Cafe',
+      category: 'Kedai Kopi & Kafe',
       client: 'GOOD COFFEE',
       location: 'Jakarta Selatan',
-      title: 'Dari Plastik Polos ke Double-Wall Custom Paper Cup',
+      title: 'Dari Plastik Polos ke Paper Cup Double-Wall Custom',
       beforeImg: '/images/before-coffee-cup.webp',
       afterImg: '/images/portfolio-good-coffee.webp',
       beforeStats: {
@@ -23,17 +23,17 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
       },
       afterStats: {
         price: 'Rp 34.000',
-        perception: 'Specialty Artisan Cafe',
+        perception: 'Kafe Specialty Artisan',
         pros: ['Insulasi double-wall nyaman digenggam', 'Cetak CMYK kontras tinggi & presisi', 'Meningkatkan daya tarik foto pelanggan']
       },
       impactHighlight: 'Membantu menaikkan persepsi nilai produk hingga hampir 2x lipat dan mendorong repeat order takeaway.'
     },
     {
       id: 'food-box',
-      category: 'Fast Casual Dining',
+      category: 'Resto & Cepat Saji',
       client: 'URBAN BITES',
       location: 'Bandung',
-      title: 'Dari Kemasan Polos ke Eco Brown Kraft Food Box',
+      title: 'Dari Kemasan Polos ke Food Box Brown Kraft Ramah Lingkungan',
       beforeImg: '/images/before-food-box.webp',
       afterImg: '/images/portfolio-urban-bites.webp',
       beforeStats: {
@@ -43,17 +43,17 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
       },
       afterStats: {
         price: 'Rp 48.000',
-        perception: 'Modern Fast Casual',
+        perception: 'Resto Cepat Saji Modern',
         pros: ['Ventilasi uap menjaga tekstur makanan', 'Lapisan PE foodgrade tahan minyak', 'Tampilan bersih meningkatkan rating delivery']
       },
       impactHighlight: 'Kemasan anti-rembes menjaga keutuhan hidangan hingga sampai ke tangan pelanggan.'
     },
     {
       id: 'cake-box',
-      category: 'Artisan Bakery & Pastry',
+      category: 'Toko Roti & Kue',
       client: 'SWEET MOMENTS',
       location: 'Surabaya',
-      title: 'Dari Kardus Kusam ke Dus Kue Berhandle & Window',
+      title: 'Dari Kardus Kusam ke Dus Kue Berhandle & Jendela Mika',
       beforeImg: '/images/before-cake-box.webp',
       afterImg: '/images/portfolio-sweet-moments.webp',
       beforeStats: {
@@ -63,7 +63,7 @@ export default function BeforeAfterSection({ onOpenConsultation }) {
       },
       afterStats: {
         price: 'Rp 95.000',
-        perception: 'Gift & Hampers Bakery',
+        perception: 'Kemasan Kue & Hampers Eksklusif',
         pros: ['Window mika bening menampilkan kue', 'Gagang jinjing menyatu tanpa kantong tambahan', 'Ivory 350gsm kokoh & higienis']
       },
       impactHighlight: 'Memudahkan pelanggan membawa pulang langsung sebagai hampers dan kado siap kirim.'

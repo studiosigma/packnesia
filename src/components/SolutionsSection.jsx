@@ -5,22 +5,22 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
   const features = [
     {
       icon: Gem,
-      title: 'Premium Quality',
+      title: 'Standar Foodgrade',
       desc: 'Bahan foodgrade sertifikasi internasional, kokoh, dan tahan lama.'
     },
     {
       icon: Palette,
-      title: 'Custom Design',
+      title: 'Desain Presisi',
       desc: 'Dieline presisi dengan cetakan warna CMYK tajam & finishing mewah.'
     },
     {
       icon: Zap,
-      title: 'Fast Production',
+      title: 'Produksi Cepat',
       desc: 'Lead time singkat 7-12 hari kerja dengan kapasitas skala pabrik.'
     },
     {
       icon: Handshake,
-      title: 'Trusted Partner',
+      title: 'Mitra Terpercaya',
       desc: 'Lebih dari 1.000 brand F&B mempercayakan kemasannya pada kami.'
     }
   ];
@@ -48,10 +48,10 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
 
             <div className="relative z-10">
               <span className="text-2xl sm:text-3xl text-white font-extrabold tracking-tight leading-tight block">
-                Small Packaging.
+                Kemasan Tepat.
               </span>
               <span className="text-2xl sm:text-3xl text-brand-orange font-extrabold tracking-tight leading-tight block mt-0.5">
-                Big Impact.
+                Dampak Besar.
               </span>
               <p className="mt-3 text-xs sm:text-sm text-gray-200 leading-relaxed font-normal">
                 Setiap detail kemasan memperkuat nilai produk dan kesan brand Anda di tangan pelanggan.
@@ -59,15 +59,15 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
             </div>
           </div>
 
-          {/* 2. Middle Content ("Tailored for Your Business") */}
+          {/* 2. Middle Content */}
           <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200/80 flex flex-col justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">
-                Packaging Solutions
+                Solusi Kemasan
               </p>
 
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0E1D33] tracking-tight">
-                Tailored for Your Business
+                Dirancang untuk Kebutuhan Bisnis Anda
               </h2>
 
               <p className="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -100,7 +100,7 @@ export default function SolutionsSection({ onOpenAdvisor, onSelectSolution }) {
               <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider self-center mr-1">
                 Cocok Untuk:
               </span>
-              {['Coffee Shop', 'Bakery', 'Cloud Kitchen', 'Snack & UMKM'].map((c, i) => (
+              {['Kedai Kopi', 'Toko Roti', 'Cloud Kitchen', 'Kuliner UMKM'].map((c, i) => (
                 <button
                   key={i}
                   onClick={() => onSelectSolution(c)}
