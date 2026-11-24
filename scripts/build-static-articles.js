@@ -7,9 +7,34 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const SITE_URL = process.env.SITE_URL || 'https://packnesia.vercel.app';
 
+const distAssetsDir = path.join(rootDir, 'dist', 'assets');
+const builtCssFile = fs.existsSync(distAssetsDir)
+  ? fs.readdirSync(distAssetsDir).find((f) => f.startsWith('index-') && f.endsWith('.css'))
+  : null;
+const cssStylesheetTag = builtCssFile
+  ? `<link rel="stylesheet" href="/assets/${builtCssFile}" />`
+  : `<link rel="stylesheet" href="/src/index.css" />`;
+
 const articlesJsonPath = path.join(rootDir, 'src', 'data', 'blogArticles.json');
 const rawData = fs.readFileSync(articlesJsonPath, 'utf-8');
 const articles = JSON.parse(rawData);
+
+function toIsoDate(dateStr) {
+  if (!dateStr) return '2026-11-01';
+  if (/^\d{4}-\d{2}-\d{2}/.test(dateStr)) return dateStr.slice(0, 10);
+  const months = {
+    jan: '01', feb: '02', mar: '03', apr: '04', mei: '05', may: '05', jun: '06',
+    jul: '07', agu: '08', aug: '08', sep: '09', okt: '10', oct: '10', nov: '11', des: '12', dec: '12'
+  };
+  const parts = dateStr.trim().split(/\s+/);
+  if (parts.length === 3) {
+    const day = parts[0].padStart(2, '0');
+    const mon = months[parts[1].toLowerCase().slice(0, 3)] || '11';
+    const year = parts[2];
+    return `${year}-${mon}-${day}`;
+  }
+  return '2026-11-01';
+}
 
 console.log(`Building static HTML pages for ${articles.length} articles...`);
 
@@ -88,7 +113,7 @@ function generateArticleHtml(art) {
     <meta property="og:image" content="${coverUrl}" />
     <meta property="og:site_name" content="Packnesia" />
     <meta property="og:locale" content="id_ID" />
-    <meta property="article:published_time" content="${art.date}" />
+    <meta property="article:published_time" content="${toIsoDate(art.date)}" />
     <meta property="article:author" content="${art.author || 'Packnesia'}" />
     <meta property="article:section" content="${art.category}" />
 
@@ -98,31 +123,11 @@ function generateArticleHtml(art) {
     <meta name="twitter:description" content="${art.excerpt}" />
     <meta name="twitter:image" content="${coverUrl}" />
 
-    <!-- Favicon & Styling -->
+    <!-- Favicon & Compiled Production CSS -->
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
-    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');}</style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                orange: '#EE5D26',
-                'orange-hover': '#DC4F19',
-                navy: '#0E1D33',
-                'navy-light': '#142540'
-              }
-            },
-            fontFamily: {
-              sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            }
-          }
-        }
-      }
-    </script>
+    ${cssStylesheetTag}
 
     <!-- Schema.org BlogPosting Structured Data for Google Rich Snippets -->
     <script type="application/ld+json">
@@ -149,8 +154,8 @@ function generateArticleHtml(art) {
           "url": "${SITE_URL}/images/packnesia-logo-dark.webp"
         }
       },
-      "datePublished": "${art.date}",
-      "dateModified": "${art.date}"
+      "datePublished": "${toIsoDate(art.date)}",
+      "dateModified": "${toIsoDate(art.date)}"
     }
     </script>
   </head>
@@ -325,15 +330,15 @@ function generateArticleHtml(art) {
 // Generate Blog Hub Index HTML
 function generateBlogIndexHtml(allArticles) {
   const cardsHtml = allArticles.map(art => `
-    <article class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+    <article class="bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
       <div>
         <a href="/blog/${art.slug}/" class="block aspect-[16/10] overflow-hidden bg-gray-100 relative group">
-          <img src="${art.coverImage}" alt="${art.title}" loading="lazy" decoding="async" width="400" height="250" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-          <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 text-brand-orange text-[10px] font-extrabold uppercase shadow-sm">
-            ${art.category}
-          </span>
+          <img src="${art.coverImage}" alt="${art.title}" loading="lazy" decoding="async" width="400" height="250" class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300" />
         </a>
         <div class="p-6">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orange block mb-1.5">
+            ${art.category}
+          </span>
           <div class="text-xs text-gray-400 mb-2">${art.date} • ${art.readTime || '4 menit'}</div>
           <h2 class="font-extrabold text-lg text-[#0E1D33] hover:text-brand-orange transition-colors line-clamp-2">
             <a href="/blog/${art.slug}/">${art.title}</a>
@@ -362,26 +367,7 @@ function generateBlogIndexHtml(allArticles) {
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
-    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');}</style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                orange: '#EE5D26',
-                'orange-hover': '#DC4F19',
-                navy: '#0E1D33'
-              }
-            },
-            fontFamily: {
-              sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            }
-          }
-        }
-      }
-    </script>
+    ${cssStylesheetTag}
   </head>
   <body class="bg-[#FAF9F7] text-[#0E1D33] font-sans antialiased">
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 px-4 sm:px-8">

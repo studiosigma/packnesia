@@ -7,6 +7,14 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const SITE_URL = process.env.SITE_URL || 'https://packnesia.vercel.app';
 
+const distAssetsDir = path.join(rootDir, 'dist', 'assets');
+const builtCssFile = fs.existsSync(distAssetsDir)
+  ? fs.readdirSync(distAssetsDir).find((f) => f.startsWith('index-') && f.endsWith('.css'))
+  : null;
+const cssStylesheetTag = builtCssFile
+  ? `<link rel="stylesheet" href="/assets/${builtCssFile}" />`
+  : `<link rel="stylesheet" href="/src/index.css" />`;
+
 // Import products data from file
 const productsModulePath = path.join(rootDir, 'src', 'data', 'productsData.js');
 const rawProductsFile = fs.readFileSync(productsModulePath, 'utf-8');
@@ -146,31 +154,11 @@ function generateProductHtml(product) {
     <meta name="twitter:description" content="${seoDesc}" />
     <meta name="twitter:image" content="${coverUrl}" />
 
-    <!-- Favicon & Tailwind -->
+    <!-- Favicon & Compiled Production CSS -->
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
-    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');}</style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                orange: '#EE5D26',
-                'orange-hover': '#DC4F19',
-                navy: '#0E1D33',
-                'navy-light': '#142540'
-              }
-            },
-            fontFamily: {
-              sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            }
-          }
-        }
-      }
-    </script>
+    ${cssStylesheetTag}
 
     <!-- Schema.org Product Structured Data for Google SERP -->
     <script type="application/ld+json">
@@ -473,26 +461,7 @@ function generateProductIndexHtml(allProducts) {
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
-    <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');}</style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                orange: '#EE5D26',
-                'orange-hover': '#DC4F19',
-                navy: '#0E1D33'
-              }
-            },
-            fontFamily: {
-              sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-            }
-          }
-        }
-      }
-    </script>
+    ${cssStylesheetTag}
   </head>
   <body class="bg-[#FAF9F7] text-[#0E1D33] font-sans antialiased">
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 px-4 sm:px-8">

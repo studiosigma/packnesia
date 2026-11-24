@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, ArrowRight, ArrowLeft, CheckCircle2, MessageCircle, RefreshCw, Coffee, Croissant, UtensilsCrossed, Package, Cookie } from 'lucide-react';
 
-export default function AdvisorModal({ isOpen, onClose }) {
+export default function AdvisorModal({ isOpen, onClose, initialSolution = '' }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     businessType: '',
@@ -10,6 +10,31 @@ export default function AdvisorModal({ isOpen, onClose }) {
     volume: '',
     priority: '',
   });
+
+  useEffect(() => {
+    if (!isOpen) return;
+    if (initialSolution) {
+      const lower = initialSolution.toLowerCase();
+      if (lower.includes('kopi') || lower.includes('cafe') || lower.includes('kafe')) {
+        setFormData((prev) => ({ ...prev, businessType: 'Kedai Kopi & Kafe', businessTypeId: 'coffee' }));
+        setStep(2);
+      } else if (lower.includes('roti') || lower.includes('kue') || lower.includes('pastry') || lower.includes('bakery')) {
+        setFormData((prev) => ({ ...prev, businessType: 'Toko Roti & Kue', businessTypeId: 'bakery' }));
+        setStep(2);
+      } else if (lower.includes('resto') || lower.includes('kitchen') || lower.includes('antar')) {
+        setFormData((prev) => ({ ...prev, businessType: 'Resto & Makanan Siap Saji', businessTypeId: 'fastfood' }));
+        setStep(2);
+      } else if (lower.includes('umkm') || lower.includes('snack') || lower.includes('kuliner')) {
+        setFormData((prev) => ({ ...prev, businessType: 'Snack & Makanan Kering', businessTypeId: 'snack' }));
+        setStep(2);
+      } else if (lower.includes('ramah lingkungan') || lower.includes('eco')) {
+        setFormData((prev) => ({ ...prev, priority: 'Ramah Lingkungan & Biodegradable' }));
+        setStep(1);
+      }
+    } else {
+      setStep(1);
+    }
+  }, [isOpen, initialSolution]);
 
   useEffect(() => {
     if (!isOpen) return undefined;

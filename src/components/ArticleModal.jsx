@@ -15,12 +15,13 @@ export default function ArticleModal({ article, onClose, onOpenConsultation }) {
 
   if (!article) return null;
 
-  const currentUrl = typeof window !== 'undefined' ? `${window.location.origin}/#blog-section` : '';
+  const articlePath = article.slug ? `/blog/${article.slug}/` : '/#blog-section';
+  const currentUrl = typeof window !== 'undefined' ? `${window.location.origin}${articlePath}` : '';
   const waShareUrl = `https://wa.me/?text=${encodeURIComponent(`*${article.title}*\nBaca selengkapnya di Packnesia Blog: ${currentUrl}`)}`;
 
   const handleCopy = () => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
+      navigator.clipboard.writeText(currentUrl || window.location.href);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }

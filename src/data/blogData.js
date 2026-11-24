@@ -15,7 +15,10 @@ export function getSavedArticles() {
       return defaultArticles;
     }
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) && parsed.length > 0 ? parsed : defaultArticles;
+    if (!Array.isArray(parsed) || parsed.length === 0) return defaultArticles;
+    const defaultIds = new Set(defaultArticles.map((a) => a.id));
+    const customOnly = parsed.filter((a) => a && a.id && !defaultIds.has(a.id));
+    return [...customOnly, ...defaultArticles];
   } catch (err) {
     console.error('Error reading articles from storage:', err);
     return defaultArticles;

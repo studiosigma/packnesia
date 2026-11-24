@@ -35,6 +35,7 @@ export default function App() {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [selectedPortfolioId, setSelectedPortfolioId] = useState(null);
   const [isAdvisorOpen, setIsAdvisorOpen] = useState(false);
+  const [initialAdvisorSolution, setInitialAdvisorSolution] = useState('');
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [isProcessVideoOpen, setIsProcessVideoOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -67,7 +68,10 @@ export default function App() {
       setIsProcessVideoOpen(true);
     } else if (modal === 'portfolio') {
       setSelectedPortfolioId(id || 'good-coffee');
-    } else if (modal === 'admin' || adminParam === 'true') {
+    } else if (
+      (modal === 'admin' || adminParam === 'true') &&
+      (import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ) {
       setIsAdminBlogOpen(true);
     }
 
@@ -92,6 +96,7 @@ export default function App() {
   };
 
   const handleSelectSolution = (solutionName) => {
+    setInitialAdvisorSolution(solutionName || '');
     setIsAdvisorOpen(true);
   };
 
@@ -201,7 +206,11 @@ export default function App() {
         {isAdvisorOpen && (
           <AdvisorModal
             isOpen={isAdvisorOpen}
-            onClose={() => setIsAdvisorOpen(false)}
+            initialSolution={initialAdvisorSolution}
+            onClose={() => {
+              setIsAdvisorOpen(false);
+              setInitialAdvisorSolution('');
+            }}
           />
         )}
 

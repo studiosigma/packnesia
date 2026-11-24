@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, ArrowUp } from 'lucide-react';
+import { MessageCircle, ArrowUp, MapPin, Clock, Phone } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer({ onOpenConsultation }) {
@@ -83,6 +83,40 @@ export default function Footer({ onOpenConsultation }) {
             </div>
           </div>
 
+        </div>
+
+        {/* Operational Info Row (Workshop Location, Operating Hours, Direct Contact) */}
+        <div className="py-6 border-b border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-300">
+          <div className="flex items-start gap-2.5">
+            <MapPin className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold text-white block">Lokasi Operasional &amp; Produksi</span>
+              <span className="text-gray-400">Jakarta Barat, DKI Jakarta (Pengiriman Seluruh Indonesia)</span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2.5">
+            <Clock className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold text-white block">Jam Operasional Layanan</span>
+              <span className="text-gray-400">Senin–Sabtu 08.00–17.00 WIB</span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2.5">
+            <Phone className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold text-white block">Konsultasi &amp; Pemesanan</span>
+              <a
+                href="https://wa.me/6287892251216?text=Halo%20Packnesia,%20saya%20ingin%20konsultasi%20cetak%20kemasan%20untuk%20brand%20saya"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-400 hover:text-brand-orange transition-colors"
+              >
+                WhatsApp: +62 878-9225-1216
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Copyright & Indonesian Flag bar */}
