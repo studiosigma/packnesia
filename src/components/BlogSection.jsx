@@ -15,16 +15,25 @@ export default function BlogSection({ articles, onSelectArticle }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-8 md:mb-10 max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">
-            Artikel &amp; Edukasi
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
-            Tips &amp; Wawasan Seputar Kemasan F&amp;B
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm text-gray-500">
-            Panduan memilih material kertas foodgrade, teknik cetak, serta pertimbangan HPP untuk bisnis kuliner Anda.
-          </p>
+        <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">
+              Artikel &amp; Edukasi
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0E1D33] tracking-tight">
+              Tips &amp; Wawasan Seputar Kemasan F&amp;B
+            </h2>
+            <p className="mt-2 text-xs sm:text-sm text-gray-500">
+              Panduan memilih material kertas foodgrade, teknik cetak, serta pertimbangan HPP untuk bisnis kuliner Anda.
+            </p>
+          </div>
+          <a
+            href="/blog/"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-orange hover:text-brand-orange-hover transition-colors whitespace-nowrap"
+          >
+            <span>Lihat Semua Artikel</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
 
         {/* Category Filter Chips */}

@@ -97,8 +97,8 @@ function generateArticleHtml(art) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Primary SEO Meta Tags -->
-    <title>${art.title} — Packnesia Blog</title>
-    <meta name="title" content="${art.title} — Packnesia Blog" />
+    <title>${art.title} — Packnesia</title>
+    <meta name="title" content="${art.title} — Packnesia" />
     <meta name="description" content="${art.excerpt}" />
     <meta name="keywords" content="${art.tags ? art.tags.join(', ') : ''}, custom packaging, packnesia" />
     <meta name="author" content="${art.author || 'Packnesia'}" />
@@ -156,6 +156,34 @@ function generateArticleHtml(art) {
       },
       "datePublished": "${toIsoDate(art.date)}",
       "dateModified": "${toIsoDate(art.date)}"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "${SITE_URL}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "${SITE_URL}/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "${art.title.replace(/"/g, '\\"')}",
+          "item": "${canonicalUrl}"
+        }
+      ]
     }
     </script>
   </head>
@@ -356,18 +384,76 @@ function generateBlogIndexHtml(allArticles) {
     </article>
   `).join('');
 
+  const hubTitle = 'Blog & Wawasan Kemasan F&B — Packnesia';
+  const hubDesc = 'Kumpulan artikel, tips desain kemasan, panduan material foodgrade, dan strategi branding kemasan makanan dan minuman untuk bisnis F&B di Indonesia.';
+  const hubUrl = `${SITE_URL}/blog/`;
+
   return `<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog & Wawasan Kemasan F&B — Packnesia</title>
-    <meta name="description" content="Kumpulan artikel, tips desain kemasan, panduan material foodgrade, dan strategi branding kemasan makanan dan minuman untuk pelaku bisnis F&B di Indonesia." />
-    <link rel="canonical" href="${SITE_URL}/blog/" />
+    <title>${hubTitle}</title>
+    <meta name="title" content="${hubTitle}" />
+    <meta name="description" content="${hubDesc}" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="${hubUrl}" />
+
+    <!-- Open Graph / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="${hubUrl}" />
+    <meta property="og:title" content="${hubTitle}" />
+    <meta property="og:description" content="${hubDesc}" />
+    <meta property="og:image" content="${SITE_URL}/og-image.jpg" />
+    <meta property="og:site_name" content="Packnesia" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${hubTitle}" />
+    <meta name="twitter:description" content="${hubDesc}" />
+    <meta name="twitter:image" content="${SITE_URL}/og-image.jpg" />
+
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
     ${cssStylesheetTag}
+
+    <!-- Schema.org CollectionPage & BreadcrumbList Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "${hubTitle}",
+      "description": "${hubDesc}",
+      "url": "${hubUrl}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Packnesia",
+        "url": "${SITE_URL}"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "${SITE_URL}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "${hubUrl}"
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-[#FAF9F7] text-[#0E1D33] font-sans antialiased">
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 px-4 sm:px-8">

@@ -63,25 +63,25 @@ console.log(`Building static Money Pages for ${products.length} product categori
 
 function getSeoTitle(product) {
   const titles = {
-    'food-box': 'Cetak Food Box Murah & Custom Lunch Box Foodgrade Anti Minyak — Packnesia',
-    'paper-cup': 'Cetak Paper Cup Kopi Custom & Gelas Minuman Tahan Panas — Packnesia',
-    'plastic-cup': 'Sablon & Cetak Plastic Cup Murah PP, PET Kristal & Injection Hard Cup — Packnesia',
-    'paper-bowl': 'Cetak Paper Bowl Custom Foodgrade Mangkok Sup, Seblak & Bakso — Packnesia',
-    'fastfood-pizza-box': 'Cetak Dus Pizza E-Flute, Burger Clamshell & Toast Box — Packnesia',
-    'martabak-box': 'Cetak Dus Martabak Manis & Telor Anti Rembes Minyak + Lubang Uap — Packnesia',
-    'packaging-sticker': 'Cetak Stiker Label Kemasan Vinyl Waterproof & Segel Hologram — Packnesia',
-    'coffee-packaging': 'Cetak Standing Pouch Kopi dengan Valve Aroma & Zipper — Packnesia',
-    'paper-bag': 'Cetak Paper Bag Kraft Murah & Tas Belanja Takeaway Makanan — Packnesia',
-    'cake-box': 'Dus Kue & Custom Cake Box Handle dengan Jendela Mika — Packnesia',
-    'perfume-box': 'Cetak Box Parfum Mewah Softbox Foil Gold & Rigid Hardbox EVA Foam — Packnesia',
-    'souvenir-box': 'Cetak Box Souvenir Pernikahan, Gable Box & Corporate Kit Box — Packnesia',
-    'custom-box': 'Pabrik Custom Box, Hardbox Mewah & Corrugated Mailer Box — Packnesia'
+    'food-box': 'Cetak Food Box & Lunch Box Foodgrade Custom — Packnesia',
+    'paper-cup': 'Cetak Paper Cup Kopi Custom Tahan Panas — Packnesia',
+    'plastic-cup': 'Cetak Plastic Cup PP, PET & Injection Custom — Packnesia',
+    'paper-bowl': 'Cetak Paper Bowl Custom Mangkok Sup & Rice Bowl — Packnesia',
+    'fastfood-pizza-box': 'Cetak Dus Pizza E-Flute & Box Burger Custom — Packnesia',
+    'martabak-box': 'Cetak Dus Martabak Anti Minyak & Ventilasi Uap — Packnesia',
+    'packaging-sticker': 'Cetak Stiker Label Kemasan Waterproof & Segel — Packnesia',
+    'coffee-packaging': 'Cetak Standing Pouch Kopi Valve & Zipper Custom — Packnesia',
+    'paper-bag': 'Cetak Paper Bag Kraft & Tas Takeaway Custom — Packnesia',
+    'cake-box': 'Cetak Dus Kue & Cake Box Jendela Mika Custom — Packnesia',
+    'perfume-box': 'Cetak Box Parfum Softbox Foil & Hardbox Mewah — Packnesia',
+    'souvenir-box': 'Cetak Box Souvenir, Gable Box & Hampers Custom — Packnesia',
+    'custom-box': 'Pabrik Custom Box, Hardbox & Mailer Box — Packnesia'
   };
-  return titles[product.id] || `Cetak ${product.title} Custom Foodgrade — Packnesia`;
+  return titles[product.id] || `Cetak ${product.title} Custom — Packnesia`;
 }
 
 function getSeoDescription(product) {
-  return `Pabrik dan vendor cetak ${product.title} custom foodgrade berkualitas tinggi untuk brand F&B di Indonesia. Mulai dari ${product.moq}, pengerjaan ${product.leadTime}, free 3D mockup, dan kirim ke seluruh Indonesia.`;
+  return `${product.shortDesc} Harga mulai ${product.startPrice}/pcs, MOQ ${product.moq}. Gratis 3D mockup & kirim se-Indonesia.`;
 }
 
 function generateProductHtml(product) {
@@ -187,6 +187,34 @@ function generateProductHtml(product) {
         "availability": "https://schema.org/InStock",
         "url": "${canonicalUrl}"
       }
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "${SITE_URL}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Katalog Produk",
+          "item": "${SITE_URL}/produk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "${product.title}",
+          "item": "${canonicalUrl}"
+        }
+      ]
     }
     </script>
   </head>
@@ -450,18 +478,76 @@ function generateProductIndexHtml(allProducts) {
     </article>
   `).join('');
 
+  const hubTitle = 'Katalog Kemasan Custom F&B Foodgrade — Packnesia';
+  const hubDesc = 'Katalog lengkap kemasan custom foodgrade: food box, paper cup kopi, standing pouch valve, paper bag, cake box, dan custom hardbox harga pabrik.';
+  const hubUrl = `${SITE_URL}/produk/`;
+
   return `<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Katalog Kemasan Makanan & Minuman Custom Foodgrade — Packnesia</title>
-    <meta name="description" content="Pilihan lengkap kemasan custom foodgrade untuk F&B: Food box, paper cup kopi, standing pouch valve, paper bag takeaway, cake box, dan custom hardbox berstandar FDA." />
-    <link rel="canonical" href="${SITE_URL}/produk/" />
+    <title>${hubTitle}</title>
+    <meta name="title" content="${hubTitle}" />
+    <meta name="description" content="${hubDesc}" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="${hubUrl}" />
+
+    <!-- Open Graph / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="${hubUrl}" />
+    <meta property="og:title" content="${hubTitle}" />
+    <meta property="og:description" content="${hubDesc}" />
+    <meta property="og:image" content="${SITE_URL}/og-image.jpg" />
+    <meta property="og:site_name" content="Packnesia" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${hubTitle}" />
+    <meta name="twitter:description" content="${hubDesc}" />
+    <meta name="twitter:image" content="${SITE_URL}/og-image.jpg" />
+
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <link rel="apple-touch-icon" href="/images/packnesia-icon.webp" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/plus-jakarta-sans-latin.woff2" crossorigin />
     ${cssStylesheetTag}
+
+    <!-- Schema.org CollectionPage & BreadcrumbList Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "${hubTitle}",
+      "description": "${hubDesc}",
+      "url": "${hubUrl}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Packnesia",
+        "url": "${SITE_URL}"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "${SITE_URL}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Katalog Produk",
+          "item": "${hubUrl}"
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-[#FAF9F7] text-[#0E1D33] font-sans antialiased">
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 px-4 sm:px-8">
